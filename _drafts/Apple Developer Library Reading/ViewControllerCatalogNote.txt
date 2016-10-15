@@ -1,0 +1,7 @@
+看看都有些什么VC，可以用来做什么
+Popovers
+这个东西本身不是一个vc，但是管理着VC。
+
+很遗憾，UIPopoverController这个类已经被deprecated了，换成了~~~
+UIPopoverPresentationController
+

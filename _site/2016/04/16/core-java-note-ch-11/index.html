@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Core Java读书笔记-Chapter 11 异常、断言、日志和调试</title>
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="/css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://allenchyou.github.io/2016/04/16/core-java-note-ch-11/">
+    <link rel="alternate" type="application/rss+xml" title="ZZJ" href="http://allenchyou.github.io/feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">ZZJ</a>
+        <small>Build Newbie</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>Core Java读书笔记-Chapter 11 异常、断言、日志和调试</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2016-04-16
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Java" title="Category: Java" rel="category">Java</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#Java" title="Tag: Java" rel="tag">Java</a-->
+        <a href="/tag/#Java" title="Tag: Java" rel="tag">Java</a>&nbsp;
+    
+        <!--a href="/tag/#Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF" title="Tag: Java核心技术" rel="tag">Java核心技术</a-->
+        <a href="/tag/#Java核心技术" title="Tag: Java核心技术" rel="tag">Java核心技术</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">处理错误</a>    <ul>
+      <li><a href="#section-1" id="markdown-toc-section-1">1. 异常分类</a></li>
+      <li><a href="#section-2" id="markdown-toc-section-2">2. 声明已检查异常</a></li>
+    </ul>
+  </li>
+  <li><a href="#section-3" id="markdown-toc-section-3">捕获异常</a></li>
+  <li><a href="#section-4" id="markdown-toc-section-4">使用异常机制的技巧</a></li>
+  <li><a href="#section-5" id="markdown-toc-section-5">使用断言</a></li>
+  <li><a href="#section-6" id="markdown-toc-section-6">日志</a></li>
+  <li><a href="#section-7" id="markdown-toc-section-7">调试技巧</a></li>
+  <li><a href="#gui" id="markdown-toc-gui">GUI程序排错技巧</a></li>
+  <li><a href="#section-8" id="markdown-toc-section-8">使用调试器</a></li>
+</ul>
+
+<p>在另一个完美世界，程序的格式永远是正确的，要用的文件一定是存在的，网络是不会有延迟的，传输也绝不会出错。</p>
+
+<p>可惜这边的世界不是完美的，程序总是有bug，但是至少要有托底的办法：</p>
+
+<ol>
+  <li>
+    <p>向用户通告错误</p>
+  </li>
+  <li>
+    <p>保存所有工作结果</p>
+  </li>
+  <li>
+    <p>允许用户以妥善的形式退出程序</p>
+  </li>
+</ol>
+
+<p>错误捕获机制：异常处理。
+有选择地启用检测测试，断言；
+记录出现的问题：log日志；
+获得正在运行的Java程序的信息，调试器；</p>
+
+<h3 id="section">处理错误</h3>
+
+<p>程序出了异常错误，不管是怎么引发的，期望在收拾烂摊子的时候稍微智能一些，起码：1.返回到一种安全状态，并能够让用户执行一些其他的命令；2.允许用户保存所有操作的结果，并以适当的方式终止程序。</p>
+
+<p><strong>具体会出现什么异常</strong></p>
+
+<ul>
+  <li>
+    <p>用户输入错误</p>
+  </li>
+  <li>
+    <p>设备错误：网络断了，打印机没有纸了等等</p>
+  </li>
+  <li>
+    <p>物理限制：磁盘用光了</p>
+  </li>
+  <li>
+    <p>代码错误</p>
+  </li>
+</ul>
+
+<h4 id="section-1">1. 异常分类</h4>
+
+<p>如果程序不能正常退出，就会以抛出一个异常对象的方式进行退出，不返回任何值，异常处理机制开始搜索能处理这个异常的异常处理器。</p>
+
+<p>异常具有自己的语法和特定的继承结构，异常对象都是派生于Throwable类的一个实例。在Throwable的下一层，马上分解成两个了类，Error和Exception；</p>
+
+<p>Error厉害了，不是程序本身能处理的，保存退出就万事大吉了。Exception分成两个分支，RuntimeException和其他异常，RE是程序错误导致的，其他的不关程序事情的异常时其他异常。</p>
+
+<p>派生于RE的异常包括了：错误的类型转换；数组访问越界；访问空指针；</p>
+
+<p>不是派生于RE的异常包括：试图在文件尾部后读取数据；试图打开一个不存在的文件；视图根据给定的字符串查找Class对象，而字符串表示的类并不存在；</p>
+
+<p>RE的出现代表着程序的问题，百分百是的。</p>
+
+<h4 id="section-2">2. 声明已检查异常</h4>
+
+<p>Java将派生于Error和RE类的所有异常称为未检查异常，所有其他异常称为已检查异常。编译器将核查是否为所有已检查异常提供了异常处理器。</p>
+
+<p>抛出异常不仅要告诉编译器将返回什么值，还要说明具体出了什么事情。在方法首部声明的时候就要声明可能抛出的异常。</p>
+
+<h3 id="section-3">捕获异常</h3>
+
+<h3 id="section-4">使用异常机制的技巧</h3>
+
+<h3 id="section-5">使用断言</h3>
+
+<h3 id="section-6">日志</h3>
+
+<h3 id="section-7">调试技巧</h3>
+
+<h3 id="gui">GUI程序排错技巧</h3>
+
+<h3 id="section-8">使用调试器</h3>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://allenchyou.github.io/2016/10/13/springmybatisspringmvcdemo/">Spring MyBatis SpringMVC 框架基本整合
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2016/04/16/core-java-note-ch-10/">Core Java读书笔记-Chapter 10 部署用用程序和applet</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2016/04/16/JavaScript-CH-1/">JavaScript权威指南-第一章-JavaScript概述</a></p>
+        
+    </div>
+</div>
+
+<!--
+        <h2 id="comments">Comments</h2>
+        
+
+
+
+-->
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                 <ul id="content-side" class="content-ul">
+                    <!--<li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>-->
+                </ul> 
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             ！ 
+        </p>
+        <p class="contact">
+            Contact me at: 
+            <a href="https://github.com/AllenChyou" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>         
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>

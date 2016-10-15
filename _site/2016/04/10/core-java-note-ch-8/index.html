@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Core Java读书笔记-Chapter 8 事件处理</title>
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="/css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://allenchyou.github.io/2016/04/10/core-java-note-ch-8/">
+    <link rel="alternate" type="application/rss+xml" title="ZZJ" href="http://allenchyou.github.io/feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">ZZJ</a>
+        <small>Build Newbie</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>Core Java读书笔记-Chapter 8 事件处理</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2016-04-10
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Java" title="Category: Java" rel="category">Java</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#Java" title="Tag: Java" rel="tag">Java</a-->
+        <a href="/tag/#Java" title="Tag: Java" rel="tag">Java</a>&nbsp;
+    
+        <!--a href="/tag/#Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF" title="Tag: Java核心技术" rel="tag">Java核心技术</a-->
+        <a href="/tag/#Java核心技术" title="Tag: Java核心技术" rel="tag">Java核心技术</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">事件处理基础</a>    <ul>
+      <li><a href="#section-1" id="markdown-toc-section-1">1.实例：处理按钮点击事件</a></li>
+      <li><a href="#section-2" id="markdown-toc-section-2">2.建议使用内部类</a></li>
+      <li><a href="#section-3" id="markdown-toc-section-3">3.创建包含一个方法调用的监听器</a></li>
+      <li><a href="#section-4" id="markdown-toc-section-4">4.实例：改变观感</a></li>
+    </ul>
+  </li>
+  <li><a href="#section-5" id="markdown-toc-section-5">动作</a></li>
+  <li><a href="#section-6" id="markdown-toc-section-6">鼠标事件</a></li>
+  <li><a href="#awt" id="markdown-toc-awt">AWT事件继承层次</a></li>
+</ul>
+
+<p>实现用户界面，必须明白Java事件处理的基本方法。接下去是，Java AWT事件模型的工作机制，从中看到如何捕获用户界面组件和输入设备产生的事件。还有如何更加结构化的方式处理动作，actions，事件。</p>
+
+<h3 id="section">事件处理基础</h3>
+
+<p>任何支持GUI的操作环境都要不断监视按键或者鼠标点击这样的事件。</p>
+
+<p>事件过程，也就是事件和代码之间的对应关系，对相关的事件编写特定的代码。</p>
+
+<p>事件源，event source，到事件监听器，event listener。事件委托模型，event delegation model。</p>
+
+<p>面向对象，将事件相关的信息封装在事件对象，event object。</p>
+
+<p>AWT事件处理机制概要：</p>
+
+<ul>
+  <li>
+    <p>监听器对象是一个实现了特定监听器接口，listener interface的类的实例</p>
+  </li>
+  <li>
+    <p>事件源是一个能够注册监听器对象并发送事件对象的对象</p>
+  </li>
+  <li>
+    <p>当事件发生时，事件源将事件对象传递给所有注册的监听器</p>
+  </li>
+  <li>
+    <p>监听器对象将利用事件对象中的信息决定如何对事件作出响应</p>
+  </li>
+</ul>
+
+<p>监听器的实例</p>
+
+<pre><code class="language-Java">ActionListener listner = ...;
+JButton button = new JButton("OK");
+button.addActionListener(listener);
+</code></pre>
+
+<p>现在只要产生一个动作事件，事件监听器就会收到通告，按钮的话，那就是点击到了。</p>
+
+<pre><code class="language-Java">class MyListener implements ActionListener {
+	...
+	public void actionPerformer(ActionEvent event){
+		...
+	}
+}
+</code></pre>
+
+<h4 id="section-1">1.实例：处理按钮点击事件</h4>
+
+<p>点击按钮改变背景panel的颜色，首先创建按钮，传输标签字符串或者图标，或者两个都传入，就可以构造一个button出来。</p>
+
+<p>之后使用panel的add方法将button添加到panel当中。</p>
+
+<p>然后帮button添加action方法。</p>
+
+<p>action方法需要实现actionlistener接口。</p>
+
+<pre><code class="language-Java">package button;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class ButtonFrame extends JFrame {
+
+	private JPanel buttonPanel;
+	private static final int DEFAULT_WIDTH = 300;
+	private static final int DEFAULT_HEIGHT = 200;
+
+	public ButtonFrame() {
+		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+
+		// create buttons
+		JButton yellowButton = new JButton("Yellow");
+		JButton blueButton = new JButton("Blue");
+		JButton redButton = new JButton("Red");
+
+		buttonPanel = new JPanel();
+
+		// add buttons to panel
+		buttonPanel.add(yellowButton);
+		buttonPanel.add(blueButton);
+		buttonPanel.add(redButton);
+
+		// add panel to frame
+		add(buttonPanel);
+
+		// create button actions
+		ColorAction yellowAction = new ColorAction(Color.YELLOW);
+		ColorAction blueAction = new ColorAction(Color.BLUE);
+		ColorAction redAction = new ColorAction(Color.RED);
+
+		// associate actions with buttons
+		yellowButton.addActionListener(yellowAction);
+		blueButton.addActionListener(blueAction);
+		redButton.addActionListener(redAction);
+	}
+
+	/**
+	 * An action listener that sets the panel's background color.
+	 */
+	private class ColorAction implements ActionListener {
+		private Color backgroundColor;
+
+		public ColorAction(Color c) {
+			backgroundColor = c;
+		}
+
+		public void actionPerformed(ActionEvent event) {
+			buttonPanel.setBackground(backgroundColor);
+		}
+	}
+}
+
+</code></pre>
+
+<h4 id="section-2">2.建议使用内部类</h4>
+
+<p>上面三个button对象共享了一个监听器类，但是分贝使用不同的监听器对象。</p>
+
+<p>使用匿名内部类简化代码的话，注意，其实每一个button的处理过程都是一样的</p>
+
+<ol>
+  <li>
+    <p>用标签字符串构造按钮</p>
+  </li>
+  <li>
+    <p>将按钮添加到panel上</p>
+  </li>
+  <li>
+    <p>用对应颜色构造一个ActionListener</p>
+  </li>
+  <li>
+    <p>添加ActionListener</p>
+  </li>
+</ol>
+
+<p>可以使用辅助的方法实现</p>
+
+<pre><code class="language-Java">public void makeButton(String name, Color backgroundColor){
+	JButton button = new JButton(name);
+	buttonPanel.add(button);
+	ColorAction action = ColorAction(backgroundColor);
+	button.addActionListener(action);
+}
+</code></pre>
+
+<p>之后就可以简化调用</p>
+
+<pre><code class="language-Java">makeButton("Yellow", Color.Yellow);
+makeButton("Blue", Color.Blue);
+makeButton("Red", Color.RED);
+</code></pre>
+
+<p>然后可以进一步简化，ColorAction类只是在makeButton方法是使用一次，所以可以用匿名类实现。</p>
+
+<pre><code class="language-Java">public void makeButton(String name, Color backgroundColor){
+	JButton button = new JButton(name);
+	buttonPanel.add(button);
+	button.addActionListener(new ActionListener(){
+		public void actionPerformed(ActionEvent event){
+			buttonPanel.setBackground(backgroundColor);
+		}
+	});
+}
+</code></pre>
+
+<p>如果实在不喜欢内部类，也可以实现将自己的容器称为监听器，实现ActionListener的接口。</p>
+
+<pre><code class="language-Java">yellowButton.addActionListener(this);
+blueButton.addActionListener(this);
+redButton.addActionListener(this);
+</code></pre>
+
+<p>这样做的话就要根据不同的事件来源分配代码，显得有些杂乱。</p>
+
+<h4 id="section-3">3.创建包含一个方法调用的监听器</h4>
+
+<p>比如一个loadButton的按钮，添加一个监听器可以包含方法调用</p>
+
+<h4 id="section-4">4.实例：改变观感</h4>
+
+<p>Swing的默认观感是Metal观感。有两种方式改变观感。一个是配置文件，java安装的子目录jre/lib/swing.properties。在这个文件中，将属性swing.defaultlaf改成所希望的观感类名。</p>
+
+<p>swing.defaultlaf=con.sun.java.swing.plaf.motif.MotifLookAndFeel</p>
+
+<p>每一个平台的观感改变不相同，建议不要静态改变，还要重启程序等等。</p>
+
+<p>第二种是动态改变，需要调用静态的UIManager.setLookAndFeel，提供想要的观感名字。然后再调用静态方法SwingUtilities.updateComponentTreeUI来刷新全部的组件集合。</p>
+
+<h3 id="section-5">动作</h3>
+
+<p>多个动作可以指向一个事件监听器，这样子实现一个工作的方式就有多种，点击一个按钮可以，菜单配置可以，快捷键也可以。无论是哪种方式下达命令，实现的效果都是一样的。</p>
+
+<p>Swing的动作实现机制是一个借口Action。Action封装了一些对象。</p>
+
+<ul>
+  <li>命令的说明（一个文本字符串和一个图标）</li>
+  <li>执行命令所需要的参数</li>
+</ul>
+
+<p>Action接口包含下面的方法；</p>
+
+<pre><code class="language-Java">// 熟悉的ActionListener接口中的方法，实际上ActionListener接口扩展自ActionListener
+void actionPerformed(ActionEvent)
+
+// 允许启用或者禁用这个动作，检查这个动作当前是不是可用
+void setEnabled(boolean b)
+boolean isEnabled()
+
+//允许存储或者检索动作对象中的任意键值，预定义的有Action.NAME和Action.SMALL_ICON
+void putValue(String key, Object value)
+Object getValue(String key)
+
+// 让其他对象在动作对象的属性发生变化时得到通告，尤其是菜单或是工具栏触发的动作。
+void addPropertyChangeListener(PropertyChangeListener listener)
+void removePropertyChangeListener(PropertyChangeListener listenr)
+</code></pre>
+
+<p><strong>预定义的Action键值表</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>键</th>
+      <th>值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NAME</td>
+      <td>动作名称，显示在按钮和菜单上</td>
+    </tr>
+    <tr>
+      <td>SMAL_ICON</td>
+      <td>存储小图标的地方：显示在按钮，菜单项或工具栏中</td>
+    </tr>
+    <tr>
+      <td>SHORT_DESCRIPTION</td>
+      <td>图标的简要说明：显示在工具提示中</td>
+    </tr>
+    <tr>
+      <td>LONG_DESCRIPTION</td>
+      <td>图标的详细说明：使用在在线帮助中。没有Swing组件使用这个值</td>
+    </tr>
+    <tr>
+      <td>MNEMONIC_KEY</td>
+      <td>快捷键缩写：显示在菜单项中</td>
+    </tr>
+    <tr>
+      <td>ACCELERATOR_KEY</td>
+      <td>存储加速击键的地方：Swing组件不使用这个值</td>
+    </tr>
+    <tr>
+      <td>ACTION_COMMAND_KEY</td>
+      <td>历史遗留：仅在旧版本的registerKeyboardAction方法中使用</td>
+    </tr>
+    <tr>
+      <td>DEFAULT</td>
+      <td>常用的综合属性：Swing组件不使用这个值</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Action作为接口，实现接口必须实现所有方法才可以。还好有个一个类实现了除了actionPerformed之外的素有方法，就是抽象类AbstractAction，可以再慧姐扩展这个类，然后实现actionPerformed方法。</p>
+
+<pre><code class="language-Java">public class ColorAction extends AbstractAction{
+	public ColorAction(String name, Icon icon, Color c){
+		putValue(Action.NAME, name);
+		putValue(Action.SMALL_ICON, icon);
+		putValue("color", c);
+		putValue(Action.SHORT_DESCRIPTION, "Set panel color to " + name.toLowerCase());
+	}
+
+	public void actionPerformed(ActionEvent event){
+		Color c = (Color) getValue("color");
+		buttonPanel.setBackground(c);
+	}
+}
+</code></pre>
+
+<h3 id="section-6">鼠标事件</h3>
+
+<p>只是点击按钮或者菜单项的话，用不着特地处理鼠标事件。但是画图啦，拖动，捕获鼠标点击之类的，那就要特别对待了。</p>
+
+<h3 id="awt">AWT事件继承层次</h3>
+
+<p>Java事件处理采用的是面向对象的方法，所有的时间都是由java.util包中的EventObject扩展而来的。EventObject类有一个子类AWTEvent，他是所有AWT事件类的父类。</p>
+
+<p>事件对象封装了事件源与监听器彼此通信的事件信息。</p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://allenchyou.github.io/2016/10/13/springmybatisspringmvcdemo/">Spring MyBatis SpringMVC 框架基本整合
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2016/04/10/core-java-note-ch-7/">Core Java读书笔记-Chapter 7 图形程序设计</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2016/04/12/git-note-ch-0/">Git 权威指南 第0章</a></p>
+        
+    </div>
+</div>
+
+<!--
+        <h2 id="comments">Comments</h2>
+        
+
+
+
+-->
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                 <ul id="content-side" class="content-ul">
+                    <!--<li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>-->
+                </ul> 
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             ！ 
+        </p>
+        <p class="contact">
+            Contact me at: 
+            <a href="https://github.com/AllenChyou" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>         
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>

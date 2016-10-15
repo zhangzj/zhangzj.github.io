@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Core Java读书笔记-Chapter 5 继承</title>
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="/css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://allenchyou.github.io/2016/04/07/core-java-note-ch-5/">
+    <link rel="alternate" type="application/rss+xml" title="ZZJ" href="http://allenchyou.github.io/feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">ZZJ</a>
+        <small>Build Newbie</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>Core Java读书笔记-Chapter 5 继承</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2016-04-07
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Java" title="Category: Java" rel="category">Java</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#Java" title="Tag: Java" rel="tag">Java</a-->
+        <a href="/tag/#Java" title="Tag: Java" rel="tag">Java</a>&nbsp;
+    
+        <!--a href="/tag/#Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF" title="Tag: Java核心技术" rel="tag">Java核心技术</a-->
+        <a href="/tag/#Java核心技术" title="Tag: Java核心技术" rel="tag">Java核心技术</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">类，超类和子类</a>    <ul>
+      <li><a href="#section-1" id="markdown-toc-section-1">1.继承层次</a></li>
+      <li><a href="#section-2" id="markdown-toc-section-2">2.多态</a></li>
+      <li><a href="#section-3" id="markdown-toc-section-3">3.动态绑定</a></li>
+      <li><a href="#final" id="markdown-toc-final">4.阻止继承：final类和方法</a></li>
+      <li><a href="#section-4" id="markdown-toc-section-4">5.强制类型转换</a></li>
+      <li><a href="#section-5" id="markdown-toc-section-5">6.抽象类</a></li>
+      <li><a href="#section-6" id="markdown-toc-section-6">7.受保护访问</a></li>
+    </ul>
+  </li>
+  <li><a href="#object" id="markdown-toc-object">Object：所有类的超类</a>    <ul>
+      <li><a href="#equals" id="markdown-toc-equals">1.equals方法</a></li>
+      <li><a href="#section-7" id="markdown-toc-section-7">2.相等测试与继承</a>        <ul>
+          <li><a href="#equals-1" id="markdown-toc-equals-1">如何写一个完美的equals方法</a></li>
+        </ul>
+      </li>
+      <li><a href="#hashcode" id="markdown-toc-hashcode">3.hashCode方法</a></li>
+      <li><a href="#tostring" id="markdown-toc-tostring">4.toString方法</a></li>
+    </ul>
+  </li>
+  <li><a href="#section-8" id="markdown-toc-section-8">泛型数组列表</a>    <ul>
+      <li><a href="#section-9" id="markdown-toc-section-9">1.访问数组列表元素</a></li>
+    </ul>
+  </li>
+  <li><a href="#section-10" id="markdown-toc-section-10">对象包装器和自动装箱</a></li>
+  <li><a href="#section-11" id="markdown-toc-section-11">参数变量可变的方法</a></li>
+  <li><a href="#section-12" id="markdown-toc-section-12">枚举类</a></li>
+  <li><a href="#section-13" id="markdown-toc-section-13">反射</a></li>
+  <li><a href="#section-14" id="markdown-toc-section-14">继承设计的技巧</a></li>
+</ul>
+
+<p>继承（inheriteance），可以基于已存在的类构造一个新类，复用已存在的类的方法和域。也可以添加一些新的方法和域。</p>
+
+<p>反射（reflection），是指在程序运行期间发现更多的类及其属性的能力。主要是开发软件工具的喜欢这个特性。</p>
+
+<h3 id="section">类，超类和子类</h3>
+
+<p>定义新的类Manager，重用Employee中的代码，所有的域都保留下来。</p>
+
+<pre><code class="language-Java">class Manager extends Employee{
+	添加方法和域
+}
+</code></pre>
+
+<p>超类，基类，父类。子类，派生类，孩子类；</p>
+
+<p>在扩展超类，定义子类的时候，只是需要说明不同的，或者增量的地方。</p>
+
+<p>覆盖：实现Manager的getSalary方法。返回工资和奖金的和；</p>
+
+<pre><code class="language-Java">public double getSalary(){
+	return salary + bonus;
+}
+</code></pre>
+
+<p>但是manager的getSalary方法并不能访问Employee的私有域。想访问就一定要走方法。而且是父类的方法被指定调用才可以。</p>
+
+<pre><code class="language-Java">public double getSalary(){
+	double baseSalary = super.getSalary();
+	return baseSalary + bonus;
+}
+</code></pre>
+
+<p>多态：一个对象变量可以指示多种实际类型的现象；</p>
+
+<p>动态绑定：在运行时可以自动地选择调用那个方法的现象；</p>
+
+<h4 id="section-1">1.继承层次</h4>
+
+<p>一个公有类派生出来的所有类的集合被称为继承层次；</p>
+
+<p>从某个特定的类到其祖先的路径被称为该类的继承链；</p>
+
+<h4 id="section-2">2.多态</h4>
+
+<p>是否应该使用继承，is-a原则，子类的每个对象也是超类的对象。每一个经理都是雇员。</p>
+
+<p>is-a规则的另一种表述：置换法则，在程序中出现超类对象的任何地方都可以使用子类对象替换。</p>
+
+<pre><code class="language-Java">Employee e;
+e = new Employee();
+e = new Manager();
+</code></pre>
+
+<h4 id="section-3">3.动态绑定</h4>
+
+<p>调用对象方法的执行过程；</p>
+
+<p>第一步：编译器查看对象的声明类型和方法名；</p>
+
+<p>第二步：编译器查看调用方法时提供的参数类型；在多个名字一样但是参数不同的方法中选一个，这个过程叫做重载解析。</p>
+
+<p>第三步，如果是private，static，final的方法，编译器可以准确知道调用哪个。叫做静态绑定。与此对应，是方法依赖于隐式参数的实际类型，并在运行时决定的动态绑定。</p>
+
+<p>第四步，程序运行的时候，找一个签名的方法，子类里面找到了就用，没找到就到父类里面找。</p>
+
+<p>动态绑定的重要特性，无需对现存的代码进行修改，就可以对程序进行扩展。</p>
+
+<h4 id="final">4.阻止继承：final类和方法</h4>
+
+<p>不允许扩展的类称为final类，在class前面使用final就可以，别的类就不能继承</p>
+
+<pre><code class="language-Java">final class Executive extends Manager{}
+</code></pre>
+
+<p>这个Executive类就不允许别的类去扩展了。</p>
+
+<p>类中的方法也可以指定成final。子类就不能覆盖这个方法（final类中的方法自动称为final方法）</p>
+
+<pre><code class="language-Java">class Employee{
+	public final String getName()
+	{}
+}
+</code></pre>
+
+<h4 id="section-4">5.强制类型转换</h4>
+
+<p>第一，只能在继承层次内部进行类型转换</p>
+
+<p>第二，在将超类转换成子类之前，应该使用instanceof进行检查。</p>
+
+<h4 id="section-5">6.抽象类</h4>
+
+<p>包含一个或者多个抽象方法的类本身必须被声明为抽象的</p>
+
+<pre><code class="language-Java">abstract class Person{
+	public abstract String getDescription();
+}
+</code></pre>
+
+<p>抽象类不能被实例化，可以定义一个抽象类的对象变量，但是只能引用非抽象子类的对象。</p>
+
+<h4 id="section-6">7.受保护访问</h4>
+
+<p>域标记为private，方法标记为public，声明为私有的东西其他类是不可见的。包括子类对超类的private域也是不能访问的。</p>
+
+<p>如果Employee中的域hireDay设置成protected，而不是private，那么Manager中的方法就可以直接访问hireDay；</p>
+
+<p>Java控制可见性的4个访问操作符：</p>
+
+<p>private–仅对本类可见；</p>
+
+<p>public–对所有类可见；</p>
+
+<p>protected–对本包和所有子类可见；</p>
+
+<p>默认，没有修饰符，对本包可见；</p>
+
+<h3 id="object">Object：所有类的超类</h3>
+
+<p>Object类默认是所有类的超类。</p>
+
+<h4 id="equals">1.equals方法</h4>
+
+<p>检测一个对象是不是等于另一个对象；</p>
+
+<p>第一要符合两个对象是不是引用相等，还要看对象内部的状态是不是相等；</p>
+
+<p>两个对象还要是同一个类的才有可能相等；</p>
+
+<pre><code class="language-Java">class Employee{
+	...
+	public boolean equals(Object otherObject){
+		if (this == otherObject) return true;
+
+		if (otherObject == null) return false;
+
+		if (getClass() != otherObject.getClass())
+			return false;
+
+		Employee other = (Employee)otherObject;
+
+		return name.equals(other.name)
+			&amp;&amp; salary == other.salary
+			&amp;&amp; hireDay.equals(other.hireDay);
+	}
+}
+</code></pre>
+
+<h4 id="section-7">2.相等测试与继承</h4>
+
+<p>Java语言规范要求equals方法需要符合的原则：</p>
+
+<p>自反性：对于任意非空的x，x.equals(x)应该返回true；</p>
+
+<p>对称性：对于任意的引用X和Y，当且仅当x.equals(y)返回true时候，y.equals(x)返回true。</p>
+
+<p>传递性：xyz，当x.equals(y)为true，且y.equals(z)为true的时候，x.equals(z)也要为true。</p>
+
+<p>一致性：如果x和y没有发生变化，那么反复调用x.equals(y)的结果应该一直是一致的。</p>
+
+<p>对于任意非空引用x，x.equals(null)应该是false。</p>
+
+<h5 id="equals-1">如何写一个完美的equals方法</h5>
+
+<p>1-显式参数命名为otherObject，稍后需要转换为另一个叫做other的变量。</p>
+
+<p>2-检测this和otherObject是不是同一个对象。</p>
+
+<pre><code class="language-Java">if(this == otherObject) return true;
+</code></pre>
+
+<p>3-检测otherObject是不是为null，如果为null就返回false</p>
+
+<pre><code class="language-Java">if(otherObject == null) return false;
+</code></pre>
+
+<p>4-比较this和otherObject是不是同一个类的</p>
+
+<pre><code class="language-Java">if(getClass() != otherObject.getClass()) return false;
+</code></pre>
+
+<p>5-将otherObject转换为相应类型的对象</p>
+
+<pre><code class="language-Java">ClassName other = (ClassName)otherObject;
+</code></pre>
+
+<p>6-现在开始对所有的域进行比较，基本类型使用==，对象使用equals如果所有的域都匹配就返回true</p>
+
+<pre><code class="language-Java">return field1 == other.field1
+	&amp;&amp; Objects.equals(field2, other.field2)
+	&amp;&amp; ...;
+</code></pre>
+
+<p>如果在子类中重新定义了equals，要调用super的equals；</p>
+
+<p>Tips：对于数组类型的域，使用静态方法Array.equals进行检测</p>
+
+<h4 id="hashcode">3.hashCode方法</h4>
+
+<p>散列码hashCode是由对象导出的一个整型值。String类通过自己的方式计算hashCode</p>
+
+<pre><code class="language-Java">int hash = 0;
+for (int i = 0; i &lt; length(); i++)
+	hash = 31 * hash + cahrAt(i);
+</code></pre>
+
+<p>String的hashCode是自己的内容导出的，所以String得内容相同，hashCode就相同，对象的hashCode是对象地址导出的，Object默认的是用对象地址。不覆盖Object的方法就是默认的。</p>
+
+<p>自己定义的hashCode方法，最好使用null安全的方式，如果参数null，hashcode会返回0。</p>
+
+<pre><code class="language-Java">class Employee{
+	public int hashCode(){
+		return 7 * Objects.hashCode(name)
+		+ 11 * new Double(salary).hashCode()
+		+ 13 * Objects.hashCode(hireDay);
+	}
+}
+</code></pre>
+
+<p>组合多个散列值的时候可以调用Objects的另一个组合方法。各自调用相应的hashCode，组合成一个int。</p>
+
+<pre><code class="language-Java">public int hashCode(){
+	return Objects.hash(name, salary, hireDay);
+}
+</code></pre>
+
+<p>如果存在数组形态的域，那就调用Array的静态方法。</p>
+
+<h4 id="tostring">4.toString方法</h4>
+
+<p>toString()返回表示对象值的字符串，默认的实现，比如String，就是类名加上一个个的域的字符串。</p>
+
+<p>最好不要硬写类型名字，可以使用getClass().getName()获得类名的字符串。</p>
+
+<h3 id="section-8">泛型数组列表</h3>
+
+<p>C语言里面必须在编译时就确定数组的大小，Java里面允许在运行时确定数组的大小。</p>
+
+<pre><code class="language-Java">int actualSize=...;
+Employee[] staff = new Employee[actualSize];
+</code></pre>
+
+<p>在运行时候动态改变数组的大小要使用ArrayList类。这个是使用类型参数的泛型类。尖括号里面的就是类型参数。</p>
+
+<p>在ArrayList里面可以动态的添加删除对象。</p>
+
+<pre><code class="language-Java">ArrayList&lt;Employee&gt; staff = new ArrayList&lt;Employee&gt;();
+staff.add(new Employee("Harry",...));
+staff.add(new Employee("Tony",...));
+</code></pre>
+
+<h4 id="section-9">1.访问数组列表元素</h4>
+
+<p>使用get和set方法实现改变数组元素的操作</p>
+
+<pre><code class="language-Java">staff.set(i, harry);
+</code></pre>
+
+<p>要使用add方法来添加新元素，set是更改现有的元素。</p>
+
+<p>获取元素是提供index就好</p>
+
+<pre><code class="language-Java">Employee e = staff.get(i);
+</code></pre>
+
+<p>普通数组和泛型数组的变化有几点：</p>
+
+<p>1-不必指明数组的大小</p>
+
+<p>2-使用add将任意多的元素添加到数组中</p>
+
+<p>3-使用size()替代计算元素的数目</p>
+
+<p>4-使用a.get(i)替代a[i]访问元素</p>
+
+<h3 id="section-10">对象包装器和自动装箱</h3>
+
+<p>基本类型对应包装器，int对应Integer。数组列表是不允许类型参数是基本类型的。</p>
+
+<pre><code class="language-Java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+</code></pre>
+
+<p>自动装箱和拆箱给人一种基本类型和包装器类型一样的感觉和调用方式。</p>
+
+<h3 id="section-11">参数变量可变的方法</h3>
+
+<p>变参方法其实是自动装箱的实现，类似于编译器把后面的变数参数进行打包，打包成对象数组。</p>
+
+<pre><code class="language-Java">printf(String fmt, Object... args);
+
+System.out.printf("%d %s", n, "widgets");
+
+System.out.printf("%d %s", new Object[]{ new Integer(n), "widgets"});
+</code></pre>
+
+<p>可以定义可变参数的方法，这样子，max方法</p>
+
+<pre><code class="language-Java">public static double max(double... values){
+	double largest = Double.MIN_VALUE;
+	for(double v : values){
+		if (v &gt; largest) largest = v;
+	}
+}
+
+double m = max(3.1, 40.4, -5);
+</code></pre>
+
+<h3 id="section-12">枚举类</h3>
+
+<p>枚举类型的定义</p>
+
+<pre><code class="language-Java">public enum Size{SMALL, MEDIUM, LARGE, EXTRA_LARGE};
+</code></pre>
+
+<h3 id="section-13">反射</h3>
+
+<p>反射库，reflection library，编写能动态操纵Java代码的程序。</p>
+
+<p>能够分析类能力的程序称为反射，reflection。</p>
+
+<p>1-在运行中分析类的能力</p>
+
+<p>2-在运行中查看对象</p>
+
+<p>3-实现通用的数组操作代码</p>
+
+<p>4-利用method对象，类似C++中的函数指针</p>
+
+<p>最好的工匠是早工具的人，木匠做斧头，铁匠打锤头。</p>
+
+<p>先用好斧子锤子，再来做锤头斧头。</p>
+
+<h3 id="section-14">继承设计的技巧</h3>
+
+<p>关于设计继承的技巧</p>
+
+<ol>
+  <li>
+    <p>将公共操作和域放在超类</p>
+  </li>
+  <li>
+    <p>不要直接使用protected的域</p>
+  </li>
+  <li>
+    <p>使用继承实现is-a的关系</p>
+  </li>
+  <li>
+    <p>除非所有继承而来的方法都是有意义的，否则不要使用继承</p>
+  </li>
+  <li>
+    <p>在覆盖方法的时候，不要改变预期的行为</p>
+  </li>
+  <li>
+    <p>使用多态，而不是类型信息</p>
+  </li>
+  <li>
+    <p>不要过多使用反射</p>
+  </li>
+</ol>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://allenchyou.github.io/2016/10/13/springmybatisspringmvcdemo/">Spring MyBatis SpringMVC 框架基本整合
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2016/04/04/core-java-note-ch-4/">Core Java读书笔记-Chapter 4 对象与类</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2016/04/09/core-java-note-ch-6/">Core Java读书笔记-Chapter 6 接口与内部类</a></p>
+        
+    </div>
+</div>
+
+<!--
+        <h2 id="comments">Comments</h2>
+        
+
+
+
+-->
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                 <ul id="content-side" class="content-ul">
+                    <!--<li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>-->
+                </ul> 
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             ！ 
+        </p>
+        <p class="contact">
+            Contact me at: 
+            <a href="https://github.com/AllenChyou" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>         
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>

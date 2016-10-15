@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>学习Lisp-来自译者的吐槽</title>
+    <meta name="description" content="一些吐槽">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="/css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://allenchyou.github.io/2016/10/15/FromTranslator/">
+    <link rel="alternate" type="application/rss+xml" title="ZZJ" href="http://allenchyou.github.io/feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">ZZJ</a>
+        <small>Build Newbie</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>学习Lisp-来自译者的吐槽</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2016-10-15
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Lisp" title="Category: Lisp" rel="category">Lisp</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#Lisp" title="Tag: Lisp" rel="tag">Lisp</a-->
+        <a href="/tag/#Lisp" title="Tag: Lisp" rel="tag">Lisp</a>&nbsp;
+    
+        <!--a href="/tag/#CommonLisp" title="Tag: CommonLisp" rel="tag">CommonLisp</a-->
+        <a href="/tag/#CommonLisp" title="Tag: CommonLisp" rel="tag">CommonLisp</a>&nbsp;
+    
+        <!--a href="/tag/#%E7%BF%BB%E8%AF%91" title="Tag: 翻译" rel="tag">翻译</a-->
+        <a href="/tag/#翻译" title="Tag: 翻译" rel="tag">翻译</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">译者的留言</a>    <ul>
+      <li><a href="#section-1" id="markdown-toc-section-1">现在可以公开的情报</a></li>
+      <li><a href="#section-2" id="markdown-toc-section-2">参考书：</a></li>
+      <li><a href="#section-3" id="markdown-toc-section-3">历史材料</a></li>
+      <li><a href="#section-4" id="markdown-toc-section-4">进阶材料</a></li>
+      <li><a href="#lisp" id="markdown-toc-lisp">其他lisp教科书</a></li>
+      <li><a href="#section-5" id="markdown-toc-section-5">吐槽</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>一些吐槽</p>
+
+<h3 id="section">译者的留言</h3>
+
+<p>（WARNING:以下并非作者的原文）</p>
+
+<h4 id="section-1">现在可以公开的情报</h4>
+
+<ol>
+  <li>
+    <p>由于篇幅和我比较懒，只翻译了正文部分，还有章节之间的练习题，章节之后的复习题，以及每一章的练习都省略了。总共14章正文。</p>
+  </li>
+  <li>
+    <p>通文中文的术语系统不是很统一，在翻译过程中对于这些概念也是一点点的进行理解，使用很多其他的语言概念来理解。function（函数还是功能）等等，都是按照学过的C系列语言来说的。</p>
+  </li>
+  <li>
+    <p>这里给出的是这本书的英文版下载链接，<a href="http://www.cs.cmu.edu/~dst/LispBook/">原本书籍</a>，可以直接下载英文版，最后的两个附录A和B有两个工具SDRAW和DTRACE的lisp源代码。</p>
+  </li>
+  <li>
+    <p>练习题的答案在附录C中，还有术语解释，这本入门的lisp书真的写的很专业，专业的教科书。</p>
+  </li>
+</ol>
+
+<p>接下来是本文的重点，作者列出的阅读书单</p>
+
+<h4 id="section-2">参考书：</h4>
+
+<p>Franz Inc., Common Lisp: The Reference. Addison-Wesley, Reading, MA, 1988.</p>
+
+<p>Steele, Guy L. Jr., Common Lisp: The Language. Digital Press, Burlington, MA,1984.</p>
+
+<p>这两本书出版的时间真的比较古老了，都是成名的好书，听说第二本是经典。</p>
+
+<h4 id="section-3">历史材料</h4>
+
+<p>Barstow, David R., Shrobe, Howard, E., and Sandewall, Erik (eds.), Interactive Programming Environments, McGraw-Hill, New York, 1984.</p>
+
+<p>Gabriel, Richard P., ‘‘Lisp,’’ in Stuart C. Shapiro (ed.), Encyclopedia of Artificial Intelligence, volume 1, pp. 508–528, John Wiley &amp; Sons, New York, 1987.</p>
+
+<p>McCarthy, John, ‘‘Recursive functions of symbolic expressions and their computation by machine,’’ Communications of the ACM 3(4), 184–195 (1960).</p>
+
+<p>McCarthy, John, ‘‘History of Lisp,’’ in D. Wexelblat (ed.), History of Programming Languages, Academic Press, New York, 1978.</p>
+
+<p>McCarthy, John, Abrahams, Paul W., Edwards, Daniel J., Hart, Timothy P., and Levin, Michael I., Lisp 1.5 Programmer’s Guide, 2nd ed., MIT Press, Cambridge,MA, 1965.</p>
+
+<p>lisp的创造者McCarthy的论文，真的是历史资料了，论文应该值得一看。</p>
+
+<h4 id="section-4">进阶材料</h4>
+
+<p>Charniak, Eugene, Riesbeck, Christopher K., McDermott, Drew, and Meehan, James R., Artificial Intelligence Programming, 2nd ed., Lawrence Erlbaum Associates,Hillsdale, NJ, 1987.</p>
+
+<p>Charniak, Eugene, and McDermott, Drew, Artificial Intelligence, Addison-Wesley,Reading, MA, 1985.</p>
+
+<p>Gabriel, Richard P., Performance and Evaluation of Lisp Systems, MIT Press,Cambridge, MA, 1985.</p>
+
+<p>Hofstadter, Douglas R., Godel, Escher, Bach: an Eternal Golden Braid, Basic Books,New York, 1979.</p>
+
+<p>Keene, Sonya E., Object-Oriented Programming in Common Lisp, Addison-Wesley,Reading, MA, 1989.</p>
+
+<p>Winston, Patrick H., Artificial Intelligence, 2nd ed., Addison-Wesley, Reading, MA,1984.</p>
+
+<p>进阶是人工智能方面呢，看来很有意思的样子。</p>
+
+<h4 id="lisp">其他lisp教科书</h4>
+
+<p>Abelson, Harold, and Sussman, Gerald Jay, Structure and Interpretation of Computer Programs, MIT Press, Cambridge, MA, 1985. SICP，MIT的schme教科书。</p>
+
+<p>Anderson, John R., Corbett, Albert T., and Reiser, Brian J., Essential Lisp, Addison-Wesley, Reading, MA, 1987.</p>
+
+<p>Wilensky, Robert, Common LISPcraft, W. W. Norton, New York, 1986.</p>
+
+<p>Winston, Patrick H., and Horn, Berthold K. P., Lisp, 3rd ed., Addison-Wesley,Reading, MA, 1989.</p>
+
+<p>其他的入门教科书，略略看了一下SICP，一开始就不能直视啊，才先来看一些基础的。</p>
+
+<h4 id="section-5">吐槽</h4>
+
+<p>其实和其他的语言相比，Lisp的书籍基本上都是以在线电子书的形式免费获取的，<a href="http://cliki.net/Lisp%20books">超级书籍列表</a>,只是基本上都是英文的，中文的材料有著名的伞哥（也是国内唯一的知名lisp开发者）翻译的实用common lisp编程，已经出版了。</p>
+
+<p>作为一个初学者，感觉lisp的学习曲线还是很陡峭的，和其他传到国内的编程语言命运差别很大，好像国内的人工智能研究也没有太多关注，中文社区也没有很多，中文资料几乎没有，高校里面也没有打算教，微博上的相关大V也没有多少，各个geek网站也没有关注，我看了一些资料和大家的论调之后，想可能lisp真的是一种已经淘汰的语言。可能不止没有钱途，更加连前途都没有，对初学者没那么友好的结果就是没有新鲜血液流入，最后悔慢慢凋零，说实话，一开始写超过十行的程序，括号就已经开始凌乱了。</p>
+
+<p>说起来也许是很中二的，一直深信在发展的时候，无论是科技发展和社会发展，人工智能一定是最终的工具，或者说其中的一步，很多的科幻电影都会描述机器有了自我意识的时候会发生什么，就像机器有了生命，有了真正的自我，而不是一个先进的算法，可以自己思考，自己做出判断，甚至有感情，由道德，懂得幽默，会讲笑话的智能。当然形式不一定是机器人，人形的机器，而只是智能。</p>
+
+<p>一条路被开辟出来的时候，无论这条路是宽还是窄，人多还是人少，后来的人都会走过前人走过的地方，最后在路的尽头或者某一块，用自己的时间和精力来拓展一块。也就是站在巨人的肩膀上看世界，虽然有时候可能都看不到路的尽头。</p>
+
+<p>Lisp，人工智能，prolog，或许这就是前人走过的路，那就在旧的路上看看尽头，走到世界的尽头，也挺有意思的。</p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://allenchyou.github.io/2016/10/15/Preface/">学习Lisp-前言
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://allenchyou.github.io/2016/10/15/NoteToInstructors/">学习Lisp-前言小贴士
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://allenchyou.github.io/2016/10/15/Ch-02-Lists-B/">学习Lisp-第二章-列表-B
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://allenchyou.github.io/2016/10/15/Ch-02-Lists-A/">学习Lisp-第二章-列表-A
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://allenchyou.github.io/2016/10/15/Ch-01-FunctionsAndData-B/">学习Lisp-第一章-函数和数据-B
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://allenchyou.github.io/2016/10/15/Ch-01-FunctionsAndData-A/">学习Lisp-第一章-函数和数据-A
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2016/10/15/Ch-02-Lists-B/">学习Lisp-第二章-列表-B</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2016/10/15/NoteToInstructors/">学习Lisp-前言小贴士</a></p>
+        
+    </div>
+</div>
+
+<!--
+        <h2 id="comments">Comments</h2>
+        
+
+
+
+-->
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                 <ul id="content-side" class="content-ul">
+                    <!--<li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>-->
+                </ul> 
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             ！ 
+        </p>
+        <p class="contact">
+            Contact me at: 
+            <a href="https://github.com/AllenChyou" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>         
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>

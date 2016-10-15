@@ -1,0 +1,20 @@
+接下来开始真正的类的review，首先是整个体系的中间位置，tableview
+继承了蛮多东西的，毕竟功能很多，
+UIResponder，处理触摸事件什么的
+uiview，当然，这是个view
+UIScrollView，要显示大于屏幕的东西，拖动行为
+
+好老好老的类，ios2.0就开始提供了，到现在都没有退休
+
+可以上下拖动，但是不能左右拖动内容
+
+接收到消息setEditing：animated 的时候。tableview就会进入编辑模式。
+
+初始化方法，默认的样式是plain的tableview
+initWithFrame：style：
+
+###配置tableview
+
+配置外观的，设置动画的，界面相关的动画等着重新实现的。
+
+

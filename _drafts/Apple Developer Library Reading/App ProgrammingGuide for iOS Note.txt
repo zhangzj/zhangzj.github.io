@@ -1,0 +1,409 @@
+﻿// iOS开发的基本概念需要掌握
+
+###iOS App 的架构
+
+####介绍
+
+逻辑上要讲5个部分的东西，理解发生在App和系统之间的交互
+
+1. 有些东西App必须有，系统会要求每一个App有一些必须的东西，比如App icon，配置数据。要确保这些东西都有。
+2. App都有自己固定的执行路径，在生命周期中有自己的状态转换。
+3. 利用系统的多任务环境，前后台执行结合
+4. 系统里面App之间的通信是有固定方式，有限制
+5. 性能调试很重要，省电加续航
+
+在App上架之前，要仔细check一些上面这些方面的东西
+
+####App要有的一些东西
+有四个方面的东西是App上架之前必须要有的
+1. 一个信息属性列表文件。Info.plist，系统通过这个文件和App交互。
+2. 一个App所求的功能的声明。运行app的硬件要求和功能要求。在项目的info页配置
+3. 一个或者多个icon。app的图标，用在各种地方，主页面，设置里面，搜索结果里面，分辨率和大小不同用的icon不同。
+4. 一个或多个launch images。在app加载完成之前，要显示的图片。
+
+这些东西对所有的app来说都需要有。
+
+####App Bundle
+xcode会把app打包成一个bundle，里面包含了app的东西。如下
+1. app的可执行文件，比如MyApp.app
+2. 属性列表文件，Info.plist，里面是app的配置数据。
+3. App Icons。图标文件
+4. Launch Images。 和上面差不多，都是很多png图片
+5. Storyboard文件或者nib文件
+6. Ad hoc 发布的图标，在Itunes Connect上用的图标文件，512*512的
+7. Settings bundle，在这个设置应用里面占用一个小小的部分
+8. 非本地化的资源文件
+9. 本地化资源的子目录，en.lproj
+
+####属性列表，info.plist文件
+这个是用项目中的General，Capabilities和info项目页在编译时生成的文件。
+1. 声明app的必须要的功能，在info页面中设置
+2. 对于要求持续的wifi连接，要自己声明。设置成yes，以防中途会断开网络
+3. 要用newsstand必须自己声明。表示新闻内容来源是newsstand
+4. app自定义的文档类型需要声明
+5. 可以声明自定义的URL模式
+6. 对于app的某些特性，使用系统功能的时候要给出使用说明，比如要求访问一些系统资源。
+
+####声明需要的设备功能 
+key是UIRequiredDeviceCapabilities，它的值时一个数组或者字典，
+
+####App 默认的 Launch Images
+app第一次启动的时候，在UI还没有加载完成之前，会使用launch image暂时先挡一挡。
+如果有当前界面的系统截图，会使用这个屏幕快照来作为launch image。
+比如在app 前台切换到后台，后台切换到前台的时候，就会这么用屏幕快照
+在app被关闭，销毁之后，屏幕快照就会被销毁，重新使用回那个launch image
+
+###注意用户隐私
+1. 关注行业或者当地政府发布的文件：
+联邦的，欧洲的，日本的，都有自己的标准
+2. 请求用户的许可来使用数据，位置，日历，联系人，照片，媒体，备忘录等等
+3. 告诉用户，这个数据会被怎么处理
+4. 给用户控制权，随时可以关闭授权
+5. 能别用就别用，少惹事儿
+6. 保护用户数据，尽量安全要
+
+
+iOS支持的数据授权
+使用下面的服务会引发一个alert来确认是不是允许授权。
+Location
+位置服务，当前设备的位置
+Photos
+照片，媒体服务，
+音乐，视频以及其他媒体
+联系人
+calendar data
+日历部分数据
+reminder 备忘录
+蓝牙外部设备
+麦克风设备
+camera，照相机
+
+这些个授权状态都在相应的不同的类，有方法返回访问，对应的描述是存在于属性列表之中
+
+####App的国际化，本地化
+本地化，加上各国语言的版本
+任何用户会接触到的文字什么的资源，都要归到特定语言的项目目录当中，还有使用本地各式的日期和时间，相区别的有差别的表示的任何东西。
+典型的本地化过程需要基本以下几个步骤，更新以下几个文件类型或者资源来搞定
+1. Storyboard文件或者nib文件，这些文件可以包含文本，还要调整位置和文字长度，布局什么的
+2. 字符串文件，后缀名是.strings，包含App显示的静态文本
+3. 图片文件，除非有文化特定的内容，不然应该避免本地化图片文件。不要再图片上展现文字
+4. 音视频文件
+
+###App的生命循环
+系统框架提供了一些基本的结构是所有App都要遵守的。ios框架以来的是mvc模式和实现中的代理。
+
+####主函数
+main函数，就整个程序的入口点，这个不需要自己写，xcode的main函数不需要改动
+主函数的职责就是把控制权交给uikit。给app创建一些核心对象，从storyboard文件中加载UI，调用自定义的初始化代码，让这个运行循环动起来。要自己整出来的就是storyboard和初始化代码。
+
+####App的结构
+uiapplication对象时整个app的核心，把整个app放在mvc框架中，更容易开发。
+在app中对象的角色
+1. uiapplication对象，管理事件循环和其他高层次的app行为。没有子类化
+2. appdelegate对象。这个事自定义代码的核心。这个和uiapplication串联，一起处理app初始化，状态迁移，和其他的app高层次事件。也是唯一一个会在每一个app中出现的对象。
+3. 文档和数据模型对象，数据模型用来存储自定义模型的数据，文档类，uidocument用来管理数据模型
+4. vc对象管理屏幕上的app内容，管理一个view和它的子view集合。展现的时候，就是把自己的view展现到window上。
+5. uiwindow对象，大部分app只有一个，
+6. view对象，control对象和layer对象，这个layer是core animation的layer，实现复杂的视觉效果
+
+####主运行循环
+事件队列，主要的时间类型，常用的
+1. touch，触摸事件，响应链会响应
+2. remote control，物理传感，第一响应者
+3. 加速计，磁力计，陀螺仪，方向传感，事件会传递给指定对象
+4. 位置事件，Location，指定对象响应
+5. redraw，重绘事件，需要更新的view来响应
+
+####App的执行状态
+app，这是有限状态？肯定是一个state
+1. not running，不在运行
+2. inactive 在前台运行，但是不接收事件，状态转换的间歇期间
+3. active，运行中的app的正常模式
+4. background， 后台模式，并在执行代码，（如何在后台执行代码？）
+5. suspended，挂起，在后台，但是不执行代码，
+
+####App termination 终结者？结束
+系统有可能会把app关闭，因为各种原因。
+
+####线程与并发性
+多线程，GCD，
+1. UI相关的东西，一般都要在主线程里面。例外是，图片相关的操作不在主线程。
+2. 有点长度的任务一般是会在后台线程执行。网络访问，大量数据处理之类的。
+3. 在启动app的时候，尽量不要去影响主线程
+
+###后台执行
+后台执行这个状态只是在被挂起之前的一个短暂的停歇。
+1. 在前台开启的一个小任务，需要一点时间来完成
+2. 前台开启的下载任务，切换到后台之后，继续下载，把下载的事情交给系统
+3. app需要运行在后台，来支持特定类型的任务。
+
+####执行有限长度的任务
+uiapplication有几个方法可以要求额外的执行时间
+beginBackgroundTaskWithName：expirationHandler：
+beginBackgroundTaskWithExpirationhandler:
+在执行完成之后，必须调用sndbackgroundTask:方法来让系统知道，任务结束，可以挂起。
+
+####在后台下载内容
+使用NSURLSession对象来开始下载，这样系统好接手。为了让系统好好接手，要好好配置NSURLSession
+1. 创建NSURLSessionConfiguration对象，设置一些属性值。
+2. 用这个configuration对象来初始化NSURLSession
+具体创建过程：
+1. 用NSURLSessionConfiguration的方法backgroundSessionConfigurationWithIdentifier：来创建configuration对象
+2. 设置configuration对象的属性sessionSendsLaunchEvents的值为yes
+3. 如果是在前台就开始下载，建议设置discretionary的值为yes
+4. 适当配置其他的属性
+5. 使用configuration对象创建NSURLSession对象
+
+####实现长期运行的任务
+后台也不挂起
+放音乐的app，必须不能断
+后台录音的
+总是更新位置的，比如导航app
+支持网络电话的
+需要定期下载内容更新的
+从外部设备定期接受内容的
+####声明app支持后台任务
+选定，后台支持的模式
+属性列表里面的UIBackgroundModes
+模式和值
+Audio and AirPlay audio 放音乐和录音
+不断更新用户的位置，Location
+网络电话，voip
+是一个newsstand app，处理数据应用在后台，newsstand-connect
+和外部设备定期交换数据，external-accessory
+和蓝牙设备定期交换数据，bluetooth-central
+作为一个蓝牙设备，Bluetooth-peripheral
+从网络少量下载，fetch
+remote-notification，app开始下载内容，在一个push通知进来的时候。
+
+#####跟踪用户的位置
+一些方法其实不需要真的让app跑起来，大范围的定位服务，只在前台运行的定位，还有后台定位
+
+#####在后台播放音乐和录音
+Audio session PG
+
+#####实现一个VoIP app
+配置一个VoIP app，
+1. 这个属性列表里面设置UIBackgroundModes为voip
+2. 配置一个VoIP用的socket
+3. 在移到后台之前，执行一个setKeepAliveTimeout：handler：方法来安装一个句柄，周期执行，维持服务连接
+4. 配置audio session
+
+#####看时机，获取少量的内容
+#####使用推送通知来开始一个下载
+remote-notification
+#####在后台下载newsstand的内容
+newsstand-content
+#####和外部附件通信
+#####和蓝牙附件通信
+
+####在后台的时候获取用户的注意
+notification，UILocalNotification类的对象
+
+####当app转到后台的时候意味着什么
+如果不是用户强退的话，relaunch会在以下条件出现的时候发生
+对于location
+接收到位置更新，到到终点
+设备离开了区域的范围
+
+对于音乐类app，那就是需要处理一些音乐数据
+
+对于蓝牙app
+接收到蓝牙外设的消息
+设备座位蓝牙外设从中心的master接收到消息
+
+对于后台下载应用
+来了一个推送通知
+系统会在合适的时候开始继续的下载
+对于使用nsurlsession的app，要么下载完成，要么返回错误
+newsstand开始下载完成
+
+用户强制退出的话，系统是不会重开app的。
+
+###做一个负责任的后台app
+准备好处理网络连接失败等问题
+在进入后台之前保存app的状态
+移除一些不必要对象的强引用
+在挂起之前停止使用共享系统
+不要更新window和view
+
+###退出后台执行
+确定不在后台执行的app，可以在info.plist里面的key，UIApplicationExitsOnSuspend设置成YES。这样是永远不会进入后台了，在退出前台五秒钟之后就会变成not-running
+
+
+###处理App状态之间迁移的策略
+状态主要是前台后台，活动挂起
+有一个协议UIApplicationDelegate来侦测是不是状态改变了，以及应对得当
+application：willFinishLaunchingWithOptions：之类的很多方法
+
+####在启动时间该做些什么
+在app起来的时候，app delegate的几个方法里面
+application：willFinishLaunchingWithOptions:
+application:didFinishLaunchingWithOptions:
+做一些事情：
+1. 检查启动选项字典里面的内容，看看启动的理由是什么UILaunchOptionKey，处理一下
+2. 初始化一些app的关键数据结构
+3. 准备app的window和view 要显示
+3.1 要是要使用OpenGL ES来绘制的代码，不要放在这里，放在applicationDidBecomeActive里面
+3.2 在willfinish里面就显示window，但是uikit会延迟到didifinish才会可见
+
+这两个方法一定要轻量级，保证加载时间比较短
+
+#####启动的循环过程
+启动一个app到前台的过程，大部分是系统的事儿，其中包括了自定义代码的delegate方法
+点击这个app的icon》主函数main（）》主函数里面有UIApplicationMain（）》之后加载app的主要UI文件》
+首次初始化的过程，调用的是application：willFinishLaunchingWithOptions：》
+之后会存储UI的状态，调用很多方法》
+最后的初始化，application:didFinishLaunchingWithOptions:》
+之后进入app运行环节，激活app，applicationDidBecomeActive：》
+进入时间循环。。。》
+知道切换到另一个app
+
+
+启动一个app到后台的过程和启动到前台差不多，只有一些小小的不同，就是是不是显示到window上？
+之前的启动加载过程是完全一样的，willfinish，didfinish等等
+进入后台， applicationDidEnterBackground
+接下来会有一个判断，看是不是允许运行，允许的话就进入事件循环，不允许就挂起
+
+检查是不是启动进前台还是后台，可以检查UIApplication属性applicationState。如果是走到前台，那么这个属性的值会是UIApplicationStateInactive，走到后台就会使UIApplicationStateBackground。根据属性状态不同，可以采取不同的行为。
+
+进入到后台下载的情况有少少不同，再看
+
+#####启动进入横屏模式
+在info.plist里面配置key UIInterfaceOrientation，设置值，UIInterfaceOrientationLandscapeLeft或者UIInterfaceOrientationLandscapeRight。
+调整界面的布局，保证在横屏下面，可以自动resize
+覆写vc的方法shouldAutorotateToInterfaceOrientation:方法，返回YES表示可以横屏，返回NO表示一直竖屏
+
+app一定要使用vc来管理给予window的内容
+
+#####在第一次启动的时候安装app定制的数据文件
+代码签名，必须拷贝文件到另一个目录进行修改，不能直接修改沙盒里面的数据
+
+####当app被临时性的打断的时候做些什么
+基于alert的打断会暂时失去app的控制权。虽然继续运行在前台，但是不会接受触摸事件了。在这个过程中，需要在applicationWillResignActive方法里面做一些事情
+1. 存储数据和相关的状态信息
+2. 停止计时器和周期性任务
+3. 停止任何运行中的元数据查询
+4. 不要初始化任何的新任务
+5. 暂停电影播放（除非是在airplay上播放）
+6. 如果是游戏，进入暂停状态
+7. 调低OpenGL ES的帧率
+8. 挂起任何非关键任务的操作代码
+
+对应的，回到运行状态的时候会在applicaionDidBecomeActive方法中执行相反的过程。
+
+在合适的时间点就保存用户数据，虽然状态迁移可以保存，但还是谨慎点比较好
+
+#####回应临时中断
+比如电话进来，会暂时进入resignactive阶段，之后看是电话是接还是不接，不接就becomeactive，接就是切换应用。
+
+锁屏也是，会让app进入后台运行
+
+####当app进入前台的时候该做些什么
+applicationWillEnterForeground：
+applicationDidBecomeActive
+
+#####准备好处理通知们
+不运行的app是不会有任何代码执行的，所以系统会发出很多notification，等着app启动的时候排着队，尽快处理。
+比如电池水平或者状态改变了，本地语言改变了，用户账户改变了，外部显示器连接或者离开。
+
+#####处理iCloud更改
+iCloud修改了，会有通知NSUbiquityIdentityDidChangeNotification通知被发出
+比如iCloud账户登入注销什么的
+
+#####处理本地变化
+NSCurrentLocaleDidChangeNotification
+#####处理app中的settings的变化
+NSUserDefaultsDidChangeNotification
+
+####当app转入后台的时候该做些什么
+applicationDidEnterBackground方法里面要做一些事情
+1. 准备好要屏幕快照了，如果当前屏幕上有敏感的信息，要在applicationDidEnterBackground返回之前搞定
+2. 保存任何相关的app状态信息。在进入后台之前，已经把该保存的保存的差不多了
+3. 释放能释放的内存，比如图片，数据缓存等等资源。
+applicationDidEnterBackground必须是在5秒钟之内搞定，返回，不然会被系统强杀
+#####后台迁移循环
+有一个迁移到后台的中断，比如迁移到别的app之类的》
+applicationWillResignActive：》
+applicationDidEnterBackground：》
+判断是不是允许在后台运行》
+允许的话就进入监视事件循环，等到时间结束进入挂起》
+不允许的话就直接进入挂起》
+之后是被终结还是切换到别的再说
+
+#####准备好app的屏幕快照
+在applicationDidEnterBackground之后，系统就会给window做一个屏幕快照。后台启动的时候也会进行屏幕快照，在多任务界面可以反映事情的变化
+snapshotViewAfterScreenUpdates：
+
+#####降低内存占用
+内存紧张的时候，后台运行的占用内存最多的app会最先被干掉。
+不用那个对象的时候，移除它的强引用，ARC会搞定的
+什么时候应该移除强引用
+1. 创建的图片对象
+2. 可以再加载的媒体文件
+3. 可以方便再创建的其他对象
+
+为了帮助降低内存，系统会在app进入后台的时候自动清除一些东西
+1. 所有的Core Animation Layer都不会显示了
+2. 系统缓存图片的任何引用
+3. 系统管理的数据缓存的强引用
+
+
+###实现特定app特性的策略
+有些特性所有app都有，有些则是app自己特有
+####隐私策略
+#####用磁盘加密来保护数据
+用户隐私很重要，数据保护要做足，首先文件系统要支持数据保护，这个大部分设备都有了，然后就是用户必须设置密码。
+文件保护等级，可以用nsdata或者NSFileManager来设置，NSFileProtectionKey
+no protection，没有保护，加密，但是没有保护，在设备被锁定的时候可以获取
+Complete，完全保护，加密，并且设备锁定就不能访问
+Complete unless already open，加密，不解锁手机不能访问
+Complete until first login，开机后要解锁过才可以访问
+
+#####为app识别唯一用户
+1. 连接一个用户都特定的服务器账户，设置一个登陆界面什么的，把所有的信息加密
+2. 不同的设备运行不同的应用，可以使用UIDevice的属性identifierForVendor
+3. 为了投放广告识别用户。使用ASIdentifierManager的属性advertisingIdentifier
+####尊重限制，尊重规则
+NSUserDefaultsDidChangeNotification
+说电影分级呢
+####支持多个版本的iOS
+要支持新老版本的iOS，新的api在老系统上不存在怎么办
+运行时检查一下，
+1. 一个类的class方法，可以检查这个类是不是可以访问
+if（[UIPrintInteractionController class]）
+2. 看看一个方法是不是在一个类中可以访问，使用instancesRespondToSelector:类方法或者respondToSelector：实例方法。
+3. 判断一个C函数是不是可以使用，只要用这个函数名做一个布尔判断
+if (UIGraphicsBeginPDFPage != NULL) {
+	UIGraphicsBeginPDFPage();
+}
+
+####保持app的视觉外观
+UIKit本身提供了一个结构来保持和保存VC和View
+#####允许app的状态保持和保存
+返回布尔值的两个方法设置
+application：shouldSaveApplicationState：
+application：shouldRestoreApplicationState：
+
+#####保存和恢复过程
+保存过程中的工作
+1. 告诉uikit支持状态保存
+2. 告诉uikit那些vc和view需要被保存
+3. 对于每一个保存的对象编码相关数据
+恢复过程
+1. 告诉uikit支持状态恢复
+2. 提供或者创建，uikit需要的对象
+3. 解码这些对象，并且返回之前的状态
+
+有这个restoration identifier才可以被uikit加入保存过程。
+
+
+#####当收集VC的时候发生了社么
+#####实现状态保存和恢复的注意事项
+#####保持VC的状态
+#####保持View的状态
+#####保持app的高级状态
+#####关于保存和存储状态信息的建议
+
+####开发一个VoIPapp的建议
+

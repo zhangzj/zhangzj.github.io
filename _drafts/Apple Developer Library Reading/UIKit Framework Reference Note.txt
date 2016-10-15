@@ -1,0 +1,13 @@
+大部分情况下，UIkit类的使用只是在app的主线程中。特别是继承自UIResponder的类，或者参与到UI操作的类。
+
+根类NSObject，基本上所有的类都是这个NSObject的子类
+先来看一下TableView一系列的类，UIKit中相关的基本上是几个
+1. UITableViewFocusUpdateContext，意义不明，说是集中在特定的更新，从一个view到另一个。
+2. UITableView，这是一种表现和编辑层次列表结构信息的方式，继承自UIScrollView（展现的内容要大于屏幕窗口，也就是可以拖动），在往上就是UIView（在屏幕上划出一块矩形的区域，整出管理区域的内容的接口），再上一层是UIResponder（定义的是可以对时间做出回应，可以处理事件的对象的接口）
+3. UITableViewCell， 这个类定义的就是出现在UITableView对象里面的单元的属性和行为。
+4. UITableViewHeaderFooterView，实现的是可重用的view，用来放在一个table section 的顶上或者下面的view。
+5. UItableViewController 用来管理UITableView的对象。父类是UIViewController（这是iOS中管理View的基础架构）。
+6. UITableViewRowAction 当一个单元被横向滑动的时候，会出现什么操作？就是这个单独的操作。就是这样。
+（下面是两个协议）
+7. UITableViewDataSource 遵循这个协议的对象可以作为UITableView的数据源。
+8. UITableViewDelegate 遵循这个协议的对象可以是UITableView的delegate。

@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>SQL基本语法</title>
+    <meta name="description" content="SQL的基本语法和操作示例">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="/css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://allenchyou.github.io/2016/10/11/SQLSyntax/">
+    <link rel="alternate" type="application/rss+xml" title="ZZJ" href="http://allenchyou.github.io/feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">ZZJ</a>
+        <small>Build Newbie</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>SQL基本语法</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2016-10-11
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#MySQL" title="Category: MySQL" rel="category">MySQL</a>&nbsp;
+    
+        <a href="/category/#SQL" title="Category: SQL" rel="category">SQL</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#MySQL" title="Tag: MySQL" rel="tag">MySQL</a-->
+        <a href="/tag/#MySQL" title="Tag: MySQL" rel="tag">MySQL</a>&nbsp;
+    
+        <!--a href="/tag/#SQL" title="Tag: SQL" rel="tag">SQL</a-->
+        <a href="/tag/#SQL" title="Tag: SQL" rel="tag">SQL</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">基本问题</a></li>
+  <li><a href="#section-1" id="markdown-toc-section-1">事前准备</a></li>
+  <li><a href="#section-2" id="markdown-toc-section-2">操作数据库</a></li>
+  <li><a href="#section-3" id="markdown-toc-section-3">操作表</a>    <ul>
+      <li><a href="#section-4" id="markdown-toc-section-4">创建表</a></li>
+      <li><a href="#section-5" id="markdown-toc-section-5">表中字段的属性约束</a></li>
+      <li><a href="#section-6" id="markdown-toc-section-6">查看表结构</a></li>
+      <li><a href="#section-7" id="markdown-toc-section-7">修改表</a></li>
+      <li><a href="#section-8" id="markdown-toc-section-8">删除表</a></li>
+    </ul>
+  </li>
+  <li><a href="#section-9" id="markdown-toc-section-9">操作数据</a>    <ul>
+      <li><a href="#section-10" id="markdown-toc-section-10">数据查询</a>        <ul>
+          <li><a href="#section-11" id="markdown-toc-section-11">单表查询</a></li>
+          <li><a href="#section-12" id="markdown-toc-section-12">查询条件</a></li>
+        </ul>
+      </li>
+      <li><a href="#section-13" id="markdown-toc-section-13">数据添加</a></li>
+      <li><a href="#section-14" id="markdown-toc-section-14">数据更新</a></li>
+      <li><a href="#section-15" id="markdown-toc-section-15">数据删除</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>SQL的基本语法和操作示例</p>
+
+<h3 id="section">基本问题</h3>
+
+<ul>
+  <li>
+    <p>如何操作数据库？</p>
+  </li>
+  <li>
+    <p>如何操作表本身？字段定义，表的属性等等？</p>
+  </li>
+  <li>
+    <p>如何操作表中的数据？增删改查操作等？</p>
+  </li>
+</ul>
+
+<h3 id="section-1">事前准备</h3>
+
+<ul>
+  <li>
+    <p>事前环境准备MySQL安装OK</p>
+  </li>
+  <li>
+    <p>有连接好的GUI Client就更好了</p>
+  </li>
+</ul>
+
+<h3 id="section-2">操作数据库</h3>
+
+<ul>
+  <li>
+    <p>数据库的操作大概有，数据库的创建，删除，和显示现存的数据库</p>
+  </li>
+  <li>
+    <p>创建数据库</p>
+
+    <p><code class="highlighter-rouge">
+  mysql&gt; CREATE DATABASE databaseName;
+ </code></p>
+  </li>
+  <li>
+    <p>显示存在的数据库</p>
+
+    <p><code class="highlighter-rouge">	
+  mysql&gt; SHOW DATABASES;
+ </code></p>
+  </li>
+  <li>
+    <p>删除数据库</p>
+
+    <p><code class="highlighter-rouge">
+  mysql&gt; DROP DATABASE databaseName;
+ </code></p>
+  </li>
+</ul>
+
+<h3 id="section-3">操作表</h3>
+
+<ul>
+  <li>
+    <p>表是数据库存储数据的基本单位，一个表包含若干字段定义。</p>
+  </li>
+  <li>
+    <p>对表的操作大概包括：创建表，查看表结构，修改表和删除表</p>
+  </li>
+</ul>
+
+<h4 id="section-4">创建表</h4>
+
+<ul>
+  <li>不带属性约束的创建表</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mysql&gt; CREATE TABLE example0( 
+	id INT, 
+	name VARCHAR(20)
+);
+</code></pre>
+</div>
+
+<h4 id="section-5">表中字段的属性约束</h4>
+
+<ul>
+  <li>主键 PRIMARY KEY 是表的一个特殊字段，表中的每一条信息进行唯一标识</li>
+  <li>外键 FOREIGN KEY 表的一个特殊字段，是其他某一张表的主键</li>
+  <li>非空约束 NOT NULL 属性不能为空的约束</li>
+  <li>UNIQUE 表示这个字段数据的唯一</li>
+  <li>AUTO_INCREMENT 属性自动增加</li>
+  <li>
+    <p>DEFAULT 设定属性的默认值</p>
+  </li>
+  <li>加上属性约束之后的创建表</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>-- ----------------------------
+-- Table structure for user
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+	`user_id` int(11) unsigned NOT NULL COMMENT '用户ID',
+	`user_name` varchar(32) NOT NULL DEFAULT '' COMMENT '用户名称',
+	PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</code></pre>
+</div>
+
+<h4 id="section-6">查看表结构</h4>
+
+<ul>
+  <li>
+    <p>使用desccribe</p>
+
+    <p><code class="highlighter-rouge">
+  mysql&gt; DESCRIBE tableName;
+ </code></p>
+  </li>
+  <li>
+    <p>可以使用缩写 DESC</p>
+
+    <p><code class="highlighter-rouge">
+  mysql&gt; DESC tableName;
+ </code></p>
+  </li>
+  <li>
+    <p>查看表的详细结构的方法，MySQL会返回创建表的语句</p>
+
+    <p><code class="highlighter-rouge">
+  mysql&gt; SHOW CREATE TABLE tableName;
+ </code></p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>CREATE TABLE `user` (
+	`user_id` int(11) unsigned NOT NULL COMMENT '用户ID',
+	`user_name` varchar(32) NOT NULL DEFAULT '' COMMENT '用户名称',
+	PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+</code></pre>
+</div>
+
+<h4 id="section-7">修改表</h4>
+
+<ul>
+  <li>
+    <p>修改表名</p>
+
+    <p><code class="highlighter-rouge">
+  mysql&gt; ALTER TABLE oldTableName RENAME [TO] newTableName;
+ </code></p>
+  </li>
+  <li>
+    <p>修改表中字段的类型</p>
+
+    <p><code class="highlighter-rouge">
+  mysql&gt; ALTER TABLE tableName MODIFY recordName newRecordType;
+ </code></p>
+  </li>
+  <li>
+    <p>同时修改字段名字和字段类型</p>
+
+    <p><code class="highlighter-rouge">
+  mysql&gt; ALTER TABLE tableName CHANGE oldRecordName newRecordName newRecordType;
+ </code></p>
+  </li>
+  <li>
+    <p>增加字段</p>
+
+    <p><code class="highlighter-rouge">
+  mysql&gt; ALTER TABLE 表名字 ADD 属性名字 数据类型 [完整性约束条件] [FIRST| AFTER 属性名字];
+ </code>
+  其中前面的属性名字是新增加的字段，后面的属性名字表示要插入的位置，FIRST表示增加到最前面，AFTER表示增加到那个属性的后面，默认是会追加到所有字段的最后。</p>
+  </li>
+  <li>
+    <p>删除字段</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mysql&gt; ALTER TABLE 表名字 DROP 属性名字;
+</code></pre>
+</div>
+
+<ul>
+  <li>修改字段的排列</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mysql&gt; ALTER TABLE 表名字 MODIFY 属性名字1 数据类型 FIRST|AFTER 属性名字2;
+</code></pre>
+</div>
+
+<h4 id="section-8">删除表</h4>
+
+<ul>
+  <li>删除没有被关联的普通表</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mysql&gt; DROP TABLE 表名字;
+</code></pre>
+</div>
+
+<ul>
+  <li>被其他表所关联的父表没有那么好删除，需要在其他表中删除外键才能顺利删除。</li>
+</ul>
+
+<blockquote>
+  <p>temp TODO 有关索引，触发器，视图等概念，之后再来补足</p>
+</blockquote>
+
+<h3 id="section-9">操作数据</h3>
+
+<ul>
+  <li>以数据记录为对象的增删改查操作CRUD</li>
+</ul>
+
+<h4 id="section-10">数据查询</h4>
+
+<ul>
+  <li>
+    <p>查询语句的基本语法</p>
+
+    <p>使用SELECT进行基本查询</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT 属性列表 FROM 表名字和视图列表
+  [WHERE 条件表达式1]
+  [GROUP BY 属性名1 [HAVING 条件表达式2]]
+  [ORDER BY 属性名2 [ASC|DESC]]
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>属性列表表示需要查询的字段名字，表和视图是指定查询的地方，可以有多个。条件表达式1表示查询的条件；
+
+属性名1表示按照这个字段进行分组；条件表达式2表示满足条件的数据才能输出；
+
+属性名2表示根据这个字段进行查询；后面的是排序方式，升序降序；
+</code></pre>
+</div>
+
+<ul>
+  <li>省略后面的条件之类的就会默认输出全部数据</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT num,name,age,sex,homeaddr FROM employee;
+</code></pre>
+</div>
+
+<ul>
+  <li>包含条件和排序的查询</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT num,d_id,name,age,sex,homeaddr
+  FROM employee
+  WHERE age&lt;26
+  ORDER BY d_id DESC;
+</code></pre>
+</div>
+
+<h5 id="section-11">单表查询</h5>
+
+<ul>
+  <li>
+    <p>查询所有字段</p>
+
+    <p>使用 * 查询所有字段</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT * FROM employee;
+</code></pre>
+</div>
+
+<ul>
+  <li>查询指定字段</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT num,name,sex,homeaddr FROM employee;
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>将会显示的就是指定字段的数据，并且按照字段顺序出现，只要改变字段顺序就可以改变显示顺序。
+</code></pre>
+</div>
+
+<ul>
+  <li>
+    <p>查询指定的行</p>
+
+    <p>指定查询的筛选条件WHERE</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT * FROM employee WHERE d_id=1001;
+</code></pre>
+</div>
+
+<h5 id="section-12">查询条件</h5>
+
+<ul>
+  <li>查询指定取值范围</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT * FROM employee WHERE age BETWEEN 15 AND 25;
+SELECT * FROM employee WHERE age NOT BETWEEN 15 AND 25;
+</code></pre>
+</div>
+
+<ul>
+  <li>指定集合， IN, NOT IN</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT * FROM employee WHERE d_id IN( 1001, 1004 );
+SELECT * FROM employee WHERE name NOT IN( '张三', '李四' );
+</code></pre>
+</div>
+
+<ul>
+  <li>
+    <p>匹配字符， LIKE, NOT LIKE</p>
+
+    <p>匹配字符串的语法规则： [NOT] LIKE ‘字符串’</p>
+
+    <p>字符串可以使用单引号包含或者双引号包含，可以使完整的字符串也可以包含百分号或者下划线作为通配符</p>
+
+    <p>百分号 % 可以匹配任意长度的字符串</p>
+
+    <p>下划线 _ 表示单个字符</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT * FROM employee WHERE name LIKE 'Aric';
+SELECT * FROM employee WHERE hoemaddr LIKE '北京%';
+SELECT * FROM employee WHERE name LIKE 'Ar_c';
+SELECT * FROM employee WHERE name NOT LIKE 'Aric';
+</code></pre>
+</div>
+
+<ul>
+  <li>是否为空值， IS NULL, IS NOT NULL</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT * FROM work WHERE info IS NULL;
+SELECT * FROM work WHERE info IS NOT NULL;
+</code></pre>
+</div>
+
+<ul>
+  <li>
+    <p>多条件查询 AND, OR</p>
+
+    <p>AND连接多个需要同时满足的条件</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT * FROM employee WHERE
+  d_id=1001 AND sex LIKE '男';
+SELECT * FROM employee WHERE
+  d_id=1001 AND age&lt;26 AND sex LIKE '男';
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>OR连接只需要满足其中一个条件的状况
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT * FROM employee WHERE
+  d_id=1001 OR sex LIKE '男';
+
+SELECT * FROM employee WHERE
+  num IN (1,2,3) OR age BETWEEN 24 AND 25
+  OR homeaddr LIKE '北京％';
+</code></pre>
+</div>
+
+<ul>
+  <li>
+    <p>查询结果不重复</p>
+
+    <p>没有设定UNIQUE约束的字段，有可能会出现重复的情况，在语句中可以使用DISTINCT来消除重复的状况</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT DISTINCT 属性名字 FROM 表名字;
+SELECT DISTINCT d_id FROM employee;
+</code></pre>
+</div>
+
+<ul>
+  <li>
+    <p>给查询结果排序</p>
+
+    <p>升序的结果排序和降序结果排序</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT * FROM employee ORDER BY age ASC;
+SELECT * FROM employee ORDER BY age DESC;
+</code></pre>
+</div>
+
+<ul>
+  <li>
+    <p>分组查询</p>
+
+    <p>分组查询的语法</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>GROUP BY 属性名字 [HAVING 条件表达式][WITH ROLLUP]
+</code></pre>
+</div>
+
+<h4 id="section-13">数据添加</h4>
+
+<h4 id="section-14">数据更新</h4>
+
+<h4 id="section-15">数据删除</h4>
+
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+        
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2016/10/10/MybatisGeneratorGenerateCodeByMySQL/">Mybatis-Generator生成ORM代码</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2016/10/11/UseMyBatisAlone/">MyBatis的配置使用</a></p>
+        
+    </div>
+</div>
+
+<!--
+        <h2 id="comments">Comments</h2>
+        
+
+
+
+-->
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                 <ul id="content-side" class="content-ul">
+                    <!--<li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>-->
+                </ul> 
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             ！ 
+        </p>
+        <p class="contact">
+            Contact me at: 
+            <a href="https://github.com/AllenChyou" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>         
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>

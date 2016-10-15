@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Core Java读书笔记-Chapter 7 图形程序设计</title>
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="/css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://allenchyou.github.io/2016/04/10/core-java-note-ch-7/">
+    <link rel="alternate" type="application/rss+xml" title="ZZJ" href="http://allenchyou.github.io/feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">ZZJ</a>
+        <small>Build Newbie</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>Core Java读书笔记-Chapter 7 图形程序设计</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2016-04-10
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Java" title="Category: Java" rel="category">Java</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#Java" title="Tag: Java" rel="tag">Java</a-->
+        <a href="/tag/#Java" title="Tag: Java" rel="tag">Java</a>&nbsp;
+    
+        <!--a href="/tag/#Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF" title="Tag: Java核心技术" rel="tag">Java核心技术</a-->
+        <a href="/tag/#Java核心技术" title="Tag: Java核心技术" rel="tag">Java核心技术</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#swing" id="markdown-toc-swing">Swing概述</a></li>
+  <li><a href="#section" id="markdown-toc-section">创建框架</a></li>
+  <li><a href="#section-1" id="markdown-toc-section-1">框架定位</a>    <ul>
+      <li><a href="#frame" id="markdown-toc-frame">1.frame属性</a></li>
+      <li><a href="#section-2" id="markdown-toc-section-2">2.确定合适的框架大小</a></li>
+    </ul>
+  </li>
+  <li><a href="#section-3" id="markdown-toc-section-3">在组件中显示信息</a></li>
+  <li><a href="#d" id="markdown-toc-d">处理2D图形</a></li>
+  <li><a href="#section-4" id="markdown-toc-section-4">使用颜色</a></li>
+  <li><a href="#section-5" id="markdown-toc-section-5">文本使用特殊字体</a></li>
+  <li><a href="#section-6" id="markdown-toc-section-6">显示图像</a></li>
+</ul>
+
+<h3 id="swing">Swing概述</h3>
+
+<p>一开始的GUI，JAVA自带的类库叫做AWT，Abstract Window Toolkit，抽象窗口工具箱</p>
+
+<p>图形界面在各个平台上的实现有细微的差别，一次编写到处运行，几乎不太现实。</p>
+
+<p>Swing出现了，晓得组件不在使用系统对等的窗体，最大的系统创建，剩下的细节Swing来搞定。</p>
+
+<p>现在开始，Swing是说“被绘制的”用户界面类，AWT是说事件处理这样子的窗口工具箱的底层机制。</p>
+
+<p>Eclipse使用的是和AWT平级的叫做SWT的工具箱</p>
+
+<h3 id="section">创建框架</h3>
+
+<p>顶层窗口，就是没有包含在其他窗口中的窗口被称为框架，frame。</p>
+
+<p>Swing中的JFrame扩展自AWT的Frmae，最顶层的窗口细节由系统去关心。</p>
+
+<p>绝大多数Swing中的组件都带有J开头，与AWT里面的Button等类进行区别。</p>
+
+<pre><code class="language-Java">package simpleFrame;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+
+public class SimpleFrameTest {
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				SimpleFrame frame = new SimpleFrame();
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.setVisible(true);
+			}
+		});
+	}
+}
+</code></pre>
+
+<pre><code class="language-Java">package simpleFrame;
+
+import javax.swing.JFrame;
+
+class SimpleFrame extends JFrame {
+	private static final int DEFAULT_WIDTH = 300;
+	private static final int DEFAULT_HEIGHT = 200;
+
+	public SimpleFrame() {
+		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+	}
+}
+</code></pre>
+<p>创建一个frame类继承自JFrame，区别仅仅是默认的大小不同，JFrame的默认大小是0x0。</p>
+
+<p>构造器将大小设定成300x200</p>
+
+<p>在SimpleFrameTest类当中，构造一个SimpleFrame对象使其可见。</p>
+
+<p>在Swing程序中，有两点</p>
+
+<ol>
+  <li>Swing组件必须由事件分派线程，event dispatch thread进行配置，线程将鼠标点击和按键控制转移到用户接口组件。</li>
+</ol>
+
+<p>定义的代码片段将会在事件分派线程中执行。</p>
+
+<pre><code class="language-Java">EventQueue.invokeLater(new Runnable(){
+  public void run(){
+    要执行的语句
+  }
+});
+</code></pre>
+
+<ol>
+  <li>定义用户关闭frame的时候响应动作，这里面只要指定简单退出就好</li>
+</ol>
+
+<pre><code class="language-Java">frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+</code></pre>
+
+<p>简单构造框架是不会显示frame的，必须设定显示，所以设定setVisible</p>
+
+<h3 id="section-1">框架定位</h3>
+
+<p>JFrame从各个超累里面继承了很多用于处理框架大小和位置的方法</p>
+
+<p>setLocation和setBounds用于设定框架的位置</p>
+
+<p>setIconImage告诉窗口系统的标题栏，任务切换窗口等位置显示哪个图标</p>
+
+<p>setTitle用于改变标题栏的文字</p>
+
+<p>setResizable用布尔值表示窗口大小是不是允许用户改变</p>
+
+<p>坐标原点是左上角0，0</p>
+
+<pre><code class="language-Java">setLocation(x, y);
+
+setBounds(x, y, width, height);
+</code></pre>
+
+<h4 id="frame">1.frame属性</h4>
+
+<p>从继承关系上看，所有的Swing类都是继承自Component类，也就是组件类。</p>
+
+<p>组件类的很多方法都是set，get成对出现的。setTitle和getTitle等等。</p>
+
+<p>布尔类型的get是is开头的
+<code class="highlighter-rouge">Java
+public boolean isLocationByPlatform();
+</code></p>
+
+<h4 id="section-2">2.确定合适的框架大小</h4>
+
+<p>专业的程序来将，应该是检查屏幕的分辨率还设定大小，不然是设定成默认的0x0，那就没什么意思了</p>
+
+<p>得到屏幕的分辨率大小，有几个步骤</p>
+
+<ol>
+  <li>
+    <p>调用Toolkit的静态方法获取一个toolkit对象</p>
+  </li>
+  <li>
+    <p>调用个ScreenSize方法，获取屏幕的大小，返回Dimension对象</p>
+  </li>
+  <li>
+    <p>获取dimension里面的高度宽度使用</p>
+  </li>
+</ol>
+
+<pre><code class="language-Java">Toolkit kit = ToolKit.getDefaultToolKit();
+Dimension screenSize = kit.getScreenSize();
+int screenWidth = screenSize.width;
+int screenHeight = screenSize.height;
+</code></pre>
+
+<p>接下来将frame大小设定为宽高的一半，定位到系统的原始点，自后加载图像座位图标icon等等</p>
+
+<pre><code class="language-Java">setSize(screenWidth/2, screenHeight/2);
+setLocationByPlatform(true);
+
+Image img = new ImageIcon("icon.gif").getImage();
+setIconImage(img);
+</code></pre>
+
+<p>新建一个sizedFrame的类来穿件Frame对象。</p>
+
+<pre><code class="language-Java">package simpleFrame;
+
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
+import javax.swing.JFrame;
+
+public class SizedFrame extends JFrame {
+	public SizedFrame() {
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		Dimension screenSize = toolkit.getScreenSize();
+		int screenWidth = screenSize.width;
+		int screenHeight = screenSize.height;
+
+		setSize(screenWidth, screenHeight);
+		setLocationByPlatform(true);
+
+	}
+}
+</code></pre>
+
+<h3 id="section-3">在组件中显示信息</h3>
+
+<p>将一个组件放置在Frame当中，之后再组件上显示文字。</p>
+
+<p>JFrame的框架层次，从后到前依次是Frame，根窗格，层级窗格，菜单栏，内容窗格，玻璃窗格。</p>
+
+<p>Swing程序员最关心的是内容窗格，用代码将组件添加到窗格里面。</p>
+
+<pre><code class="language-Java">Container contentPane = frame.getContentPane();
+Component c = ...;
+contentPane.add(c);
+</code></pre>
+
+<p>定制一个组件添加到Frame上面，需要继承JComponent类，并且覆盖其中的paintComponent方法。</p>
+
+<p>paintComponent方法有一个Graphics类型的参数，这个参数保存用于绘制内容的字体，颜色等等。</p>
+
+<p>在Java中，所有的绘制都必须使用Graphics对象，其中包含了绘制图案，图像，和文本的方法。</p>
+
+<p>创建自定义的组件</p>
+
+<pre><code class="language-Java">class MyComponent extends JComponent{
+  public void paintComponent(Graphics g){
+    code for drawing
+  }
+}
+</code></pre>
+
+<p>无论什么原因，只要串口重新绘图，事件处理器就会通告组件，引发所有组件执行paintComponent方法。</p>
+
+<p>一定不要自己调用paintComponent方法，这个方法会自动被调用。窗口大小变化的时候就触发重新绘制。强制重新刷新屏幕，就调用repaint方法。</p>
+
+<p>显示文本是特殊的绘图，graphics类当中有方法，制定绘制的内容和位置。g.drawString(text, x, y);</p>
+
+<p>组件本身的也需要告诉frame自己有多大，覆盖getPreferredSize方法来返回一个Dimension对象。</p>
+
+<p>在Frame里面填入一个或者多个组件的时候，如果只想使用首选大小，可以调用pack方法，而不是setSize方法。</p>
+
+<pre><code class="language-Java">class NotHelloWorldFrame extends JFrame{
+  public NotHelloWorldFrame(){
+    add(new NotHelloWorldComponent());
+    pack();
+  }
+}
+
+class NotHelloWorldComponent extends JComponent{
+  public static final int MESSAGE_X = 75;
+  public static final int MESSAGE_Y = 100;
+
+  private static final int DEFAULT_WIDTH = 300;
+  private static final int DEFAULT_HEIGHT = 200;
+
+  public void paintComponent(Graphics g){
+    g.drawString("Not a Hello, World program", MESSAGE_X, MESSAGE_Y);
+  }
+
+  public Dimension getPreferredSize(){
+    return new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+  }
+}
+</code></pre>
+
+<h3 id="d">处理2D图形</h3>
+
+<p>Java 2D库，图形操作。要使用2D库就要一个Graphics2D类的对象，这个2D类是Graphics的子类。paintComponent方法会自动获得这个对象，只是需要进行转换。</p>
+
+<pre><code class="language-Java">public void paintComponent(Graphics g){
+  Graphics2D g2 = (Graphics2D) g;
+}
+</code></pre>
+
+<p>Java 2D库采用面向对象的方式将几何图形组织起来，包含描述直线，矩形和椭圆的类。
+Line2D，Rectangle2D，Ellipse2D。这些类都实现了Shape接口。</p>
+
+<p>绘制图形，首先创建一个实现了Shape接口的对象，之后调用Graphics2D类中的draw方法。</p>
+
+<pre><code class="language-Java">Rectangle2D rect = ...;
+g2.draw(rect);
+</code></pre>
+
+<p>主要是画一个几何图形的样子</p>
+
+<pre><code class="language-Java">package draw;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+
+public class DrawTest {
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				JFrame frame = new DrawFrame();
+				frame.setTitle("DrawTest");
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.setVisible(true);
+			}
+		});
+	}
+}
+
+---------------------
+
+package draw;
+
+import javax.swing.JFrame;
+
+public class DrawFrame extends JFrame {
+
+	public DrawFrame() {
+		add(new DrawComponent());
+		pack();
+	}
+}
+
+----------------------
+
+package draw;
+
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Rectangle2D;
+
+import javax.swing.JComponent;
+
+public class DrawComponent extends JComponent {
+	private static final int DEFAULT_WIDTH = 400;
+	private static final int DEFAULT_HEIGHT = 400;
+
+	public void paintComponent(Graphics g) {
+		Graphics2D graphics2d = (Graphics2D) g;
+
+		double leftX = 100;
+		double topY = 100;
+		double width = 200;
+		double height = 150;
+
+		Rectangle2D rectangle2d = new Rectangle2D.Double(leftX, topY, width, height);
+		graphics2d.draw(rectangle2d);
+	}
+
+	public Dimension getPreferredSize() {
+		return new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+	}
+}
+
+</code></pre>
+
+<h3 id="section-4">使用颜色</h3>
+
+<h3 id="section-5">文本使用特殊字体</h3>
+
+<h3 id="section-6">显示图像</h3>
+
+<p>undone</p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://allenchyou.github.io/2016/10/13/springmybatisspringmvcdemo/">Spring MyBatis SpringMVC 框架基本整合
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2016/04/09/core-java-note-ch-6/">Core Java读书笔记-Chapter 6 接口与内部类</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2016/04/10/core-java-note-ch-8/">Core Java读书笔记-Chapter 8 事件处理</a></p>
+        
+    </div>
+</div>
+
+<!--
+        <h2 id="comments">Comments</h2>
+        
+
+
+
+-->
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                 <ul id="content-side" class="content-ul">
+                    <!--<li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>-->
+                </ul> 
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             ！ 
+        </p>
+        <p class="contact">
+            Contact me at: 
+            <a href="https://github.com/AllenChyou" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>         
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>

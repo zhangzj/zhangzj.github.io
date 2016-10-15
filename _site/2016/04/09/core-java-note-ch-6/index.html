@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Core Java读书笔记-Chapter 6 接口与内部类</title>
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="/css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://allenchyou.github.io/2016/04/09/core-java-note-ch-6/">
+    <link rel="alternate" type="application/rss+xml" title="ZZJ" href="http://allenchyou.github.io/feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">ZZJ</a>
+        <small>Build Newbie</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>Core Java读书笔记-Chapter 6 接口与内部类</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2016-04-09
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Java" title="Category: Java" rel="category">Java</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#Java" title="Tag: Java" rel="tag">Java</a-->
+        <a href="/tag/#Java" title="Tag: Java" rel="tag">Java</a>&nbsp;
+    
+        <!--a href="/tag/#Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF" title="Tag: Java核心技术" rel="tag">Java核心技术</a-->
+        <a href="/tag/#Java核心技术" title="Tag: Java核心技术" rel="tag">Java核心技术</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">接口</a>    <ul>
+      <li><a href="#section-1" id="markdown-toc-section-1">1. 接口的特性</a></li>
+      <li><a href="#section-2" id="markdown-toc-section-2">2. 接口与抽象类</a></li>
+    </ul>
+  </li>
+  <li><a href="#section-3" id="markdown-toc-section-3">对象克隆</a></li>
+  <li><a href="#section-4" id="markdown-toc-section-4">接口与回调</a></li>
+  <li><a href="#section-5" id="markdown-toc-section-5">内部类</a>    <ul>
+      <li><a href="#section-6" id="markdown-toc-section-6">1.使用内部类访问对象状态</a></li>
+      <li><a href="#section-7" id="markdown-toc-section-7">2.内部类的特殊语法规则</a></li>
+      <li><a href="#section-8" id="markdown-toc-section-8">3.内部类是否有用，必要和安全</a></li>
+      <li><a href="#section-9" id="markdown-toc-section-9">4.局部内部类</a></li>
+      <li><a href="#section-10" id="markdown-toc-section-10">6.匿名内部类</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>接口，interface，描述类有什么功能，但是不给出每一个功能的具体实现。</p>
+
+<p>接口与实现，对象克隆和深拷贝。</p>
+
+<p>内部类在GUI编程上的使用，让代码看起来更专业。</p>
+
+<h3 id="section">接口</h3>
+
+<p>接口不是类，而是对类的一组需求描述，遵从接口描述的统一格式进行定义。</p>
+
+<p>接口中所有方法自动属于public</p>
+
+<p>类实现接口的方法：</p>
+
+<ol>
+  <li>
+    <p>将类声明为实现给定的接口</p>
+  </li>
+  <li>
+    <p>对接口中的所有方法进行定义</p>
+  </li>
+</ol>
+
+<p>实现接口的时候，必须把方法声明为public，默认的是更小的访问权限。</p>
+
+<p>Arrays类中sort方法可以实现对象数组的排序，，但要求对象满足一些前提，对象所属的类必须实现comparable接口。</p>
+
+<pre><code class="language-Java">public interface Comparable&lt;T&gt; {
+  int compareTo(T other);
+}
+</code></pre>
+
+<h4 id="section-1">1. 接口的特性</h4>
+
+<p>接口不能实例化，但是可以声明接口的对象变量。</p>
+
+<pre><code class="language-Java">Comparable x;
+</code></pre>
+
+<p>接口也支持建立继承关系，虽然不支持包含实例域和静态方法，但是可以定义常量。</p>
+
+<pre><code class="language-Java">public interface Powered extends Moveable {
+  double milesPerGallon();
+  double SPEED_LIMIT = 95;
+}
+</code></pre>
+
+<p>接口中的域自动设定为public static final。</p>
+
+<p>也可以实现多个接口</p>
+
+<pre><code class="language-Java">class Employee implements Cloneable, Comparable{}
+</code></pre>
+
+<h4 id="section-2">2. 接口与抽象类</h4>
+
+<p>每个类只能扩展一个类，抽象类被继承之后，一个类就不能再扩展了；但是接口却可以实现多个。</p>
+
+<h3 id="section-3">对象克隆</h3>
+
+<p>拷贝变量的时候，原始变量和拷贝变量使用同一个对象。</p>
+
+<p>浅拷贝，基本类型的拷贝是会最终有两份儿，但是对象内的子对象就还是一个对象，两个引用的状态。</p>
+
+<p>Object的默认clone方法实现就是浅拷贝。</p>
+
+<p>简单来说，不要使用默认的clone</p>
+
+<ol>
+  <li>
+    <p>实现Cloneable接口</p>
+  </li>
+  <li>
+    <p>使用public重新修饰clone方法</p>
+  </li>
+</ol>
+
+<p>要实现深拷贝，必须克隆所有可变实例域</p>
+
+<pre><code class="language-Java">class Employee implements Cloneable {
+  ...
+  public Employee clone() throws CloneNotSupportedException {
+    Employee cloned = (Employee) super.clone();
+
+    cloned.hireDay = (Date) hireDay.clone();
+
+    return cloned;
+  }
+}
+</code></pre>
+
+<h3 id="section-4">接口与回调</h3>
+
+<p>设计模式，callback，回调。在这种模式中可以指定处某个特定时间发生时应该采取的操作</p>
+
+<p>定时执行一些代码，传进来的对象必须实现一个借口，确保可以适配。</p>
+
+<p>在java.awt.event包的ActionListener接口</p>
+
+<pre><code class="language-Java">public interface ActionListener {
+  void actionPerformed(ActionEvent event);
+}
+</code></pre>
+
+<p>而后定义一个类实现相关接口</p>
+
+<pre><code class="language-Java">class TimePrinter implements ActionListener {
+  public void actionPerformed(ActionEvent event) {
+    Date now = new Date();
+    System.out.println("At the tone, the time is " + now);
+    Toolkit.getDefaultToolKit().beep();
+  }
+}
+</code></pre>
+
+<h3 id="section-5">内部类</h3>
+
+<p>内部类是定义在一个当中的类。原因三点</p>
+
+<ol>
+  <li>
+    <p>内部类的方法可以访问作用域里面的数据，包括私有数据</p>
+  </li>
+  <li>
+    <p>内部类可以对一个包里的类隐藏起来</p>
+  </li>
+  <li>
+    <p>写一个回调函数但是不想走很多代码的时候，可以用匿名内部类</p>
+  </li>
+</ol>
+
+<h4 id="section-6">1.使用内部类访问对象状态</h4>
+
+<p>给出一个简单的内部类，将访问外围类的实例域</p>
+
+<p>内部类有一个外部类的隐式引用，可以直接引用外部环境的数据</p>
+
+<p>内部类是private的，其他的类没有权限访问</p>
+
+<h4 id="section-7">2.内部类的特殊语法规则</h4>
+
+<p>给出内部类的特殊语法规则</p>
+
+<p>使用外围类引用的正规语法</p>
+
+<pre><code class="language-Java">OuterClass.this
+
+public void actionPerformed(ActionEvent event){
+  ...
+  if(TalkingClock.this.beep) ToolKit.getDefaultToolKit().beep();
+}
+</code></pre>
+
+<p>一般来讲，使用外围类的时候新建内部类的语法</p>
+
+<pre><code class="language-Java">outerObject.new InnerClass(construction parameters)
+
+ActionListener listener = this.new TimePrinter();
+</code></pre>
+
+<p>当使用外围类，需要新建内部类的语法</p>
+
+<pre><code class="language-Java">TalkingClock jabberer = new TalkingClock(1000, true);
+TalkingClock.TimePrinter listener = jabberer.new TimePrinter();
+</code></pre>
+
+<h4 id="section-8">3.内部类是否有用，必要和安全</h4>
+
+<p>领略内部类的内部，探讨如何转成常规类。</p>
+
+<p>内部类是一种编译器现象，与虚拟机无关。</p>
+
+<p>Java1.1的时候，加入了内部类特性，当时似乎并没有什么必要，并且破坏了访问控制和安全性。</p>
+
+<h4 id="section-9">4.局部内部类</h4>
+<p>局部内部类，可以访问作用域中的局部变量
+#### 5.由外部方法访问final变量</p>
+
+<h4 id="section-10">6.匿名内部类</h4>
+<p>匿名内部类，用于实现回调的基本方法
+#### 7.静态内部类
+如何将静态内部类嵌套在辅助类当中
+### 代理</p>
+
+<p>undone</p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://allenchyou.github.io/2016/10/13/springmybatisspringmvcdemo/">Spring MyBatis SpringMVC 框架基本整合
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2016/04/07/core-java-note-ch-5/">Core Java读书笔记-Chapter 5 继承</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2016/04/10/core-java-note-ch-7/">Core Java读书笔记-Chapter 7 图形程序设计</a></p>
+        
+    </div>
+</div>
+
+<!--
+        <h2 id="comments">Comments</h2>
+        
+
+
+
+-->
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                 <ul id="content-side" class="content-ul">
+                    <!--<li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>-->
+                </ul> 
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             ！ 
+        </p>
+        <p class="contact">
+            Contact me at: 
+            <a href="https://github.com/AllenChyou" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>         
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>

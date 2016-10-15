@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Core Java读书笔记-Chapter 4 对象与类</title>
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="/css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://allenchyou.github.io/2016/04/04/core-java-note-ch-4/">
+    <link rel="alternate" type="application/rss+xml" title="ZZJ" href="http://allenchyou.github.io/feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">ZZJ</a>
+        <small>Build Newbie</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>Core Java读书笔记-Chapter 4 对象与类</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2016-04-04
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Java" title="Category: Java" rel="category">Java</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#Java" title="Tag: Java" rel="tag">Java</a-->
+        <a href="/tag/#Java" title="Tag: Java" rel="tag">Java</a>&nbsp;
+    
+        <!--a href="/tag/#Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF" title="Tag: Java核心技术" rel="tag">Java核心技术</a-->
+        <a href="/tag/#Java核心技术" title="Tag: Java核心技术" rel="tag">Java核心技术</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">面向对象设计概述</a>    <ul>
+      <li><a href="#section-1" id="markdown-toc-section-1">1.类</a></li>
+      <li><a href="#section-2" id="markdown-toc-section-2">2.对象</a></li>
+      <li><a href="#section-3" id="markdown-toc-section-3">3.定义类</a></li>
+      <li><a href="#section-4" id="markdown-toc-section-4">4.类之间的关系</a></li>
+    </ul>
+  </li>
+  <li><a href="#section-5" id="markdown-toc-section-5">使用预定义类</a>    <ul>
+      <li><a href="#section-6" id="markdown-toc-section-6">1.对象与对象变量</a></li>
+      <li><a href="#gregoriancalendar" id="markdown-toc-gregoriancalendar">2.GregorianCalendar</a></li>
+      <li><a href="#settergetter" id="markdown-toc-settergetter">3.Setter和Getter</a>        <ul>
+          <li><a href="#datecalendar" id="markdown-toc-datecalendar">Date与Calendar之间的转换</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#section-7" id="markdown-toc-section-7">用户自定义类</a>    <ul>
+      <li><a href="#employee" id="markdown-toc-employee">1.Employee类</a></li>
+      <li><a href="#section-8" id="markdown-toc-section-8">2.多个源文件的使用</a></li>
+      <li><a href="#employee-1" id="markdown-toc-employee-1">3.剖析Employee类</a></li>
+      <li><a href="#section-9" id="markdown-toc-section-9">4.构造器</a></li>
+      <li><a href="#section-10" id="markdown-toc-section-10">5.隐式参数与显式参数</a></li>
+      <li><a href="#section-11" id="markdown-toc-section-11">6.封装的优点</a></li>
+      <li><a href="#section-12" id="markdown-toc-section-12">7.基于类的访问权限</a></li>
+      <li><a href="#section-13" id="markdown-toc-section-13">8.私有方法</a></li>
+      <li><a href="#final" id="markdown-toc-final">9.final实例域</a></li>
+    </ul>
+  </li>
+  <li><a href="#section-14" id="markdown-toc-section-14">静态域与静态方法</a>    <ul>
+      <li><a href="#section-15" id="markdown-toc-section-15">1.静态域</a></li>
+      <li><a href="#section-16" id="markdown-toc-section-16">2.静态常量</a></li>
+      <li><a href="#section-17" id="markdown-toc-section-17">3.静态方法</a></li>
+      <li><a href="#section-18" id="markdown-toc-section-18">4.工厂方法</a></li>
+      <li><a href="#main" id="markdown-toc-main">5.main方法</a></li>
+    </ul>
+  </li>
+  <li><a href="#section-19" id="markdown-toc-section-19">方法参数</a></li>
+  <li><a href="#section-20" id="markdown-toc-section-20">对象构造</a>    <ul>
+      <li><a href="#section-21" id="markdown-toc-section-21">1.重载</a></li>
+      <li><a href="#section-22" id="markdown-toc-section-22">2.域初始化默认值</a></li>
+      <li><a href="#section-23" id="markdown-toc-section-23">3.无参数的构造器</a></li>
+      <li><a href="#section-24" id="markdown-toc-section-24">4.显示域初始化</a></li>
+      <li><a href="#section-25" id="markdown-toc-section-25">5.参数名</a></li>
+      <li><a href="#section-26" id="markdown-toc-section-26">6.调用另一个构造器</a></li>
+      <li><a href="#section-27" id="markdown-toc-section-27">7.初始化块</a></li>
+      <li><a href="#finalize" id="markdown-toc-finalize">8.对象析构与finalize方法</a></li>
+    </ul>
+  </li>
+  <li><a href="#section-28" id="markdown-toc-section-28">包</a>    <ul>
+      <li><a href="#section-29" id="markdown-toc-section-29">1.类的导入</a></li>
+      <li><a href="#section-30" id="markdown-toc-section-30">2.静态导入</a></li>
+      <li><a href="#section-31" id="markdown-toc-section-31">3.将类放入包中</a></li>
+      <li><a href="#section-32" id="markdown-toc-section-32">4.包作用域</a></li>
+    </ul>
+  </li>
+  <li><a href="#section-33" id="markdown-toc-section-33">类路径</a></li>
+  <li><a href="#section-34" id="markdown-toc-section-34">文档注释</a>    <ul>
+      <li><a href="#section-35" id="markdown-toc-section-35">1.注释的插入</a></li>
+      <li><a href="#section-36" id="markdown-toc-section-36">2.类注释</a></li>
+      <li><a href="#section-37" id="markdown-toc-section-37">3.方法注释</a></li>
+      <li><a href="#section-38" id="markdown-toc-section-38">4.域注释</a></li>
+      <li><a href="#section-39" id="markdown-toc-section-39">5.通用注释</a></li>
+      <li><a href="#section-40" id="markdown-toc-section-40">6.包与概述注释</a></li>
+    </ul>
+  </li>
+  <li><a href="#section-41" id="markdown-toc-section-41">类设计技巧</a></li>
+</ul>
+
+<p>面向对象程序设计和面向过程程序设计是两种不同的思维方式，而且有着很大的区别。</p>
+
+<h3 id="section">面向对象设计概述</h3>
+
+<p>面向对象编程，OOP是主流而程序设计泛型。Java是完全基于面向对象的，学习Java必须搞清楚面向对象的思路。</p>
+
+<p>面向对象的核心就是对象，对象概念上分成两个部分，一个是公开的外部可见的接口，一个是具体实现功能的内部实现。暴露接口隐藏实现。
+在OOP中，只需要关心对象提供的功能，不必关心对象内部的具体实现。</p>
+
+<p>面向过程的核心是过程，也就是处理数据的算法，首先想好怎么处理数据，然后再布局怎么处理存储数据。OOP的切入点是以数据位核心的。</p>
+
+<p>两种设计泛型之间的选择，一般是小规模的需求使用面向过程，大规模的程序使用面向对象。</p>
+
+<h4 id="section-1">1.类</h4>
+
+<p>类，Class，是构造对象的蓝图，表现怎么构造对象。每一个类对应一个或者几种功能。也可以创建自己的类来实现某些功能。</p>
+
+<p>封装的概念，就是把对象中的数据进行隐藏。对象中的数据也称为对象的实例域，使用对象的方法访问操作对象中的数据。封装的重点在绝对不能让对象之间可以直接访问数据。对象之间的交互智能通过接口方法实现。这样可以保证输入输出不变，隐藏内部实现。</p>
+
+<p>继承的概念就是说使用现有的类作为模板，生成一个新的类，让新的类拥有被扩展的类的所有属性和方法。</p>
+
+<h4 id="section-2">2.对象</h4>
+
+<p>对象的三个主要特性：行为，状态，标识。</p>
+
+<p>行为是可以对对象施加哪些操作，状态表示对象面对操作如何响应，标识解决的是标识状态和行为相同的对象问题。</p>
+
+<p>同一个类构造的对象，方法和状态都是相似的，甚至是相同的。具有相同的行为，行为也就定义了一个对象的一个方面。</p>
+
+<p>对象的状态也标识了对象本身，状态自身是可能发生变化的，但是不会自己无端端发生，必须是通过方法来改变，不能直接更改状态的数据，破坏了封装性。</p>
+
+<p>对象标识是唯一标识对象的方式。没有两个完全一模一样的对象。</p>
+
+<p>对象的状态也会影响对象的行为，某些状态类似行为的开关，标识行为可用不可用。</p>
+
+<h4 id="section-3">3.定义类</h4>
+
+<p>在程序设计过程中，面向过程是从main函数开始，一点一点推进。面向对象是从问题域的分析开始，都有哪些对象，进行思考设计。</p>
+
+<h4 id="section-4">4.类之间的关系</h4>
+
+<p>常见的关系有，依赖，组合，继承。</p>
+
+<p>依赖就是在一个类中使用了另一个类，使用对象的方法操作了对象。 use-a</p>
+
+<p>组合，has-a的关系，一个对象的状态中包含了另外的对象，就是组合。</p>
+
+<p>对于类之间的关系，工程上一般使用UML图，统一建模语言，来展示，需要补足。</p>
+
+<p>继承，is-a表示一种特殊与一般的关系。</p>
+
+<h3 id="section-5">使用预定义类</h3>
+
+<p>并不是所有类都需要封装数据，Math类就只是封装了一套方法，也就是算法，但是并没有数据，因为Math自身并没有数据。</p>
+
+<h4 id="section-6">1.对象与对象变量</h4>
+
+<pre><code class="language-Java">Date date = new Date();
+</code></pre>
+
+<p>Date就是类的名字，而date是Date类型对象的一个引用，Date()是类的构造方法，new操作符调用构造方法新建了一一个对象。返回的对象引用赋值给date。</p>
+
+<h4 id="gregoriancalendar">2.GregorianCalendar</h4>
+
+<p>Date当中是有一个表示具体时间点的状态，UTC时间，也就是1970年1月1日。这个是具有实践意义的。</p>
+
+<p>具体的日历类使用Calendar。GregorianCalendar扩展了Calendar。</p>
+
+<p>具体的构造器可以构造很多日历对象</p>
+
+<pre><code class="language-Java">new GregorianCalendar()
+</code></pre>
+<p>表示对象构造时候的时间。</p>
+
+<pre><code class="language-Java">new GregorianCalendar(1999, 11, 31);
+new GregorianCalendar(1999, Calendar.DECEMBER, 31);
+new GregorianCalendar(1999, Calendar.DECEMBER, 31, 23, 59, 59);
+</code></pre>
+
+<p>类的够功能千奇百怪，有些新的设计覆盖了原来的设计，进行改进。</p>
+
+<h4 id="settergetter">3.Setter和Getter</h4>
+
+<p>封装的数据需要方法来进行访问。用get来获取，set来设定。</p>
+
+<p>在Calendar类方式可以借助里面定义的常量进行get</p>
+
+<pre><code class="language-Java">GregorianCalendar now = new GregorianCalendar();
+int month = now.get(Calendar.MONTH);
+int weekday = now.get(Calendar.DAY_OF_WEEK);
+</code></pre>
+
+<p>用set方法设定Calendar对象的状态</p>
+
+<pre><code class="language-Java">deadline.set(Calendar.YEAR, 2001);
+deadline.set(Calendar.MONTH, Calendar.APRIL);
+deadline.set(Calendar.DAY_OF_MONTH, 15);
+</code></pre>
+
+<p>还可以为日历对象增加天数，星期，等等。如果传递的值是负数，那么就会往前。
+<code class="highlighter-rouge">Java
+deadline.add(Calendar.MONTH, 3);
+</code></p>
+
+<h5 id="datecalendar">Date与Calendar之间的转换</h5>
+
+<pre><code class="language-Java">GregorianCalendar calendar = new GregorianCalendar(yaer, month, day);
+Date hireday = calnedar.getTime();
+
+Date time = calendar.getTime();
+calendar.setTime(time);
+</code></pre>
+
+<h3 id="section-7">用户自定义类</h3>
+
+<p>workhorse Class，主力类，没有main方法，但是有自己的实例域和实例方法的类。一个完整的程序是相关的类集合加上一个main方法。</p>
+
+<h4 id="employee">1.Employee类</h4>
+
+<p>Java中最简单的类是由几个属性和方法组成的</p>
+
+<pre><code class="language-Java">class ClassName{
+  field1
+  field2
+  ...
+  constructor1
+  constructor2
+  ...
+  method1
+  method2
+  ...
+}
+</code></pre>
+
+<p>薪金管理系统，Java实现问题域中一个模型，雇员Employee类</p>
+
+<pre><code class="language-Java">class Employee{
+  // 实例变量域
+  private Stirng name;
+  private double salary;
+  private Date hireDay;
+
+  // 构造器
+  public Employee(String n, double s, int year, int month, int day){
+    name = n;
+    salary = s;
+    GregorianCalendar calendar = new GregorianCalendar(year, month-1, day);
+    hireDay = calendar.getTime();
+  }
+
+  // 方法
+  public String getName(){
+    return name;
+  }
+  // 还有很多方法
+}
+</code></pre>
+
+<h4 id="section-8">2.多个源文件的使用</h4>
+
+<p>一个类放在一个单独的源文件中，文件名和类名一致。</p>
+
+<h4 id="employee-1">3.剖析Employee类</h4>
+
+<p>方法都是用的public开头，这是一种访问级别，表示任何类的任何方法都可以调用这个方法。</p>
+
+<p>实例域的开头都是private，表示只有类中自己的方法可以读写这些实例变量，其他类不能看到。</p>
+
+<h4 id="section-9">4.构造器</h4>
+
+<pre><code class="language-Java">// 构造器
+public Employee(String n, double s, int year, int month, int day){
+  name = n;
+  salary = s;
+  GregorianCalendar calendar = new GregorianCalendar(year, month-1, day);
+  hireDay = calendar.getTime();
+}
+</code></pre>
+
+<p>不可不知的关于构造器的几个要点</p>
+
+<p>构造器与类名同名；</p>
+
+<p>每个类可以有一个以上的构造器；</p>
+
+<p>构造器可以有0个或者1个以上的参数；</p>
+
+<p>构造器没有返回值；</p>
+
+<p>构造器总是伴随着new操作符一起调用；</p>
+
+<h4 id="section-10">5.隐式参数与显式参数</h4>
+
+<p>对于Employee类型的对象number007</p>
+
+<pre><code class="language-Java">number007.raiseSalary(5);
+</code></pre>
+
+<p>隐式参数就是方法名前面的对象名，显式参数就是方法声明中后面的穿进去的参数。</p>
+
+<p>在每一个方法中，关键字this表示隐式参数。</p>
+
+<pre><code class="language-Java">public raiseSalary(int byPercent){
+  double raise = this.salary * byPercent/100;
+  this.salary += raise;
+}
+</code></pre>
+
+<h4 id="section-11">6.封装的优点</h4>
+
+<p>外面的对象不能直接访问内部的实例域，可以确保数据的安全，setter和getter方法可以对访问过程进一步处理。</p>
+
+<p>返回值是引用，引用的对象又是可变对象的方法是十分危险的，调用者获取对象应用之后可以直接更改对象内部的私有状态。</p>
+
+<p>比如Employee的getter方法，getHireDay，返回的Date对象是可变的，那就直接可以操作引用的对象。</p>
+
+<pre><code class="language-Java">public Date getHireDay(){
+  return hireDay;
+}
+</code></pre>
+
+<p>这样子假设使用d来做接受的对象应用，那个d和hireDay就指向了同一个对象。</p>
+
+<p>这个getter应该返回的是内部实例域对象的拷贝部分</p>
+
+<pre><code class="language-Java">public Date getHireDay(){
+  return hireDay.clone();
+}
+</code></pre>
+
+<h4 id="section-12">7.基于类的访问权限</h4>
+
+<p>一个方法可以访问所属类的所有对象的私有数据。</p>
+
+<pre><code class="language-Java">public boolean equals(Employee other){
+  return name.equals(other.name);
+}
+</code></pre>
+
+<p>这个equals方法不仅访问了自己的对象的私有数据，还访问了other对象的私有数据，也就是说Employee的对象可以访问所有Employee对象的私有数据。</p>
+
+<h4 id="section-13">8.私有方法</h4>
+
+<p>有些方法作为公有方法的辅助方法，不需要暴露出来，那就可以设为private的方法。</p>
+
+<h4 id="final">9.final实例域</h4>
+
+<p>实例域加上final，构建对象的时候必须初始化这个域。初始化之后就不能再更改这个域的值。</p>
+
+<pre><code class="language-Java">private final String name;
+</code></pre>
+
+<p>final修饰符基本上都是修饰基本类型或者不可变的对象。因为final确定的不可改变不是内容上，而是引用的值不能变。可变对象的final就是仍然可以调用对象方法来改变状态的。</p>
+
+<h3 id="section-14">静态域与静态方法</h3>
+
+<p>抬眼观瞧，main前面有static修饰符。</p>
+
+<h4 id="section-15">1.静态域</h4>
+
+<p>静态域也叫类域，表示一个类只有这么一个域。</p>
+
+<pre><code class="language-Java">private static int nextID = 1;
+</code></pre>
+
+<h4 id="section-16">2.静态常量</h4>
+
+<p>既是不可变的对象，又是一个类域。</p>
+
+<pre><code class="language-Java">public static final double PI = 3.14159326;
+</code></pre>
+
+<p>因为静态常量是不可变的对象，所以设置成public也没有关系。</p>
+
+<h4 id="section-17">3.静态方法</h4>
+
+<pre><code class="language-Java">Math.pow(x, a);
+</code></pre>
+
+<p>没有隐式参数，也就是没有this关键字，不能操作对象，所以不能再静态方法里访问实例域，但是可以访问自己的静态域。</p>
+
+<p>虽然可以使用对象调用静态方法，但是不建议这么做，因为计算机国和对象一点关系都没有。</p>
+
+<h4 id="section-18">4.工厂方法</h4>
+
+<p>类的静态方法，可以调用生成不同风格不同格式的对象。</p>
+
+<pre><code class="language-Java">NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
+NumberFormat percentFormatter = NumberFormat.getPercentInstance();
+double x = 0.1;
+System.out.println(currencyFormatter.format(x));// prints $0.10
+System.out.println(percentFormatter.format(x)); //prints 10%
+</code></pre>
+
+<h4 id="main">5.main方法</h4>
+
+<p>可以在类当中新建main方法，只要执行这个对象相当于执行单元测试。</p>
+
+<h3 id="section-19">方法参数</h3>
+
+<p>按值调用，表示方法接受的是调用者提供的值。得到的是参数的拷贝。</p>
+
+<p>按引用调用， 表示接受的是调用者提供的变量地址。得到的是对象引用的拷贝。通过引用可以改变对象内部的状态。</p>
+
+<p>所以对象引用的传递实际上是值传递，把对象的地址拷贝传到里面。</p>
+
+<h3 id="section-20">对象构造</h3>
+
+<p>构造器是对定义的对象进行初始化，很重要，方式也很多。</p>
+
+<h4 id="section-21">1.重载</h4>
+
+<p>重载：有多个方法，方法的名字相同，但是方法的参数不同。</p>
+
+<p>重载解析：编译器挑选哪一个方法来执行，找到匹配的参数类型的方法来执行，找不到或者找到多个就会报错，这个过程叫重载解析。</p>
+
+<p>方法签名：方法的名字和参数列表。返回类型不是签名的一部分。</p>
+
+<h4 id="section-22">2.域初始化默认值</h4>
+
+<p>域变量没有在构造器里面被初始化，就会被默认值初始化，0，false，null。不同步局部变量，局部变量必须被初始化。</p>
+
+<h4 id="section-23">3.无参数的构造器</h4>
+
+<p>在类中没有任何构造器存在的时候，系统就会提供一个默认的构造器，把所有的域初始化成默认值。</p>
+
+<p>但是当类中有了构造器，系统就不再提供默认构造器。如果只写一个有参数的构造器，再调用无参构造器创建对象，就会报错。</p>
+
+<h4 id="section-24">4.显示域初始化</h4>
+
+<p>在执行构造器之前，先在定义域的时候初始化。</p>
+
+<pre><code class="language-Java">class Employee{
+  private String name = "";
+  ...
+}
+</code></pre>
+
+<h4 id="section-25">5.参数名</h4>
+
+<p>构造器的传参名字以及写法</p>
+
+<pre><code class="language-Java">public Employee(String name, double salary){
+  this.name = name;
+  this.salary = salary;
+}
+</code></pre>
+
+<h4 id="section-26">6.调用另一个构造器</h4>
+
+<p>关键字this引用方法的隐式参数，除此之外还有另一个用法。</p>
+
+<p>若是this(…)这样的形式，那就是调用类的构造器</p>
+
+<pre><code class="language-Java">public Employee(double salary){
+  this("Employee #" + nextID, salary);
+  nextID++;
+}
+</code></pre>
+
+<h4 id="section-27">7.初始化块</h4>
+
+<p>之前两种初始化数据域的方法：在构造器中设定值；在声明中赋值；</p>
+
+<p>还有一个是初始化代码块，一个类中可以包含多个代码块，只要创建对象，代码块就会被执行。</p>
+
+<pre><code class="language-Java">class Employee{
+  private static int nextID;
+
+  private int id;
+  private String name;
+  private double salary;
+
+  // 数据初始化代码块
+  {
+    id = nextID;
+    nextID++;
+  }
+  // 构造器...
+}
+</code></pre>
+
+<p>调用构造器的时候，具体会执行几个步骤</p>
+
+<p>第一步，所有数据域被初始化成默认值
+第二步，按照在类声明中出现的次序，依次执行所有域初始化，和初始化块；
+第三步，如果构造器调用了其他构造器，执行其他构造器
+第四步，执行构造器主体</p>
+
+<p>静态初始化块会进行静态域的初始化。</p>
+
+<pre><code class="language-Java">private static int nextID = 1;
+static
+{
+  Random generator = new Random();
+  nextID = generator.nextInt(10000);
+}
+</code></pre>
+
+<h4 id="finalize">8.对象析构与finalize方法</h4>
+
+<p>析构器，对象不再使用的时候执行的清理代码。一般来讲，Java有垃圾回收机制，分配的内存不需要自己手动回收。So…</p>
+
+<h3 id="section-28">包</h3>
+
+<p>包一般是嵌套层次结构的目录，建议使用反向域名那就不会冲突了。世界唯一。</p>
+
+<h4 id="section-29">1.类的导入</h4>
+
+<p>类可以使用所属的包中所有的类以及其他包中的pulic类。方位其他包中的类，一种是可以写完整的包名作为类名的前缀来使用，但是很明显太麻烦了。第二种就是导入，所要使用的类的包。</p>
+
+<pre><code class="language-Java">import java.util.*;
+</code></pre>
+
+<h4 id="section-30">2.静态导入</h4>
+
+<p>import可以导入静态方法和静态域，前面加上static修饰符。</p>
+
+<pre><code class="language-Java">import static java.lang.System.*;
+</code></pre>
+
+<h4 id="section-31">3.将类放入包中</h4>
+
+<p>使用package关键字就可以，如果文件的开头没有这一句，那就会放入一个default默认包当中。</p>
+
+<pre><code class="language-Java">package com.horstman.corejava;
+</code></pre>
+
+<h4 id="section-32">4.包作用域</h4>
+
+<p>如果访问修饰符都不指定，private，public都没有，那就是默认的作用域，同一个包里面的所有类都可以访问，保罗类，变量，方法。都是这样子。</p>
+
+<pre><code class="language-Java">public class Window extends Container{
+  String warningString;
+  ...
+}
+</code></pre>
+
+<h3 id="section-33">类路径</h3>
+
+<p>JAR文件就是一个压缩的层次目录文件，叫做类库文件。加载第三方类库的时候一般就是给出几个JAR文件。</p>
+
+<p>首先是对于class文件和类文件，如果包名是com.zzj.java，那么对应的文件就要放在com/zzj/java文件夹下。
+如果是Jar文件，就放在archives目录下。这两个都是基于工作目录基目录.而言的。</p>
+
+<p>之后就是设定类路径，类文件就是./路径来引用类，jar文件就需要写完整,./archives/jar.jar。</p>
+
+<p>最好是执行的时候自己制定classpath，比如使用java的-classpath参数来指定。</p>
+
+<h3 id="section-34">文档注释</h3>
+
+<p>javadoc生成的HTML文档是和代码放在一起的，执行代码的javadoc就可以直接同步注释，保持一致性。</p>
+
+<h4 id="section-35">1.注释的插入</h4>
+
+<p>javadoc从几个地方抽取信息，也就是需要加文档注释的几个方面。</p>
+
+<p>包；public类和接口；public和protected的构造器和方法；public和protected的域；</p>
+
+<p>注释放在要描述的特性前面，用斜杠两个星号开始，星号斜杠结束。</p>
+
+<p>之间的文本时自由格式的文本，可以使用@开头的标记。@author，@param。</p>
+
+<h4 id="section-36">2.类注释</h4>
+
+<p>类注释放在import语句之后，类定义前面：</p>
+
+<pre><code class="language-Java">/**
+ * A &lt;code&gt;Card&lt;/code&gt; object represents a playing card, such as...
+*/
+class Card{}
+</code></pre>
+
+<h4 id="section-37">3.方法注释</h4>
+
+<p>要放在方法定义的前面：可以使用一些方法注释用的标记</p>
+
+<p>@param 描述变量，多条必须放在一起</p>
+
+<p>@return 返回值描述</p>
+
+<p>@throw 类描述，表示方法可能会抛出的异常</p>
+
+<pre><code class="language-Java">/**
+Raise the salary of an employee;
+@param byPercent the percentage
+@return the amount of the Raise
+*/
+public double raiseSalary(double byPercent){}
+</code></pre>
+
+<h4 id="section-38">4.域注释</h4>
+
+<p>只对公有域建立文档。</p>
+
+<h4 id="section-39">5.通用注释</h4>
+
+<p>@author 作者姓名</p>
+
+<p>@version 当前版本的描述</p>
+
+<p>@since 引入版本的特性描述</p>
+
+<p>@deprecated 废弃信息</p>
+
+<p>@see 引用，加上超链接</p>
+
+<h4 id="section-40">6.包与概述注释</h4>
+
+<p>给包加上注释，需要加一个单独的文件</p>
+
+<p>第一个方案，加上一个package.html文件，在body之间的内容都会被提取</p>
+
+<p>第二个方案，加一个package-info.java文件，里面package之后加上文档注释，没有其他代码或者注释</p>
+
+<h3 id="section-41">类设计技巧</h3>
+
+<p>设计出来的类要具有oop的专业水准</p>
+
+<p>第一，一定保证数据私有，绝对不要破坏数据封装。</p>
+
+<p>第二，一定要对数据进行初始化，不要依赖默认值，自己进行初始化。</p>
+
+<p>第三，不要在类中使用过多的基本类型。</p>
+
+<p>第四，不是所有的域都要setter和getter。</p>
+
+<p>第五，一个类不要有过多的职责，适当进行分解。</p>
+
+<p>第六，类名和方法要体现自己的含义，自己解释自己的代码是好代码。</p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://allenchyou.github.io/2016/10/13/springmybatisspringmvcdemo/">Spring MyBatis SpringMVC 框架基本整合
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2016/04/07/core-java-note-ch-5/">Core Java读书笔记-Chapter 5 继承</a></p>
+        
+    </div>
+</div>
+
+<!--
+        <h2 id="comments">Comments</h2>
+        
+
+
+
+-->
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                 <ul id="content-side" class="content-ul">
+                    <!--<li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>-->
+                </ul> 
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             ！ 
+        </p>
+        <p class="contact">
+            Contact me at: 
+            <a href="https://github.com/AllenChyou" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>         
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Git实用指南</title>
+    <meta name="description" content="git基本使用的memo和注意点">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="/css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://allenchyou.github.io/2016/10/12/gitInAction/">
+    <link rel="alternate" type="application/rss+xml" title="ZZJ" href="http://allenchyou.github.io/feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">ZZJ</a>
+        <small>Build Newbie</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>Git实用指南</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2016-10-12
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#git" title="Category: git" rel="category">git</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#git" title="Tag: git" rel="tag">git</a-->
+        <a href="/tag/#git" title="Tag: git" rel="tag">git</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">基本问题</a></li>
+  <li><a href="#git" id="markdown-toc-git">Git的基本使用</a>    <ul>
+      <li><a href="#git-config" id="markdown-toc-git-config">基本配置 : git config</a></li>
+      <li><a href="#git-init" id="markdown-toc-git-init">创建初始化版本库 : git init</a></li>
+      <li><a href="#git-diff" id="markdown-toc-git-diff">查看区别 ：git diff</a></li>
+      <li><a href="#git-reset" id="markdown-toc-git-reset">重置 ：git reset</a></li>
+      <li><a href="#git-checkout" id="markdown-toc-git-checkout">检出 ：git checkout</a></li>
+      <li><a href="#git-tag" id="markdown-toc-git-tag">里程碑 ：git tag</a></li>
+      <li><a href="#branch" id="markdown-toc-branch">创建分支branch</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>git基本使用的memo和注意点</p>
+
+<h3 id="section">基本问题</h3>
+
+<ul>
+  <li>如何使用git？如何优雅地使用git？</li>
+</ul>
+
+<h3 id="git">Git的基本使用</h3>
+
+<h4 id="git-config">基本配置 : git config</h4>
+
+<ul>
+  <li>配置用户名和基本信息</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git config --global user.name "name"
+git config --global user.email email@email.com
+</code></pre>
+</div>
+
+<ul>
+  <li>
+    <p>配置命令别名</p>
+
+    <p>可以使用 git st 来指代 git status</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git config --global alias.st status
+git config --global alias.ci commit
+git config --global alias.co checkout 
+git config --global alias.br branch
+</code></pre>
+</div>
+
+<ul>
+  <li>删除对应的key配置</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git config --unset --global KEY
+
+git config --unset --global alias.st
+</code></pre>
+</div>
+
+<h4 id="git-init">创建初始化版本库 : git init</h4>
+
+<ul>
+  <li>创建git仓库，可以直接创建初始化，会自动建好文件夹</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git init gitdemo
+</code></pre>
+</div>
+
+<h4 id="git-diff">查看区别 ：git diff</h4>
+
+<ul>
+  <li>
+    <p>git diff</p>
+
+    <p>比较的是修改后的文件和版本库中的文件区别</p>
+
+    <p>其实没有参数的时候，比较的是工作区和暂存区中为文件的区别</p>
+  </li>
+  <li>
+    <p>git diff HEAD</p>
+
+    <p>这个命令比较的是工作区和版本库中为文件区别</p>
+  </li>
+</ul>
+
+<h4 id="git-reset">重置 ：git reset</h4>
+
+<ul>
+  <li>
+    <p>git reset –hard HEAD^</p>
+
+    <p>将工作区重置到最近一次提交</p>
+  </li>
+  <li>
+    <p>重置到某一次提交</p>
+
+    <p>git reset –hard 89e67f</p>
+  </li>
+</ul>
+
+<h4 id="git-checkout">检出 ：git checkout</h4>
+
+<ul>
+  <li>
+    <p>作用 ； 重写工作区</p>
+  </li>
+  <li>
+    <p>检出分支</p>
+
+    <p>git checkout branch : 检出到某一个分支</p>
+  </li>
+  <li>
+    <p>git checkout – flename</p>
+
+    <p>用暂存区中的文件覆盖工作区中的文件，就是取消所有没有add的修改</p>
+  </li>
+  <li>
+    <p>git checkout branch – filename</p>
+
+    <p>维持HEAD指向不变，使用branch指向的提交中的filename替换暂存区和工作区中的相应文件，直接覆盖</p>
+  </li>
+  <li>
+    <p>git checkout – . 或者 git checkout .</p>
+
+    <p>取消所有本地工作区中的修改</p>
+  </li>
+</ul>
+
+<h4 id="git-tag">里程碑 ：git tag</h4>
+
+<ul>
+  <li>
+    <p>git tag -m “Say bye-bye to all previous practice.” old_practice</p>
+
+    <p>与之前的数据合影留念，取一个合适的名字来记录提交，比如基础版本</p>
+  </li>
+  <li>
+    <p>显示最近的一个Tag</p>
+
+    <p>git describe</p>
+  </li>
+</ul>
+
+<h4 id="branch">创建分支branch</h4>
+
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://allenchyou.github.io/2016/10/12/gitIntroduction/">Git的基本概念和原理
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2016/10/11/springmybatisdemo/">Spring框架整合MyBatisDemo</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2016/10/12/gitIntroduction/">Git的基本概念和原理</a></p>
+        
+    </div>
+</div>
+
+<!--
+        <h2 id="comments">Comments</h2>
+        
+
+
+
+-->
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                 <ul id="content-side" class="content-ul">
+                    <!--<li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>-->
+                </ul> 
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             ！ 
+        </p>
+        <p class="contact">
+            Contact me at: 
+            <a href="https://github.com/AllenChyou" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>         
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>

@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Spring MyBatis SpringMVC 框架基本整合</title>
+    <meta name="description" content="Spring框架整合第三弹；使用SSM框架搭建最基本的web service">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="/css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://allenchyou.github.io/2016/10/13/springmybatisspringmvcdemo/">
+    <link rel="alternate" type="application/rss+xml" title="ZZJ" href="http://allenchyou.github.io/feed.xml ">
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">ZZJ</a>
+        <small>Build Newbie</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>Spring MyBatis SpringMVC 框架基本整合</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2016-10-13
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#spring" title="Category: spring" rel="category">spring</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#spring" title="Tag: spring" rel="tag">spring</a-->
+        <a href="/tag/#spring" title="Tag: spring" rel="tag">spring</a>&nbsp;
+    
+        <!--a href="/tag/#mybatis" title="Tag: mybatis" rel="tag">mybatis</a-->
+        <a href="/tag/#mybatis" title="Tag: mybatis" rel="tag">mybatis</a>&nbsp;
+    
+        <!--a href="/tag/#springmvc" title="Tag: springmvc" rel="tag">springmvc</a-->
+        <a href="/tag/#springmvc" title="Tag: springmvc" rel="tag">springmvc</a>&nbsp;
+    
+        <!--a href="/tag/#webservice" title="Tag: webservice" rel="tag">webservice</a-->
+        <a href="/tag/#webservice" title="Tag: webservice" rel="tag">webservice</a>&nbsp;
+    
+        <!--a href="/tag/#Java" title="Tag: Java" rel="tag">Java</a-->
+        <a href="/tag/#Java" title="Tag: Java" rel="tag">Java</a>&nbsp;
+    
+        <!--a href="/tag/#%E5%90%8E%E7%AB%AF" title="Tag: 后端" rel="tag">后端</a-->
+        <a href="/tag/#后端" title="Tag: 后端" rel="tag">后端</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">基本问题</a></li>
+  <li><a href="#section-1" id="markdown-toc-section-1">事前准备</a></li>
+  <li><a href="#section-2" id="markdown-toc-section-2">具体手顺</a>    <ul>
+      <li><a href="#section-3" id="markdown-toc-section-3">项目创建</a></li>
+      <li><a href="#section-4" id="markdown-toc-section-4">数据准备</a></li>
+      <li><a href="#dao" id="markdown-toc-dao">DAO代码生成</a></li>
+      <li><a href="#mybatis" id="markdown-toc-mybatis">编辑MyBatis配置文件</a></li>
+      <li><a href="#pomxml" id="markdown-toc-pomxml">添加pom.xml中的依赖</a></li>
+      <li><a href="#webxml" id="markdown-toc-webxml">配置web.xml文件</a></li>
+      <li><a href="#ssmdemo-dispatcher-servletxml" id="markdown-toc-ssmdemo-dispatcher-servletxml">编辑ssmdemo-dispatcher-servlet.xml文件</a></li>
+      <li><a href="#userservice" id="markdown-toc-userservice">构建UserService接口和实现</a></li>
+      <li><a href="#controller" id="markdown-toc-controller">构建Controller</a></li>
+    </ul>
+  </li>
+  <li><a href="#section-5" id="markdown-toc-section-5">小结</a></li>
+</ul>
+
+<p>Spring框架整合第三弹；
+使用SSM框架搭建最基本的web service</p>
+
+<h3 id="section">基本问题</h3>
+
+<ul>
+  <li>
+    <p>如何做一个最基本的 web service</p>
+  </li>
+  <li>
+    <p>SSM框架怎么整合使用？最小集合的基本使用？</p>
+  </li>
+</ul>
+
+<h3 id="section-1">事前准备</h3>
+
+<ul>
+  <li>本地的MySQL服务创建配置OK</li>
+</ul>
+
+<h3 id="section-2">具体手顺</h3>
+
+<h4 id="section-3">项目创建</h4>
+
+<ul>
+  <li>
+    <p>使用maven进行构建，创建新项目，使用模板webapp</p>
+  </li>
+  <li>
+    <p>项目Github地址：<a href="https://github.com/AllenChyou/ssmdemo">ssmdemo</a></p>
+  </li>
+</ul>
+
+<h4 id="section-4">数据准备</h4>
+
+<ul>
+  <li>
+    <p>创建数据库表结构</p>
+
+    <p>文件：src/main/resources/sql/schema.sql</p>
+  </li>
+</ul>
+
+<h4 id="dao">DAO代码生成</h4>
+
+<ul>
+  <li>
+    <p>使用mybatis-generator根据数据库生成代码</p>
+
+    <p>文件：src/main/resources/generatorConfig.xml</p>
+  </li>
+  <li>
+    <p>添加生成代码用的maven插件</p>
+  </li>
+  <li>
+    <p>生成之后的目录结构</p>
+  </li>
+</ul>
+
+<p><img src="http://ww4.sinaimg.cn/large/8d6a2535gw1f8qpzx3t9ij208u0e2wfw.jpg" alt="" /></p>
+
+<h4 id="mybatis">编辑MyBatis配置文件</h4>
+
+<ul>
+  <li>文件：src/main/resources/mybatis-config.xml</li>
+</ul>
+
+<h4 id="pomxml">添加pom.xml中的依赖</h4>
+
+<ul>
+  <li>
+    <p>文件：pom.xml</p>
+  </li>
+  <li>
+    <p>依赖包括mybatis相关和spring相关包</p>
+  </li>
+  <li>
+    <p>maven-jetty-plugin插件是项目运行的web容器</p>
+  </li>
+</ul>
+
+<h4 id="webxml">配置web.xml文件</h4>
+
+<ul>
+  <li>容器根据这个文件加载context文件</li>
+</ul>
+
+<h4 id="ssmdemo-dispatcher-servletxml">编辑ssmdemo-dispatcher-servlet.xml文件</h4>
+
+<ul>
+  <li>这个文件的名字是固定的，项目名称-dispatcher-servlet.xml</li>
+</ul>
+
+<h4 id="userservice">构建UserService接口和实现</h4>
+
+<ul>
+  <li>
+    <p>UserService接口</p>
+  </li>
+  <li>
+    <p>UserServiceImpl实现</p>
+  </li>
+</ul>
+
+<h4 id="controller">构建Controller</h4>
+
+<ul>
+  <li>UserController实现</li>
+</ul>
+
+<h3 id="section-5">小结</h3>
+
+<ul>
+  <li>
+    <p>最最基本的SSM搭建，只是跑通了，web service起来了</p>
+  </li>
+  <li>
+    <p>有待完善的点</p>
+
+    <ul>
+      <li>
+        <p>只有查询方法，CRUD的添加有待完成</p>
+      </li>
+      <li>
+        <p>数据交互没有JSON格式化，只是文本</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://allenchyou.github.io/2016/10/13/springmvcandjetty/">SpringMVC使用maven jetty插件运行
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2016/10/13/springmvcandjetty/">SpringMVC使用maven jetty插件运行</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2016/10/15/Ch-01-FunctionsAndData-A/">学习Lisp-第一章-函数和数据-A</a></p>
+        
+    </div>
+</div>
+
+<!--
+        <h2 id="comments">Comments</h2>
+        
+
+
+
+-->
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                 <ul id="content-side" class="content-ul">
+                    <!--<li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>-->
+                </ul> 
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             ！ 
+        </p>
+        <p class="contact">
+            Contact me at: 
+            <a href="https://github.com/AllenChyou" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>         
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>
