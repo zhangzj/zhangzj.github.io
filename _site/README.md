@@ -1,8 +1,1 @@
-
-Forked form HyG
-
-Thanks!
-
-### License
-
-MIT
+zhangzj Blog
