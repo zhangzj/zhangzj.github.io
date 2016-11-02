@@ -1,61 +1,3698 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>zhangzj</title>
+    <title>ZZJ</title>
     <description></description>
     <link>http://zhangzj.github.io/</link>
     <atom:link href="http://zhangzj.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 19 Oct 2016 22:52:57 +0800</pubDate>
-    <lastBuildDate>Wed, 19 Oct 2016 22:52:57 +0800</lastBuildDate>
-    <generator>Jekyll v3.1.2</generator>
+    <pubDate>Wed, 02 Nov 2016 22:35:36 +0800</pubDate>
+    <lastBuildDate>Wed, 02 Nov 2016 22:35:36 +0800</lastBuildDate>
+    <generator>Jekyll v3.3.0</generator>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>JavaScript权威指南 读书笔记-L</title>
+        <description>&lt;p&gt;全书的第二编：客户端JavaScript&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;第19章：jQuery类库&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;p&gt;第20章：客户端存储&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Tom&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;第21章：多媒体和图形编程&lt;/p&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;第22章：HTML5 API&lt;/p&gt;
 
+&lt;h3 id=&quot;jquery&quot;&gt;19 jQuery类库&lt;/h3&gt;
+
+&lt;p&gt;主要是由于浏览器之间严重的不兼容性，导致客户端的API复杂得很，js必须使用框架和类库，简化操作，隐藏差异，于是出现了jQuery&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;jQuery能做什么&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;在文档中轻松找到想要的元素并且操作，添加内容，编辑属性和css样式，定义事件处理程序，执行动画。&lt;/p&gt;
+
+&lt;p&gt;方法会尽可能返回对象本身，这样子链式调用就可以了&lt;/p&gt;
+
+&lt;h4 id=&quot;jquery-1&quot;&gt;19.1 jQuery基础&lt;/h4&gt;
+
+&lt;p&gt;全局方法jquery()，这个方法使用太频繁，有个别名就是美元符号$，这是核心查询方法&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var divs = $(&quot;div&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;jquery-2&quot;&gt;19.1.1 jQuery()函数&lt;/h5&gt;
+
+&lt;h5 id=&quot;section&quot;&gt;19.1.2 查询与查询结果&lt;/h5&gt;
+
+&lt;h4 id=&quot;jquerygettersetter&quot;&gt;19.2 jQuery的getter和setter&lt;/h4&gt;
+
+&lt;h5 id=&quot;html&quot;&gt;19.2.1 获取和设置HTML属性&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$(&quot;form&quot;).attr(&quot;action&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;css&quot;&gt;19.2.2 获取和设置CSS属性&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$(&quot;h1&quot;).css(&quot;font-weight&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;css-1&quot;&gt;19.2.3 获取和设置CSS类&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$(&quot;h1&quot;).addClass(&quot;h1lite&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;html-1&quot;&gt;19.2.4 获取和设置HTML表单值&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-1&quot;&gt;19.2.5 设置和获取元素内容&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-2&quot;&gt;19.2.6 获取和设置元素的位置高宽&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-3&quot;&gt;19.2.7 获取和设置元素数据&lt;/h5&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;19.3 修改文档结构&lt;/h4&gt;
+
+&lt;p&gt;html()和text()方法可以用来设置元素内容&lt;/p&gt;
+
+&lt;h5 id=&quot;section-5&quot;&gt;19.3.1 插入和替换元素&lt;/h5&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/8d6a2535gw1f9clitmg3aj20m8066gmt.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;section-6&quot;&gt;19.3.2 复制元素&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-7&quot;&gt;19.3.3 包装元素&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-8&quot;&gt;19.3.4 删除元素&lt;/h5&gt;
+
+&lt;h4 id=&quot;jquery-3&quot;&gt;19.4 使用jQuery处理事件&lt;/h4&gt;
+
+&lt;h5 id=&quot;section-9&quot;&gt;19.4.1 事件处理程序的简单注册&lt;/h5&gt;
+
+&lt;p&gt;简单的事件注册方法，可用于常用的每一一个浏览器事件，比如给单价注册一个事件处理程序&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$(&quot;p&quot;).click(function() { $(this).css(&quot;background-color&quot;, &quot;gray&quot;); });
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;下面是jQuery定义的简单事件处理程序注册的方法&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/8d6a2535gw1f9cln9u25pj20g503rgm6.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;jquery-4&quot;&gt;19.4.2 jQuery事件处理程序&lt;/h5&gt;
+
+&lt;h5 id=&quot;jquery-5&quot;&gt;19.4.3 jQuery事件对象&lt;/h5&gt;
+
+&lt;p&gt;通过定义自己的Event对象来隐藏浏览器之间的实现差异&lt;/p&gt;
+
+&lt;p&gt;对象的属性和方法&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/8d6a2535gw1f9clpe2yxlj20hj04hgm7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/large/8d6a2535gw1f9clq020fkj20hg01kdft.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/8d6a2535gw1f9clqbbgccj20g501xmxe.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;section-10&quot;&gt;19.4.4 事件处理程序的高级注册&lt;/h5&gt;
+
+&lt;p&gt;使用bind方法来为命名的事件类型绑定处理程序&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$('p').bind('click', f);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;section-11&quot;&gt;19.4.5 注销事件处理程序&lt;/h5&gt;
+
+&lt;p&gt;bind来绑定之后，可以使用unbind来解绑&lt;/p&gt;
+
+&lt;h5 id=&quot;section-12&quot;&gt;19.4.6 触发事件&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-13&quot;&gt;19.4.7 自定义事件&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-14&quot;&gt;19.4.8 实时事件&lt;/h5&gt;
+
+&lt;h4 id=&quot;section-15&quot;&gt;19.5 动画效果&lt;/h4&gt;
+
+&lt;h5 id=&quot;section-16&quot;&gt;19.5.1 简单动画&lt;/h5&gt;
+
+&lt;p&gt;fadeIn，fadeOut，fadeTo&lt;/p&gt;
+
+&lt;p&gt;show，hide，toggle&lt;/p&gt;
+
+&lt;p&gt;slideDown，slideUp，slideToggle&lt;/p&gt;
+
+&lt;h5 id=&quot;section-17&quot;&gt;19.5.2 自定义动画&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-18&quot;&gt;19.5.3 动画的取消，延迟和队列&lt;/h5&gt;
+
+&lt;h4 id=&quot;jqueryajax&quot;&gt;19.6 jQuery中的Ajax&lt;/h4&gt;
+
+&lt;h5 id=&quot;load&quot;&gt;19.6.1 load()方法&lt;/h5&gt;
+&lt;p&gt;load是jQuery中最简单的，传入一个url，异步加载url的内容，然后将内容插入元素中，替换原有内容&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+setInterval(function() { $('status').load(&quot;status_report.html&quot;); }, 60000);
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;ajax&quot;&gt;19.6.2 Ajax工具函数&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;jQuery.getScript() 异步加载js文件，执行完成后调用&lt;/li&gt;
+  &lt;li&gt;jQuery.getJson() 获取文本，然后特殊处理一下&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;jqueryajax-1&quot;&gt;19.6.3 jQuery.ajax()函数&lt;/h5&gt;
+
+&lt;p&gt;所有的ajax工具最后都会调用ajax函数，这是整个类库中最复杂的函数&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jQuery.ajax({
+  type: &quot;GET&quot;,
+  url: url,
+  data: null,
+  dataType: &quot;script&quot;,
+  success: callback
+  });
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;ajax-1&quot;&gt;19.6.4 Ajax事件&lt;/h5&gt;
+
+&lt;h4 id=&quot;section-19&quot;&gt;19.7 工具函数&lt;/h4&gt;
+
+&lt;p&gt;jQuery.browser 提供浏览器相关的信息&lt;/p&gt;
+
+&lt;p&gt;jQuery.contains()&lt;/p&gt;
+
+&lt;h4 id=&quot;jquery-6&quot;&gt;19.8 jQuery选择器和选取方法&lt;/h4&gt;
+
+&lt;h5 id=&quot;jquery-7&quot;&gt;19.8.1 jQuery选择器&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-20&quot;&gt;19.8.2 选取方法&lt;/h5&gt;
+
+&lt;h4 id=&quot;jquery-8&quot;&gt;19.9 jQuery的插件扩展&lt;/h4&gt;
+
+&lt;h4 id=&quot;jquery-ui&quot;&gt;19.10 jQuery UI类库&lt;/h4&gt;
+
+&lt;h3 id=&quot;section-21&quot;&gt;20 客户端存储&lt;/h3&gt;
+
+&lt;p&gt;存储形式：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Web存储，H5的API&lt;/li&gt;
+  &lt;li&gt;cookie&lt;/li&gt;
+  &lt;li&gt;IE user data&lt;/li&gt;
+  &lt;li&gt;离线Web应用&lt;/li&gt;
+  &lt;li&gt;Web数据库&lt;/li&gt;
+  &lt;li&gt;文件西戎&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;localstoragesessionstorage&quot;&gt;20.1 localStorage和sessionStorage&lt;/h4&gt;
+
+&lt;h5 id=&quot;section-22&quot;&gt;20.1.1 存储有效期和作用域&lt;/h5&gt;
+
+&lt;h5 id=&quot;api&quot;&gt;20.1.2 存储API&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-23&quot;&gt;20.1.3 存储事件&lt;/h5&gt;
+
+&lt;h4 id=&quot;cookie&quot;&gt;20.2 cookie&lt;/h4&gt;
+
+&lt;h5 id=&quot;cookie-1&quot;&gt;20.2.1 cookie属性：有效期和作用域&lt;/h5&gt;
+
+&lt;h5 id=&quot;cookie-2&quot;&gt;20.2.2 保存cookie&lt;/h5&gt;
+
+&lt;h5 id=&quot;cookie-3&quot;&gt;20.2.3 读取cookie&lt;/h5&gt;
+
+&lt;h5 id=&quot;cookie-4&quot;&gt;20.2.4 cookie的局限性&lt;/h5&gt;
+
+&lt;h5 id=&quot;cookie-5&quot;&gt;20.2.5 cookie相关的存储&lt;/h5&gt;
+
+&lt;h4 id=&quot;ie-userdata&quot;&gt;20.3 利用IE userData持久化数据&lt;/h4&gt;
+
+&lt;h4 id=&quot;web&quot;&gt;20.4 应用程序存储和离线Web应用&lt;/h4&gt;
+
+&lt;h5 id=&quot;section-24&quot;&gt;20.4.1 应用程序缓存清单&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-25&quot;&gt;20.4.2 缓存的更新&lt;/h5&gt;
+
+&lt;h5 id=&quot;web-1&quot;&gt;20.4.3 离线Web应用&lt;/h5&gt;
+
+&lt;h3 id=&quot;section-26&quot;&gt;21 多媒体和图形编程&lt;/h3&gt;
+
+&lt;p&gt;使用js来操作图片，控制音频和视频流以及画图&lt;/p&gt;
+
+&lt;h4 id=&quot;section-27&quot;&gt;21.1 脚本化图片&lt;/h4&gt;
+
+&lt;h4 id=&quot;section-28&quot;&gt;21.2 脚本化音频和视频&lt;/h4&gt;
+
+&lt;h5 id=&quot;section-29&quot;&gt;21.2.1 播放类型选择和加载&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-30&quot;&gt;21.2.2 控制媒体播放&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-31&quot;&gt;21.2.3 查询媒体状态&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-32&quot;&gt;21.2.4 媒体相关事件&lt;/h5&gt;
+
+&lt;h4 id=&quot;svg&quot;&gt;21.3 SVG：可伸缩的矢量图形&lt;/h4&gt;
+
+&lt;p&gt;SVG是用于描述图形的XML语法，不同于光栅图像格式，GIF，JPEG，PNG等，用像素来庙会矩阵，一个svg表示的画该图形的时候必要路径的一种精准，分辨率无关的描述&lt;/p&gt;
+
+&lt;h4 id=&quot;canvas&quot;&gt;21.4 canvas中的图形&lt;/h4&gt;
+
+&lt;h5 id=&quot;section-33&quot;&gt;21.4.1 绘制线段和填充多边形&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-34&quot;&gt;21.4.2 图形属性&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-35&quot;&gt;21.4.3 画布的尺寸和坐标&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-36&quot;&gt;21.4.4 坐标系变换&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-37&quot;&gt;21.4.5 绘制和填充曲线&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-38&quot;&gt;21.4.6 绘制矩形&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-39&quot;&gt;21.4.7 颜色，透明度，渐变以及图案&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-40&quot;&gt;21.4.8 线段绘制相关的属性&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-41&quot;&gt;21.4.9 画布上绘制文本&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-42&quot;&gt;21.4.10 裁剪&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-43&quot;&gt;21.4.11 阴影&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-44&quot;&gt;21.4.12 图片&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-45&quot;&gt;21.4.13 合成&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-46&quot;&gt;21.4.14 像素操作&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-47&quot;&gt;21.4.15 命中检测&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-48&quot;&gt;21.4.16 画布例子：迷你图&lt;/h5&gt;
+
+&lt;h3 id=&quot;html5-api&quot;&gt;22 HTML5 API&lt;/h3&gt;
+
+&lt;p&gt;H5不仅仅是最新的HTML标准，也是一整套目前的Web应用技术，&lt;/p&gt;
+
+&lt;h4 id=&quot;section-49&quot;&gt;22.1 地理位置&lt;/h4&gt;
+
+&lt;h4 id=&quot;section-50&quot;&gt;22.2 历史记录管理&lt;/h4&gt;
+
+&lt;h4 id=&quot;section-51&quot;&gt;22.3 跨域消息传递&lt;/h4&gt;
+
+&lt;h4 id=&quot;web-worker&quot;&gt;22.4 Web Worker&lt;/h4&gt;
+
+&lt;p&gt;客户端js的一个基本特性就是单线程，浏览器无法同事运行两个事件处理程序，客户端程序员不需要关心并行编程&lt;/p&gt;
+
+&lt;p&gt;worker是执行代码的并行现成，有自己的上下文&lt;/p&gt;
+
+&lt;h5 id=&quot;worker&quot;&gt;22.4.1 Worker对象&lt;/h5&gt;
+
+&lt;h5 id=&quot;worker-1&quot;&gt;22.4.2 Worker作用域&lt;/h5&gt;
+
+&lt;h5 id=&quot;web-worker-&quot;&gt;22.4.3 Web Worker 的例子&lt;/h5&gt;
+
+&lt;h4 id=&quot;arraybuffer&quot;&gt;22.5 类型化数组和ArrayBuffer&lt;/h4&gt;
+
+&lt;h4 id=&quot;blob&quot;&gt;22.6 Blob&lt;/h4&gt;
+
+&lt;p&gt;大数据块的不透明引用或者句柄，Binary Large Object&lt;/p&gt;
+
+&lt;h5 id=&quot;blob-1&quot;&gt;22.6.1 文件座位Blob&lt;/h5&gt;
+
+&lt;h5 id=&quot;blob-2&quot;&gt;22.6.2 下载Blob&lt;/h5&gt;
+
+&lt;h5 id=&quot;blob-3&quot;&gt;22.6.3 构造Blob&lt;/h5&gt;
+
+&lt;h5 id=&quot;blob-url&quot;&gt;22.6.4 Blob URL&lt;/h5&gt;
+
+&lt;h5 id=&quot;blob-4&quot;&gt;22.6.5 读取Blob&lt;/h5&gt;
+
+&lt;h4 id=&quot;api-1&quot;&gt;22.7 文件系统API&lt;/h4&gt;
+
+&lt;h4 id=&quot;section-52&quot;&gt;22.8 客户端数据库&lt;/h4&gt;
+
+&lt;h4 id=&quot;web-socket&quot;&gt;22.9 Web 套接字，Socket&lt;/h4&gt;
+
+&lt;p&gt;允许客户端脚本在客户端和支持WebSocket协议的服务器端创建双向的套接字类型的连接，而不是局限于HTTP这种相对比较特殊的网络协议&lt;/p&gt;
 </description>
-        <pubDate>Wed, 19 Oct 2016 15:48:05 +0800</pubDate>
-        <link>http://zhangzj.github.io/jekyll/update/2016/10/19/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http://zhangzj.github.io/jekyll/update/2016/10/19/welcome-to-jekyll.html</guid>
+        <pubDate>Tue, 01 Nov 2016 00:00:00 +0800</pubDate>
+        <link>http://zhangzj.github.io/javascript/2016/11/01/JavaScriptDefineBook-L.html</link>
+        <guid isPermaLink="true">http://zhangzj.github.io/javascript/2016/11/01/JavaScriptDefineBook-L.html</guid>
+        
+        <category>javascript</category>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>javascript</category>
         
       </item>
     
       <item>
-        <title>demo2</title>
-        <description>&lt;p&gt;Content&lt;/p&gt;
+        <title>JavaScript权威指南 读书笔记-K</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;17 事件处理&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;17.1 事件类型&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;17.1.1 传统事件类型&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#dom&quot; id=&quot;markdown-toc-dom&quot;&gt;17.1.2 DOM事件&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#html5&quot; id=&quot;markdown-toc-html5&quot;&gt;17.1.3 HTML5事件&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;17.1.4 触摸屏和移动设备事件&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;17.2 注册事件处理程序&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#javascript&quot; id=&quot;markdown-toc-javascript&quot;&gt;17.2.1 设置JavaScript对象属性为事件处理程序&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#html&quot; id=&quot;markdown-toc-html&quot;&gt;17.2.2 设置HTML标签属性为事件处理程序&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#addeventlistener&quot; id=&quot;markdown-toc-addeventlistener&quot;&gt;17.2.3 addEventListener()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#attachevent&quot; id=&quot;markdown-toc-attachevent&quot;&gt;17.2.4 attachEvent&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;17.3 事件处理程序的调用&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;17.3.1 事件处理程序的参数&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-7&quot; id=&quot;markdown-toc-section-7&quot;&gt;17.3.2 事件处理程序的运行环境&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-8&quot; id=&quot;markdown-toc-section-8&quot;&gt;17.3.3 事件处理程序的作用域&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-9&quot; id=&quot;markdown-toc-section-9&quot;&gt;17.3.4 事件处理程序的返回值&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-10&quot; id=&quot;markdown-toc-section-10&quot;&gt;17.3.5 调用顺序&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-11&quot; id=&quot;markdown-toc-section-11&quot;&gt;17.3.6 事件传播&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-12&quot; id=&quot;markdown-toc-section-12&quot;&gt;17.3.7 事件取消&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#onload&quot; id=&quot;markdown-toc-onload&quot;&gt;17.4 文档加载事件 onload&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-13&quot; id=&quot;markdown-toc-section-13&quot;&gt;17.5 鼠标事件&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-14&quot; id=&quot;markdown-toc-section-14&quot;&gt;17.6 鼠标滚轮事件&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-15&quot; id=&quot;markdown-toc-section-15&quot;&gt;17.7 拖放事件&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-16&quot; id=&quot;markdown-toc-section-16&quot;&gt;17.8 文本事件&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-17&quot; id=&quot;markdown-toc-section-17&quot;&gt;17.9 键盘事件&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#http&quot; id=&quot;markdown-toc-http&quot;&gt;18 脚本化HTTP&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#xmlhttprequest&quot; id=&quot;markdown-toc-xmlhttprequest&quot;&gt;18.1 使用XMLHttpRequest&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-18&quot; id=&quot;markdown-toc-section-18&quot;&gt;18.1.1 指定请求&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-19&quot; id=&quot;markdown-toc-section-19&quot;&gt;18.1.2 取得响应&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#body&quot; id=&quot;markdown-toc-body&quot;&gt;18.1.3 请求body的编码&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#http-1&quot; id=&quot;markdown-toc-http-1&quot;&gt;18.1.4 HTTP进度事件&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-20&quot; id=&quot;markdown-toc-section-20&quot;&gt;18.1.5 终止请求和超时&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#http-2&quot; id=&quot;markdown-toc-http-2&quot;&gt;18.1.6 跨域HTTP请求&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#scripthttpjsonp&quot; id=&quot;markdown-toc-scripthttpjsonp&quot;&gt;18.2 借助script发送HTTP请求：JSONP&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#comet&quot; id=&quot;markdown-toc-comet&quot;&gt;18.3 基于服务器顿推送事件的Comet技术&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;全书的第二编：客户端JavaScript&lt;/p&gt;
+
+&lt;p&gt;第17章：事件处理&lt;/p&gt;
+
+&lt;p&gt;第18章：脚本化HTTP&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;17 事件处理&lt;/h3&gt;
+
+&lt;p&gt;客户端js是异步事件驱动编程模型，程序的驱动有时候是依赖某些事件的发生，比如文档加载完成，点击鼠标等。如果关注某种特定类型的时间，就可以注册事件发生要调用的函数，基本上所有的UI程序都是这个模型&lt;/p&gt;
+
+&lt;p&gt;事件类型，是一个说明发生了什么的字符串，比如mousemove，keydown，load，用这个字符串来标识所谈论的特定类型的事件&lt;/p&gt;
+
+&lt;p&gt;事件目标是发生的事件与之相关的对象，一个时间，肯定有相关的类型和目标，比如window上的load事件和button的click事件，在客户端js中window，document和element是最常见的事件目标&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;事件处理程序&lt;/strong&gt;，event handler，或者说&lt;strong&gt;事件监听程序&lt;/strong&gt;，event listener 是处理或相应事件的函数&lt;/p&gt;
+
+&lt;p&gt;事件发生时候，对象上注册的事件处理程序被调用的时候，会说浏览器触发或者派发了事件&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;事件对象&lt;/strong&gt;，最为参数传递给事件处理函数，都会有包含type属性和target属性&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;事件传播&lt;/strong&gt;，是浏览器决定那个对象触发其事件处理程序的过程，类似的概念是事件捕获&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;事件类型&lt;/strong&gt;，各种各样的事件&lt;/p&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;17.1 事件类型&lt;/h4&gt;
+
+&lt;p&gt;web初期的事件已经有很好的支持了，新的事件api定义来源有3个，w3c的新标准草案，H5规范产生的新事件，移动端的发展带来的新事件&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;事件分类&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;依赖于设备的输入事件，比如鼠标和键盘，mousedown，mousemove，mouseup，keydown，keypress，touchmove，gesturerechange&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;独立于设备的输入事件，没有直接相关的输入设备，click事件，textinput&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;用户界面事件，较高级的事件，通常出现在定义web应用UI的html表单元素上，文本输入获取键盘焦点的focus事件，用户改变表单元素显示的嫦娥事件，单机表单中提交按钮的submit事件&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;状态变化事件，有些时间不是用户触发，而是网络或者浏览器触发，表示某种状态的变化，比如文档加载完成的load事件，还有I/O的异步通知&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;特定API事件，拖放的事件dragstart，dragenter，dragover，drop，H5的video和audio元素有很多事件来控制音视频播放&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;计时器和错误处理程序&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h5 id=&quot;section-2&quot;&gt;17.1.1 传统事件类型&lt;/h5&gt;
+
+&lt;p&gt;很多老API都是常用并且广泛被支持的&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;表单相关事件，submit，reset，文本域change的事件等等&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;window事件，浏览器窗口本身触发的事件，而不是文档元素触发的&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;鼠标事件，在文档上移动或者单击鼠标都会产生鼠标事件&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;键盘事件，按下或者释放键盘按键都会产生事件&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;dom&quot;&gt;17.1.2 DOM事件&lt;/h5&gt;
+
+&lt;p&gt;DOM Level 3 Events，W3C的规范&lt;/p&gt;
+
+&lt;h5 id=&quot;html5&quot;&gt;17.1.3 HTML5事件&lt;/h5&gt;
+
+&lt;p&gt;HTML5加入的新元素，audio和video元素，都有很长的事件列表&lt;/p&gt;
+
+&lt;p&gt;拖放API，历史管理机制，表单的重新定义，离线的web应用支持&lt;/p&gt;
+
+&lt;h5 id=&quot;section-3&quot;&gt;17.1.4 触摸屏和移动设备事件&lt;/h5&gt;
+
+&lt;p&gt;一般来讲使用的是和传统事件的映射，比如点击，但是有些比较特殊，比如旋转设备，手势事件等，在iPad和iphone的safari上有所实现&lt;/p&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;17.2 注册事件处理程序&lt;/h4&gt;
+
+&lt;p&gt;注册事件处理有两个方式，第一种比较老，是在对象中的属性设定函数，第二种是将事件处理传递给对象或者元素的一个方法&lt;/p&gt;
+
+&lt;h5 id=&quot;javascript&quot;&gt;17.2.1 设置JavaScript对象属性为事件处理程序&lt;/h5&gt;
+
+&lt;p&gt;注册事件处理程序最简单的方式就是设置事件目标的属性为所需事件处理程序函数，比如onclick，onchange，onload，onmouseover等&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;window.onload = function() {
+  var elt = document.getElementById(&quot;shipping_address&quot;);
+  elt.onsubmit = function() {return validate(this);}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;html&quot;&gt;17.2.2 设置HTML标签属性为事件处理程序&lt;/h5&gt;
+
+&lt;p&gt;程序代码直接写在html元素的属性里面&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;button onclick=&quot;alert('Thank you');&quot;&amp;gt;click here&amp;lt;/button&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;H5定义了事件处理程序的完整列表&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/8d6a2535gw1f9bakqlnhlj20ga037q3b.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;addeventlistener&quot;&gt;17.2.3 addEventListener()&lt;/h5&gt;
+
+&lt;p&gt;这个方法可以为事件目标注册一个事件处理程序，addEventListener()接受三个参数，第一个是要注册的事件类型，或者名字自妇产，不包含前缀on，第二个参数是当指定类型的时间繁盛时候应该调用的函数，最后一个参数是布尔值，通常是false，如果传递了true，那么函数将注册为捕获事件处理程序，在事件的不同的调度阶段使用&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;button id = &quot;mybutton&quot;&amp;gt; click me&amp;lt;/button&amp;gt;
+&amp;lt;script&amp;gt;
+var b = document.getElementById(&quot;mybutton&quot;);
+b.onclick = function() {alert(&quot;Thanks for clicking me! &quot;);};
+b.addEventListener(&quot;click&quot;, function() { alert(&quot;Thanks again!&quot;);}, false);
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;addEventListener的好处是可以为一个对象注册多个事件处理程序函数，相对的还有removeEventistener方法来删除事件处理函数&lt;/p&gt;
+
+&lt;h5 id=&quot;attachevent&quot;&gt;17.2.4 attachEvent&lt;/h5&gt;
+
+&lt;p&gt;IE9 之前不支持addEventListener和removeEventistener&lt;/p&gt;
+
+&lt;h4 id=&quot;section-5&quot;&gt;17.3 事件处理程序的调用&lt;/h4&gt;
+&lt;p&gt;一旦注册事件处理程序成功之后，浏览器就会在指定对象上发生事件的时候自动调用&lt;/p&gt;
+
+&lt;h5 id=&quot;section-6&quot;&gt;17.3.1 事件处理程序的参数&lt;/h5&gt;
+
+&lt;p&gt;通常事件处理程序的调用会把事件对象作为他们的一个参数，事件对象的属性提供了事件有关的信息&lt;/p&gt;
+
+&lt;h5 id=&quot;section-7&quot;&gt;17.3.2 事件处理程序的运行环境&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-8&quot;&gt;17.3.3 事件处理程序的作用域&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-9&quot;&gt;17.3.4 事件处理程序的返回值&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-10&quot;&gt;17.3.5 调用顺序&lt;/h5&gt;
+
+&lt;p&gt;文档语速或其他对象可以为指定注册事件类型注册多个事件处理程序，事件发生的时候，浏览器必须按照如下规则调用所有的事件处理程序&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;通过设置对象属性会HTML属性注册的处理程序一直优先调用&lt;/li&gt;
+  &lt;li&gt;使用addEventListener函数注册的处理程序按照他们的注册顺序调用&lt;/li&gt;
+  &lt;li&gt;使用attachEvent注册的处理程序可能按照任何顺序调用，所以代码不应该以来于调用顺序&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-11&quot;&gt;17.3.6 事件传播&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-12&quot;&gt;17.3.7 事件取消&lt;/h5&gt;
+
+&lt;h4 id=&quot;onload&quot;&gt;17.4 文档加载事件 onload&lt;/h4&gt;
+
+&lt;h4 id=&quot;section-13&quot;&gt;17.5 鼠标事件&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/8d6a2535gw1f9bjrs02ukj20lv0fwq66.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;section-14&quot;&gt;17.6 鼠标滚轮事件&lt;/h4&gt;
+
+&lt;h4 id=&quot;section-15&quot;&gt;17.7 拖放事件&lt;/h4&gt;
+
+&lt;h4 id=&quot;section-16&quot;&gt;17.8 文本事件&lt;/h4&gt;
+
+&lt;h4 id=&quot;section-17&quot;&gt;17.9 键盘事件&lt;/h4&gt;
+
+&lt;h3 id=&quot;http&quot;&gt;18 脚本化HTTP&lt;/h3&gt;
+
+&lt;p&gt;脚本如何实现Web浏览器与服务器之间的通信&lt;/p&gt;
+
+&lt;p&gt;Ajax，描述的是主要使用脚本操纵HTTP的Web应用架构，Asynchronous Javascript and XML
+异步的js脚本&lt;/p&gt;
+
+&lt;h4 id=&quot;xmlhttprequest&quot;&gt;18.1 使用XMLHttpRequest&lt;/h4&gt;
+&lt;p&gt;XMLHttpRequest的每一个实例都表示一个独立的请求/响应，并且这个对象的属性和方法允许指定请求细节和提取响应数据&lt;/p&gt;
+
+&lt;p&gt;使用这个HTTP API的第一件事就是实例化XMLHttpRequest对象&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var request = new XMLHttpRequest();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;一个http请求由4部分组成&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;htto请求方法或者动作，method&lt;/li&gt;
+  &lt;li&gt;正在请求的url&lt;/li&gt;
+  &lt;li&gt;一个可选的请求头集合，其中可能包括身份验证信息&lt;/li&gt;
+  &lt;li&gt;一个可选的请求主体&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;服务器返回的HTTP响应包含3部分&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;一个数字和文字组成的状态吗，用来显示请求的成功和失败&lt;/li&gt;
+  &lt;li&gt;一个响应头集合&lt;/li&gt;
+  &lt;li&gt;响应主体&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-18&quot;&gt;18.1.1 指定请求&lt;/h5&gt;
+
+&lt;p&gt;创建XHR对象之后，发起HTTP请求的下一步是调用XHR的open方法去指定这个请求的两个必须的部分：方法和URL&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;request.open(&quot;GET&quot;, &quot;data.csv&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;section-19&quot;&gt;18.1.2 取得响应&lt;/h5&gt;
+
+&lt;h5 id=&quot;body&quot;&gt;18.1.3 请求body的编码&lt;/h5&gt;
+
+&lt;p&gt;表单编码是跟在url后面，以requestparam的形式，&lt;/p&gt;
+
+&lt;p&gt;还有json编码和xml编码&lt;/p&gt;
+
+&lt;h5 id=&quot;http-1&quot;&gt;18.1.4 HTTP进度事件&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-20&quot;&gt;18.1.5 终止请求和超时&lt;/h5&gt;
+
+&lt;h5 id=&quot;http-2&quot;&gt;18.1.6 跨域HTTP请求&lt;/h5&gt;
+
+&lt;h4 id=&quot;scripthttpjsonp&quot;&gt;18.2 借助script发送HTTP请求：JSONP&lt;/h4&gt;
+
+&lt;h4 id=&quot;comet&quot;&gt;18.3 基于服务器顿推送事件的Comet技术&lt;/h4&gt;
 </description>
-        <pubDate>Wed, 19 Oct 2016 00:00:00 +0800</pubDate>
-        <link>http://zhangzj.github.io/2016/10/19/demo2.html</link>
-        <guid isPermaLink="true">http://zhangzj.github.io/2016/10/19/demo2.html</guid>
+        <pubDate>Tue, 01 Nov 2016 00:00:00 +0800</pubDate>
+        <link>http://zhangzj.github.io/javascript/2016/11/01/JavaScriptDefineBook-K.html</link>
+        <guid isPermaLink="true">http://zhangzj.github.io/javascript/2016/11/01/JavaScriptDefineBook-K.html</guid>
         
+        <category>javascript</category>
+        
+        
+        <category>javascript</category>
         
       </item>
     
       <item>
-        <title>demoTitle</title>
-        <description>&lt;p&gt;demo&lt;/p&gt;
+        <title>JavaScript权威指南 读书笔记-J</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#css&quot; id=&quot;markdown-toc-css&quot;&gt;16 脚本化CSS&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#css-1&quot; id=&quot;markdown-toc-css-1&quot;&gt;16.1 CSS概览&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;16.1.1 层叠&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#css-2&quot; id=&quot;markdown-toc-css-2&quot;&gt;16.1.2 CSS历史&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;16.1.3 复合属性&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;16.1.4 非标准属性&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#css-3&quot; id=&quot;markdown-toc-css-3&quot;&gt;16.1.5 CSS举例&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#css-4&quot; id=&quot;markdown-toc-css-4&quot;&gt;前沿的CSS&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#css-5&quot; id=&quot;markdown-toc-css-5&quot;&gt;16.2 重要的css属性&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#css-6&quot; id=&quot;markdown-toc-css-6&quot;&gt;16.2.1 用CSS定位元素&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;16.2.2 边框，外边距和内边距&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#css-7&quot; id=&quot;markdown-toc-css-7&quot;&gt;16.2.3 CSS盒模型和定位细节&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;16.2.4 元素显示和可见性&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;16.2.5 颜色，透明度和半透明度&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#overflowclip&quot; id=&quot;markdown-toc-overflowclip&quot;&gt;16.2.6 部分可见：overflow和clip&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;16.2.7 示例：重叠半透明窗口&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-7&quot; id=&quot;markdown-toc-section-7&quot;&gt;16.3 脚本化内联样式&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-8&quot; id=&quot;markdown-toc-section-8&quot;&gt;16.4 查询计算出的样式&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#css-8&quot; id=&quot;markdown-toc-css-8&quot;&gt;16.5 脚本化CSS类&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-9&quot; id=&quot;markdown-toc-section-9&quot;&gt;16.6 脚本化样式表&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-10&quot; id=&quot;markdown-toc-section-10&quot;&gt;16.6.1 开启和关闭样式表&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-11&quot; id=&quot;markdown-toc-section-11&quot;&gt;16.6.2 查询，插入与删除样式表规则&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-12&quot; id=&quot;markdown-toc-section-12&quot;&gt;16.6.3 创建新样式表&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;全书的第二编：客户端JavaScript&lt;/p&gt;
+
+&lt;p&gt;第16章：脚本化CSS&lt;/p&gt;
+
+&lt;h3 id=&quot;css&quot;&gt;16 脚本化CSS&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;js控制css可以制作酷炫的动画效果&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;css本身就是很复杂的，了解基础之后进入js控制&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;主要内容有，css的基础，关键样式，怎么实现css脚本化，最常用和最重要的技术，利用sty属性，更改在webapp中的样式应用，查询元素的计算样式，开启关闭样式表，修改已经存在的样式表，添加新的样式表&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;css-1&quot;&gt;16.1 CSS概览&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;样式属性，指定字体，颜色，外边距，边框，北京图片，对其方式，元素尺寸和位置，定义HTML元素的视觉表现&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section&quot;&gt;16.1.1 层叠&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;css中的c表示的是cascading，层叠，意思就是来源于各处的样式，最终效果是层叠的，这些来源可能有，浏览器的默认样式表，文档本身的样式表和元素的内敛样式&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;css-2&quot;&gt;16.1.2 CSS历史&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;css 有css1标准1996年，css2标准1998年，css2.1，css3正在工作中&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-1&quot;&gt;16.1.3 复合属性&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;css 声明属性的值，可以使用词列表的方式，但是貌似要注意顺序&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;font: bold italic 24pt helvetica;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;最明显的就是盒模型的几个属性&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-2&quot;&gt;16.1.4 非标准属性&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;非标准的属性，厂商一般会在前面加一个厂商前缀，FF使用-moz-，chrome使用-webkit-，IE使用-ms-&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;css-3&quot;&gt;16.1.5 CSS举例&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;一个小例子，说明怎么使用css，包括样式的引用方式，选择器的使用等等&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/8d6a2535gw1f95hg37qxnj20jp0d7n0z.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;head&amp;gt;
+&amp;lt;style type=&quot;text/css&quot;&amp;gt;
+h1,h2 { 
+	color: blue;
+	font-style: italic;
+}
+
+.warning {
+	font-weight: bold;
+	font-size: 150%;
+	margin: 0 1in 0 1in;
+	background-color: yellow;
+	border: solid red 8px;
+	padding: 10px;
+} 
+
+.warning h1, .warning h2 {text-align: center;}
+
+#special {
+	text-align: center;
+	text-transform: uppercase;
+}
+&amp;lt;/style&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;h1&amp;gt;Cascading Style Sheets Demo&amp;lt;/h1&amp;gt;
+
+&amp;lt;div class=&quot;warning&quot;&amp;gt;
+
+&amp;lt;h2&amp;gt;Warning&amp;lt;/h2&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;p id=&quot;special&quot;&amp;gt;
+&amp;lt;span style=&quot;text-transform: none;&quot;&amp;gt;&amp;lt;/span&amp;gt;
+&amp;lt;/p&amp;gt;
+&amp;lt;/body&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;css-4&quot;&gt;前沿的CSS&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;正在添加一些功能演示属性，border-radius，text-shadow， box-shadow，column-count&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;web字体，利用css的@font-face规则可以下载使用自定义字体&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;css过度，自动将css演示转换成平滑的动画过度，现在是css草案&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;css变换，对于任何元素应用任意的2d仿射变换&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;css-5&quot;&gt;16.2 重要的css属性&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;可以控制每个元素外观，位置，尺寸的属性，肯定是首当其冲的属性，还有其他的css属性指定，堆叠次序，透明度，裁剪区域，外边距，内边距，边框和颜色。理解这些样式属性的工作原理&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/8d6a2535gw1f95hy97tqwj20lp0fltbb.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;css-6&quot;&gt;16.2.1 用CSS定位元素&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;position属性指定应用到元素上的定位类型，有4个可能值&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;static 默认，按照常规的内容流向，从上到下，从左到右进行定位，静态的定位不能使用top，left和类似属性&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;absolute，相对于他包含的元素进行定位，绝对定位的元素是独立定位的，不是静态定位的元素中文档流的一部分，要么是相对于最近的定位祖先元素，要么是相对于文档本身&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;fixed，相对于浏览器窗口进行定位，不会随着其他元素滚动&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;relative，按照常规的文档流布局，相对于文档流中的位置进行调整&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;4种定位方式可以在文档中指定元素的定位位置，和与其他元素，浏览器的的定位方式&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;定位的标准单位，一般是使用像素px，也有其他的&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;英寸单位， in&lt;/li&gt;
+      &lt;li&gt;厘米，cm&lt;/li&gt;
+      &lt;li&gt;点， pt&lt;/li&gt;
+      &lt;li&gt;字体行高， em&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;也可以使用百分比指定容器元素的百分比&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div style=&quot;position: absolute; left: 25%; top: 25%; width: 50%; height: 50%; border: 2px solid black;&quot;&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;第三个维度：z-index，可以指定元素的堆叠次序，z-index默认是0，可以是正负整数&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;兄弟元素之间才有重叠的概念，如果不是两兄弟元素之间的重叠z-index也没啥用&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;CSS定位示例：文本阴影，css3有一个属性在文本下产生阴影效果text-shadow&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-3&quot;&gt;16.2.2 边框，外边距和内边距&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;边框和边距，border，margin，padding的设置&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;css-7&quot;&gt;16.2.3 CSS盒模型和定位细节&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;绝对定位的话，外边距没有任何意义&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/8d6a2535gw1f95mb19441j20ls0dfabs.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;section-4&quot;&gt;16.2.4 元素显示和可见性&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;两个属性，visibility和display&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-5&quot;&gt;16.2.5 颜色，透明度和半透明度&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;属性color指定文档元素包含的文本的颜色，background-color指定任何元素的背景颜色&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;颜色表示，可以使用英文表示，也可以使用RGB色号&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;透明度，opacity，或者color是transparent&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;overflowclip&quot;&gt;16.2.6 部分可见：overflow和clip&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;overflow指定内容超出元素指定大小的时候怎么办&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;visible，溢出部分正常显示&lt;/li&gt;
+      &lt;li&gt;hidden，裁剪隐藏掉超出的内容&lt;/li&gt;
+      &lt;li&gt;scroll，显示水平和垂直的滚动条&lt;/li&gt;
+      &lt;li&gt;auto，只有在溢出的时候才显示滚动条&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;clip指定的是元素的裁剪区域&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-6&quot;&gt;16.2.7 示例：重叠半透明窗口&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;在网页里面做出像操作系统窗口重叠的样子，体现css的强大&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-7&quot;&gt;16.3 脚本化内联样式&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;内联样式的元素的style属性，所以也是可以js脚本化的，但是style的值不是字符串，而是一个CSSStyleDeclaration对象&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;可以使用js访问元素的style对象
+、&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;CSS动画&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;使用js的函数来实现抖动或者淡出的效果，视觉上实现动画&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-8&quot;&gt;16.4 查询计算出的样式&lt;/h4&gt;
+
+&lt;p&gt;最后计算出的样式是一个CSSStyleDecalration对象，最后的渲染效果就是这个对象来确定&lt;/p&gt;
+
+&lt;p&gt;可以使用window对象的getComputedStyle方法来使获得一个元素的计算样式，第一个参数是元素，第二个可以是伪对象，也可以是null&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var title = document.getElementById(&quot;sectiontitle&quot;);
+var titlestyles = window.getComputedStyle(title, null);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;计算样式对象和内联样式对象的区别&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- 计算样式的属性是制度的
+- 计算样式的单位没有相对值，只有绝对的单位尺寸
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;暂时这个计算样式到底怎么用，有什么用意义不明&lt;/p&gt;
+
+&lt;h4 id=&quot;css-8&quot;&gt;16.5 脚本化CSS类&lt;/h4&gt;
+
+&lt;p&gt;改变样式的一个实现就是改变元素的class属性，这样子就会改变一系列的样式应用&lt;/p&gt;
+
+&lt;p&gt;定义一个class选择的样式，突出效果，这样可以吸引用户的注意&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.attention {
+	background-color: yellow;
+	font-weight: bold;
+	border: solid black 2px;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;因为class是js的保留字，所以对象里面使用className来表示class属性&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function grabAttention(e) {e.className = &quot;attention&quot;;}
+function releaseAttention(e) {e.className = &quot;&quot;;} 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-9&quot;&gt;16.6 脚本化样式表&lt;/h4&gt;
+
+&lt;p&gt;关系到两类需要使用的对象，第一类是元素对象，style元素和link元素，都会包含或者引用样式表；第二类的是CSSStyleSheet对象，表示作为css文档关联的样式表&lt;/p&gt;
+
+&lt;h5 id=&quot;section-10&quot;&gt;16.6.1 开启和关闭样式表&lt;/h5&gt;
+
+&lt;p&gt;最简单的脚本化技术也就是最便捷和最健壮的，上面的几个对象都有一个disable的属性，可以关闭忽略样式&lt;/p&gt;
+
+&lt;h5 id=&quot;section-11&quot;&gt;16.6.2 查询，插入与删除样式表规则&lt;/h5&gt;
+
+&lt;p&gt;CSSStyleSheet对象也定义了API来查询，插入和删除样式&lt;/p&gt;
+
+&lt;p&gt;一般更好地做法是让样式保持静态，然后对className进行更改&lt;/p&gt;
+
+&lt;h5 id=&quot;section-12&quot;&gt;16.6.3 创建新样式表&lt;/h5&gt;
+
+&lt;p&gt;动态创建整个样式表并添加到文档中，是可以做到的&lt;/p&gt;
 </description>
-        <pubDate>Wed, 19 Oct 2016 00:00:00 +0800</pubDate>
-        <link>http://zhangzj.github.io/2016/10/19/demo.html</link>
-        <guid isPermaLink="true">http://zhangzj.github.io/2016/10/19/demo.html</guid>
+        <pubDate>Thu, 27 Oct 2016 00:00:00 +0800</pubDate>
+        <link>http://zhangzj.github.io/javascript/2016/10/27/JavaScriptDefineBook-J.html</link>
+        <guid isPermaLink="true">http://zhangzj.github.io/javascript/2016/10/27/JavaScriptDefineBook-J.html</guid>
         
+        <category>javascript</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>JavaScript权威指南 读书笔记-I</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#window&quot; id=&quot;markdown-toc-window&quot;&gt;14 Window对象&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;14.1 计时器&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;14.2 浏览器定位和导航&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#url&quot; id=&quot;markdown-toc-url&quot;&gt;14.2.1 解析URL&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;14.2.2 载入新的文档&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;14.3 浏览历史&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;14.4 浏览器和屏幕信息&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#navigator&quot; id=&quot;markdown-toc-navigator&quot;&gt;14.4.1 Navigator对象&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#scren&quot; id=&quot;markdown-toc-scren&quot;&gt;14.4.2 Scren对象&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;14.5 对话框&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;14.6 错误处理&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#window-1&quot; id=&quot;markdown-toc-window-1&quot;&gt;14.7 作为Window对象属性的文档元素&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-7&quot; id=&quot;markdown-toc-section-7&quot;&gt;14.8 多窗口和窗体&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-8&quot; id=&quot;markdown-toc-section-8&quot;&gt;14.8.1 打开和关闭窗口&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-9&quot; id=&quot;markdown-toc-section-9&quot;&gt;14.8.2 窗体之间的关系&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#js&quot; id=&quot;markdown-toc-js&quot;&gt;14.8.3 交互窗口中的js&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-10&quot; id=&quot;markdown-toc-section-10&quot;&gt;15 脚本化文档&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#dom&quot; id=&quot;markdown-toc-dom&quot;&gt;15.1 DOM概览&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-11&quot; id=&quot;markdown-toc-section-11&quot;&gt;15.2 选取文档元素&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-12&quot; id=&quot;markdown-toc-section-12&quot;&gt;15.2.1&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-13&quot; id=&quot;markdown-toc-section-13&quot;&gt;15.2.2 通过名字选取元素&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-14&quot; id=&quot;markdown-toc-section-14&quot;&gt;15.2.3 通过标签名选取元素&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#css&quot; id=&quot;markdown-toc-css&quot;&gt;15.2.4 通过CSS类选取元素&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#css-1&quot; id=&quot;markdown-toc-css-1&quot;&gt;15.2.5 通过css选择器选取元素&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-15&quot; id=&quot;markdown-toc-section-15&quot;&gt;15.3 文档结构和遍历&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-16&quot; id=&quot;markdown-toc-section-16&quot;&gt;15.3.1 作为节点树的文档&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-17&quot; id=&quot;markdown-toc-section-17&quot;&gt;15.3.2 作为元素树的文档&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-18&quot; id=&quot;markdown-toc-section-18&quot;&gt;15.4 属性&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#htmlelement&quot; id=&quot;markdown-toc-htmlelement&quot;&gt;15.4.1 HTML属性作为Element的属性&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#html&quot; id=&quot;markdown-toc-html&quot;&gt;15.4.2 获取和设置非标准HTML属性&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-19&quot; id=&quot;markdown-toc-section-19&quot;&gt;15.4.3 数据集属性&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#attr&quot; id=&quot;markdown-toc-attr&quot;&gt;15.4.4 作为Attr节点的属性&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-20&quot; id=&quot;markdown-toc-section-20&quot;&gt;15.5 元素的内容&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#html-1&quot; id=&quot;markdown-toc-html-1&quot;&gt;15.5.1 作为HTML的元素内容&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-21&quot; id=&quot;markdown-toc-section-21&quot;&gt;15.5.2 作为纯文本的元素内容&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#text&quot; id=&quot;markdown-toc-text&quot;&gt;15.5.3 作为Text节点的元素内容&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-22&quot; id=&quot;markdown-toc-section-22&quot;&gt;15.6 创建，插入和删除节点&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-23&quot; id=&quot;markdown-toc-section-23&quot;&gt;15.6.1 创建节点&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-24&quot; id=&quot;markdown-toc-section-24&quot;&gt;15.6.2 插入节点&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-25&quot; id=&quot;markdown-toc-section-25&quot;&gt;15.6.3 删除和替换节点&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#documentfragment&quot; id=&quot;markdown-toc-documentfragment&quot;&gt;15.6.4 使用DocumentFragment&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-26&quot; id=&quot;markdown-toc-section-26&quot;&gt;15.7 例子：生成目录表&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-27&quot; id=&quot;markdown-toc-section-27&quot;&gt;15.8 文档和元素的几何形状和滚动&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-28&quot; id=&quot;markdown-toc-section-28&quot;&gt;15.8.1 文档坐标和视口坐标&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-29&quot; id=&quot;markdown-toc-section-29&quot;&gt;15.8.2 查询元素的几何尺寸&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-30&quot; id=&quot;markdown-toc-section-30&quot;&gt;15.8.3 判定元素在某点&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-31&quot; id=&quot;markdown-toc-section-31&quot;&gt;15.8.4 滚动&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-32&quot; id=&quot;markdown-toc-section-32&quot;&gt;15.8.5 关于元素尺寸，位置和溢出的更多信息&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#html-2&quot; id=&quot;markdown-toc-html-2&quot;&gt;15.9 HTML表单&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-33&quot; id=&quot;markdown-toc-section-33&quot;&gt;15.9.1 选取表单和表单元素&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-34&quot; id=&quot;markdown-toc-section-34&quot;&gt;15.9.2 表单和元素的属性&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-35&quot; id=&quot;markdown-toc-section-35&quot;&gt;15.9.3 表单和元素的时间处理程序&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-36&quot; id=&quot;markdown-toc-section-36&quot;&gt;15.9.4 按钮&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-37&quot; id=&quot;markdown-toc-section-37&quot;&gt;15.9.5 开关按钮&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-38&quot; id=&quot;markdown-toc-section-38&quot;&gt;15.9.6 文本域&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-39&quot; id=&quot;markdown-toc-section-39&quot;&gt;15.9.7 选择框和选项元素&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-40&quot; id=&quot;markdown-toc-section-40&quot;&gt;15.10 其它文档特性&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#document&quot; id=&quot;markdown-toc-document&quot;&gt;15.10.1 Document的属性&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#documentwrite&quot; id=&quot;markdown-toc-documentwrite&quot;&gt;15.10.2 document.write()方法&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-41&quot; id=&quot;markdown-toc-section-41&quot;&gt;15.10.3 查询选取的文本&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-42&quot; id=&quot;markdown-toc-section-42&quot;&gt;15.10.4 可编辑的内容&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;全书的第二编：客户端JavaScript&lt;/p&gt;
+
+&lt;p&gt;第14章：Window对象&lt;/p&gt;
+
+&lt;p&gt;第15章：脚本化文档&lt;/p&gt;
+
+&lt;h3 id=&quot;window&quot;&gt;14 Window对象&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;js客户端的全局对象，Window对象有哪些属性和方法？有些什么api&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section&quot;&gt;14.1 计时器&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;setTimeout和setInterval用来注册指定时间之后单词或者重复调用的函数&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;setTimeout会返回一个值，这个值可以传递给clearTimeout用于取消这个函数的运行&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/8d6a2535gw1f93hmg8ytfj20j40efwhi.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;14.2 浏览器定位和导航&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;window的属性localtion是Location对象，表示窗口当前的URL&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;url&quot;&gt;14.2.1 解析URL&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;location对象的属性有很多关于url的信息，可以使用来提取&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-2&quot;&gt;14.2.2 载入新的文档&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;最直接的就是改变loaction属性的值，或者使用assign方法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;location = &quot;http://www.baidu.com&quot;;
+location.assign(&quot;http://www.baidu.com&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;14.3 浏览历史&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;window对象的history属性，把窗口的浏览历史文档和文档状态列表的形式表示&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;back，forward方法表示前进和后退&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;history.back();
+history.forward();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;go方法可以接受一个整数参数，表示前进和后退多少页&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;流行框架中一般都有历史管理的功能，比如jQuery的history插件&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;14.4 浏览器和屏幕信息&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;脚本获取浏览器和所在的桌面信息，window对象的navigator和screen属性&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;navigator&quot;&gt;14.4.1 Navigator对象&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;navigator表示浏览器本身的信息等等&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;scren&quot;&gt;14.4.2 Scren对象&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;有关窗口显示的大小和可用的颜色数量的信息&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-5&quot;&gt;14.5 对话框&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;window对象提供3个方法来显示简单的对话框，alert显示消息并提示关闭，confirm要求点击确定还是取消，并返回布尔值，prompt等待用户输入字符串，并返回字符串&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;更复杂的对话框，showModalDialog在浏览器中显示一个模态窗口&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/large/8d6a2535gw1f93icpp1dgj20jv083wfs.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;section-6&quot;&gt;14.6 错误处理&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;window对象有onerror属性&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 在一个对话框中弹出错误消息，但是不超过3次
+
+window.onerror = function(msg, url, line) {
+	if (onerror.num++ &amp;lt; onerror.max) {
+		alert(&quot;ERROR: &quot;+ msg+&quot;\n&quot; + url+&quot;:&quot;+line);
+		return true;
+	}
+}
+
+onerror.max = 3;
+onerror.num = 0;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;window-1&quot;&gt;14.7 作为Window对象属性的文档元素&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;id属性为元素命名，html文档中的id属性会成为可以被脚本访问的全局变量&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-7&quot;&gt;14.8 多窗口和窗体&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;多标签页，每一个标签页都是一个上下文，都有独立的window对象，相互之间互不干扰&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;当一个窗口控制打卡另一个窗口的时候，就不是毫无联系了，可以互操作&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-8&quot;&gt;14.8.1 打开和关闭窗口&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;可以使用方法open打开一个新的空白窗口，close关闭&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;open的参数，1 地址，2 窗口名字，3 窗口大小和状态&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;open返回一个window对象，这直接操作那个刚才打开的窗口&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-9&quot;&gt;14.8.2 窗体之间的关系&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;新窗口的window对象中有opener属性，这样子两个窗口之间就可以互相引用，读取对方的属性或者调用对方的方法&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;自己的窗口或者窗体引用是window或者self，可以使用parent属性引用上一层的窗口，顶级的窗口的parent是一个窗体，也就是浏览器本身，指向自己&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;自己的子窗体，iframe可以使用元素方式引用&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;js&quot;&gt;14.8.3 交互窗口中的js&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;要是没有同源策略的限制，脚本就可以和其他窗口进行交互&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-10&quot;&gt;15 脚本化文档&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;客户端js使得静态的html成为了webapp，window对象有一个属性document来引用Document对象，表示窗口的内容&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;document是一个巨大的API中的核心对象，叫做文档对象模型，DocumentObjectModel，DOM，代表和操作文档的内容&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;dom&quot;&gt;15.1 DOM概览&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;首先是HTML和XML的嵌套元素在DOM树对象中的表示&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;每一个标签都是一个节点，也即是一个Node对象&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;html元素的节点是element节点，代表文本的是text节点，document，element，text都是node的子类&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-11&quot;&gt;15.2 选取文档元素&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;选取文档中元素的方法&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;id属性&lt;/li&gt;
+      &lt;li&gt;name属性&lt;/li&gt;
+      &lt;li&gt;标签名&lt;/li&gt;
+      &lt;li&gt;css类&lt;/li&gt;
+      &lt;li&gt;匹配指定的css选择器&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-12&quot;&gt;15.2.1&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;id属性，在文档中是唯一的，document方法getElementById&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var sections1 = document.getElementById(&quot;section1&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;section-13&quot;&gt;15.2.2 通过名字选取元素&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;name属性只在少数元素中有效，比如iframe和img，而且name的值在文档中不是唯一的也可以&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-14&quot;&gt;15.2.3 通过标签名选取元素&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;document的方法getElementsByTagName返回一个NodeList对象&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var firstpara = document.getElementByTagName(&quot;p&quot;)[0];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;document有两个边界属性，body和head，代表两个元素，浏览器隐式创建&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;css&quot;&gt;15.2.4 通过CSS类选取元素&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;class属性是空格隔开的列表，document中的getElementsByClassName方法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var warnings = document.getElementsByClassName(&quot;warning&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;css-1&quot;&gt;15.2.5 通过css选择器选取元素&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;使用css的选择器进行元素的定位，选择器本身就是描述文档中的若干或者多组元素，元素可以使用id，类或者标签名来描述&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#nav 		// id是nav的元素
+div 		// 所有的div元素
+.warning 	// 所有在class属性中包含了warning的元素
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;更一般的来讲，元素可以基于属性值来选取&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;p[lang=&quot;fr&quot;] 	// 所有使用法语的段落， &amp;lt;p lang=&quot;fr&quot;&amp;gt;
+*[name=&quot;X&quot;] 	// 所有包含name是x属性的元素
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;基本选择器的组合&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;span.fatal.error 			// class中包含fatal和error的所有span元素
+span[lang=&quot;fr&quot;].warning 	// 所有使用法语并且class中包含warning的span元素
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;选择器可以指定文档的结构&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#log span 				// id等于log的元素的狗带元素中的所有span元素
+#log&amp;gt;span 				// id等于log的元素的子元素中的所有span元素
+body&amp;gt;h1:first-child 	// body的子元素中的第一个h1元素
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;选择器可以组合，来选取多个或者多组元素&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;div, #log
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;document.all[]&lt;/p&gt;
+
+    &lt;p&gt;表示文档中的元素，除了text节点，废弃&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-15&quot;&gt;15.3 文档结构和遍历&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;文档元素选取ok之后，有时候会需要相关部分，比如父亲，兄弟，子女等等，概念上文档就是一棵节点对象树&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-16&quot;&gt;15.3.1 作为节点树的文档&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;每一个节点都是一个Node对象，有一些重要的属性&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;parentNode，父节点&lt;/li&gt;
+      &lt;li&gt;childNodes，子节点，NodeList对象&lt;/li&gt;
+      &lt;li&gt;firstChild，lastChild，子节点中的首个和最后一个&lt;/li&gt;
+      &lt;li&gt;nextSibling，previousSibling，前一个和后一个兄弟节点&lt;/li&gt;
+      &lt;li&gt;nodeType，节点的类型&lt;/li&gt;
+      &lt;li&gt;nodeValue，节点的文本&lt;/li&gt;
+      &lt;li&gt;nodeName，元素的标签名字&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;document.childNodes[0].childNodes[1];
+document.firstChild.firstChild.nextSibling
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;有点像xpath的做法和概念&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-17&quot;&gt;15.3.2 作为元素树的文档&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;主要矛盾是在文档中的元素上，而不是元素之间的文本时候，可以看做是Element对象树，忽略部分文档，Text和Comment节点&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-18&quot;&gt;15.4 属性&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;html元素是一个标签和一组属性组成的，比如a元素是一个超链接，有属性gref作为值表示目的地址，在元素HTMLElement对象的属性就是这些属性&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;htmlelement&quot;&gt;15.4.1 HTML属性作为Element的属性&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;常用的属性都有预先的定义，比如id，lang和dir属性，还有img元素的src属性&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;html&quot;&gt;15.4.2 获取和设置非标准HTML属性&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;有方法，getAttribute和setAttrubute来这顶非标准属性&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-19&quot;&gt;15.4.3 数据集属性&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;给元素标签添加额外属性的方式，前缀data-的属性在H5中都是合法的&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;span class=&quot;sparkline&quot; data-ymin=&quot;0&quot; data-ymax=&quot;10&quot;&amp;gt;
+1 2 3 4 5 6 7 8 9 0
+&amp;lt;/span&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;这些附加的属性不会对文档外观产生影响，dataset属性的引用遵循一定的规律&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;在Element对象上的属性dataset，这个对象的属性就是data-属性名，复合驼峰命名&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;data-jquery-test =&amp;gt; dataset.jqueryTest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;attr&quot;&gt;15.4.4 作为Attr节点的属性&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;还有一个使用Element属性的方法，attributes属性，代表元素的所有属性&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;document.body.attributes[0] 			// body元素的第一个属性
+document.body.attributes.bgcolor  		// body元素的bgcolor属性
+document.body.attributes[&quot;ONLOAD&quot;] 	// body元素的onload属性
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-20&quot;&gt;15.5 元素的内容&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;元素的内容就是标签内的东西，可以理解成字符串，也可以理解成节点，或者纯文本&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;html-1&quot;&gt;15.5.1 作为HTML的元素内容&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;element的属性innerHTML会作为字符串标记返回元素内容&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;outerHTML返回的是包含标签的文本字符串&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-21&quot;&gt;15.5.2 作为纯文本的元素内容&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;在文档中插入纯文本，Node的textContent属性实现&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;text&quot;&gt;15.5.3 作为Text节点的元素内容&lt;/h5&gt;
+
+&lt;h4 id=&quot;section-22&quot;&gt;15.6 创建，插入和删除节点&lt;/h4&gt;
+
+&lt;h5 id=&quot;section-23&quot;&gt;15.6.1 创建节点&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;可以使用documnt的createElement被方法床底元素的标签名&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;也有其他的工厂方法，createComment，createDocumentFragment，createElementNS&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-24&quot;&gt;15.6.2 插入节点&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;appendChild需要插入的节点上追加一个子节点&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;insertBefore和appendChild一样，接受连个参数，在节点前面插入&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-25&quot;&gt;15.6.3 删除和替换节点&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;removeChild方法，在父节点上调用来删除子节点&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;replaceChild方法，删除并且替换成另一个节点&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;documentfragment&quot;&gt;15.6.4 使用DocumentFragment&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;特殊的Node，作为其他节点的一个临时的容器&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;会被看做一个整个树的片段，下面所有的子节点都会被同意操作，看做是一个节点&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-26&quot;&gt;15.7 例子：生成目录表&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;展示一些特性，文档脚本化的一些概念：元素选取，文档遍历，元素属性设置，innerHTML属性设置和在文档中创建和插入新节点等&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-27&quot;&gt;15.8 文档和元素的几何形状和滚动&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;文档看到的时候是一个视觉表现层，每个元素都有自己的尺寸和位置&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-28&quot;&gt;15.8.1 文档坐标和视口坐标&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;视口就是窗口的网页展示部分，不包括浏览器的边框部分&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;还没有滚动的情况下，文档的原点就是视口的远端，出现滚动的时候，就会有偏移量&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-29&quot;&gt;15.8.2 查询元素的几何尺寸&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;getBoundingClientRect方法获取在视口坐标中的位置&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;偏移量加上位置就可以计算出坐标和大小&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-30&quot;&gt;15.8.3 判定元素在某点&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;想知道在视口的指定位置上有什么元素？Document对象的elementFromPOint方法来判定&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;实际应用上，将鼠标指针的坐标传递给他来判断鼠标在哪个元素上&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-31&quot;&gt;15.8.4 滚动&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;设置属性scrollLeft和scrollTop来让浏览器滚动，方法scrollTop接受一个文档坐标，作为滚动条的偏移量进行设置&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-32&quot;&gt;15.8.5 关于元素尺寸，位置和溢出的更多信息&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;老式的方式来讲，html的只读属性，offsetWidth和offsetHeight用css像素返回屏幕尺寸&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;html-2&quot;&gt;15.9 HTML表单&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;提交表单的标签十分古老，比js本身还要早&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;表单元素和表单元素API&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/8d6a2535gw1f94mr2wfbwj20ic04t74v.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/8d6a2535gw1f94mrp6zzbj20h90i5415.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;section-33&quot;&gt;15.9.1 选取表单和表单元素&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;和其他元素一样选取方法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-34&quot;&gt;15.9.2 表单和元素的属性&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;在js之前，需要一个提交按钮来提交表单，js的form对象支持submit方法和reset方法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-35&quot;&gt;15.9.3 表单和元素的时间处理程序&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;onsubmit和onreset回调&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-36&quot;&gt;15.9.4 按钮&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;视觉上按钮是让用户触发脚本的方式，onclick事件处理程序&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-37&quot;&gt;15.9.5 开关按钮&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;复选框和单选框都是开关按钮&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-38&quot;&gt;15.9.6 文本域&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;input标签用来用户输入文本，单行输入&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;textarea是多行输入&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-39&quot;&gt;15.9.7 选择框和选项元素&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;select元素一般是渲染成下拉菜单的形式&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-40&quot;&gt;15.10 其它文档特性&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;15章是全书最重要的一章，Document对象的讲解&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;document&quot;&gt;15.10.1 Document的属性&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;除了body，documentElement和forms，还有一些有趣的属性&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;cookie，dimain，lastModified，location，referrer，title，URL&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;documentwrite&quot;&gt;15.10.2 document.write()方法&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;早起的脚本化api，早dom之前就引入了&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-41&quot;&gt;15.10.3 查询选取的文本&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;查询用户在文档中选取了什么文本？选中了什么文本？&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-42&quot;&gt;15.10.4 可编辑的内容&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;html简单的编辑功能，博客评论页面之类的，嵌入一个富文本编辑器，包含样式排版之类的，类似word的东西，cms&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;抵用方式，1 设置任何标签的contenteditable属性，2 设置对应元素的jscontenteditable属性&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 24 Oct 2016 00:00:00 +0800</pubDate>
+        <link>http://zhangzj.github.io/javascript/2016/10/24/JavaScriptDefineBook-I.html</link>
+        <guid isPermaLink="true">http://zhangzj.github.io/javascript/2016/10/24/JavaScriptDefineBook-I.html</guid>
+        
+        <category>javascript</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>JavaScript权威指南 读书笔记-H</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#javascript&quot; id=&quot;markdown-toc-javascript&quot;&gt;第二部分 客户端JavaScript&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#webjavascript&quot; id=&quot;markdown-toc-webjavascript&quot;&gt;13 Web浏览器中的JavaScript&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#js&quot; id=&quot;markdown-toc-js&quot;&gt;13.1客户端js&lt;/a&gt;            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#webjavascript-1&quot; id=&quot;markdown-toc-webjavascript-1&quot;&gt;13.1.1 Web文档里的JavaScript&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#webjs&quot; id=&quot;markdown-toc-webjs&quot;&gt;13.1.2 Web应用里的js&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#htmljs&quot; id=&quot;markdown-toc-htmljs&quot;&gt;13.2 在html中嵌入js&lt;/a&gt;            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#script&quot; id=&quot;markdown-toc-script&quot;&gt;13.2.1 script元素&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;13.2.2 外部文件中的脚本&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;13.2.3 脚本类型&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#html&quot; id=&quot;markdown-toc-html&quot;&gt;13.2.4 HTML中的事件处理顺序&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#urljavascript&quot; id=&quot;markdown-toc-urljavascript&quot;&gt;13.2.5 URL中的JavaScript&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#js-1&quot; id=&quot;markdown-toc-js-1&quot;&gt;13.3 JS程序的运行&lt;/a&gt;            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;13.3.1 同步，异步和延迟的脚本&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#js-2&quot; id=&quot;markdown-toc-js-2&quot;&gt;13.3.2 事件驱动的JS&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#js-3&quot; id=&quot;markdown-toc-js-3&quot;&gt;13.3.3 客户端js线程模型&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#js-4&quot; id=&quot;markdown-toc-js-4&quot;&gt;13.3.4 js时间线&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;13.4 兼容性和互用性&lt;/a&gt;            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;13.4.1 处理兼容性问题的类库&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;13.4.2 分级浏览器支持&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;13.4.3 功能测试&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#section-7&quot; id=&quot;markdown-toc-section-7&quot;&gt;13.4.4 怪异模式和标准模式&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#section-8&quot; id=&quot;markdown-toc-section-8&quot;&gt;13.4.5 浏览器测试&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#internet-explorer&quot; id=&quot;markdown-toc-internet-explorer&quot;&gt;13.4.6 Internet Explorer里的条件注释&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-9&quot; id=&quot;markdown-toc-section-9&quot;&gt;13.5 可访问性&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-10&quot; id=&quot;markdown-toc-section-10&quot;&gt;13.6 安全性&lt;/a&gt;            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#j&quot; id=&quot;markdown-toc-j&quot;&gt;13.6.1 j不能做什么&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#section-11&quot; id=&quot;markdown-toc-section-11&quot;&gt;13.6.2 同源策略&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#activex&quot; id=&quot;markdown-toc-activex&quot;&gt;13.6.3 脚本化插件和ActiveX插件&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#section-12&quot; id=&quot;markdown-toc-section-12&quot;&gt;13.6.4 跨站脚本&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#section-13&quot; id=&quot;markdown-toc-section-13&quot;&gt;13.6.5 拒绝服务攻击&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-14&quot; id=&quot;markdown-toc-section-14&quot;&gt;13.7 客户端框架&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;全书的第二编：客户端JavaScript&lt;/p&gt;
+
+&lt;p&gt;第13章：web浏览器中的js&lt;/p&gt;
+
+&lt;h2 id=&quot;javascript&quot;&gt;第二部分 客户端JavaScript&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;主要讲JS在Web浏览器中是如何实现的，&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;介绍大量的脚本宿主对象，可以表示浏览器窗口，DOM和内容等&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;涵盖重要的web应用所需的网络编程API，本地存储和检索数据，画图等&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;webjavascript&quot;&gt;13 Web浏览器中的JavaScript&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;俗称客户端js，提供一个可以运行js的上下文&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;js&quot;&gt;13.1客户端js&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;window对象所有特性和api的主要接入点，表示浏览器的一个窗口或者窗体，可以使用window来引用，window对象定义了一些属性，比如，只带Location的location属性，指定显示在窗口中的url，并允许脚本往窗口中载入新的url&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;浏览器中，window对象就是全局对象，位于作用域链的顶部，他的属性和方法实际上就是全局变量和全局函数&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;document属性是Document对象，表示显示在窗口中的文档，可以用js操作文档中的元素&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var timestamp = document.getElemntById(&quot;timestamp&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;事件处理相关的属性，在脚本中保定毅格函数，函数会在时间发生的时候异步执行&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
+var timestamp = document.getElementById(&quot;timestamp&quot;);
+timestamp.appendChild(document.createTextNode(new Date().toString()));
+timestamp.onclick = function() {this.innerHTML = new Date().toString();};
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;window对象的onload处理程序，事件处理程序中，嵌套函数在客户端js中使用普遍&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;webjavascript-1&quot;&gt;13.1.1 Web文档里的JavaScript&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;js可以操作document对象和包含的element对象遍历和管理内容，可以操作css样式来更改显示，可以通过注册事件来定义行为。内容，呈现和行为的组合叫做动态html或者dhtml&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;web文档中js的用处，ja的铮铮角色是增强用户的浏览体验，使得信息的获取和传递更加容易。创建动画和视觉效果；表格分组；隐藏内容，逐渐展示&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;webjs&quot;&gt;13.1.2 Web应用里的js&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;在web文档之上，web应用除了内容，呈现，操作api之外，还依赖web浏览器环境提供的更基础的服务&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;浏览器已经不仅仅是显示文档的角色了，绅士可以属是一个简易的操作系统，web应用就是用js访问高级服务的web页面&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;高级服务：XMLHttpRequest对象，用来发出请求，可以请求数据，不用重新载入页面，ajax技术&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;html5的新特性，有数据存储和图像api，地理位置，历史管理和后台线程等等&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;webapp的本质就是js程序&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;htmljs&quot;&gt;13.2 在html中嵌入js&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;4种引入方式&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;内敛，在标签script之间&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;外部链接，放在script标签的src属性引用地址&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;放在html事件处理程序中，由onclick这样的标签属性指定&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;放在url中，使用特殊的javascript协议&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;后两种已经很少使用了，内联脚本也用得少，有个概念是让js代码和html进行分离，不要写在一起&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;script&quot;&gt;13.2.1 script元素&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;嵌入在htm文件中的，放在标签里面的脚本&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section&quot;&gt;13.2.2 外部文件中的脚本&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;src属性的用法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script src=&quot;../../scripts/util.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;section-1&quot;&gt;13.2.3 脚本类型&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;除了js，还有vbscript，默认是js&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;html&quot;&gt;13.2.4 HTML中的事件处理顺序&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;先注册事件处理程序，为了之后的调用做准备&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;urljavascript&quot;&gt;13.2.5 URL中的JavaScript&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;之前说的协议限定javascript的方式来写入代码&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;a href=&quot;javascript:new Date().toLocalTimeString();&quot;&amp;gt;Whta time is it?&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;js-1&quot;&gt;13.3 JS程序的运行&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;所有的js程序共用一个window对象，也是一个全局的环境&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;js程序执行的两个阶段，第一阶段，载入文档内容，执行script标签里的代码，文档载入完成后，第二阶段，异步执行事件驱动的代码，使用之前注册的函数&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;事件驱动阶段的第一个时间是load事件，表示文档完全载入，可以操作&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-2&quot;&gt;13.3.1 同步，异步和延迟的脚本&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;浏览器渲染页面的时候，先把script标签的代码执行ok，所以是同步和阻塞的，script标签可以有，defer和async属性，来改变脚本的执行方式，&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script defer src=&quot;deferred.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script async src=&quot;async.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;defer和async表示，脚本不会对文档内容产生影响，可以在下载脚本的时候渲染和解析文档，defer使得脚本延迟执行，直到文档渲染完成；async会使得浏览器尽快执行脚本，而不用在下载脚本的时候阻塞文档解析&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;js-2&quot;&gt;13.3.2 事件驱动的JS&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;注册处理事件最简单的方法就是把函数赋值给目标对象的属性&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;window.onload = function() {...};
+document.getElementById(&quot;button1&quot;.onclick = function() {...});
+function handleResponse() {...}
+request.onreadystatechange = handleResponse;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;约定：事件处理程序都是on开头的，后面跟着事件的名字&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;当一个事件需要有多个监听注册的时候，可以添加一个监听器监听事件的发生&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;js-3&quot;&gt;13.3.3 客户端js线程模型&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;js语言核心不包含线程机制，客户端js依然严格单线程工作，也就说，在脚本运行的时候，用户交互要停止&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;H5有一个新的东西叫webworker，就是后台线程&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;js-4&quot;&gt;13.3.4 js时间线&lt;/h5&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;浏览器创建document对象，开始解析页面&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;执行同步的脚本，下载脚本&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;遇到async的脚本的话，下载脚本的同时解析文档&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;文档解析完成，document.readyState变成interactive&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;异步运行defer的脚本&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;浏览器document对象的时间DOMContentLoaded触发，程序从执行同步脚本阶段，转换到异步事件驱动阶段&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;文档解析完成，不过有些内容可能还在加载，如图片等，readyState变成complete，浏览器触发window对象的load事件&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;调用异步事件，异步响应用户输入等&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;13.4 兼容性和互用性&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;有无数的OS的浏览器的版本，环境差异还是很大，大家都喜欢的js程序还是蛮有挑战的&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;兼容性问题的分类，&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;演化，web标准的变更，看浏览器厂商是不是对应&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;未实现，不同的浏览器开发商对一个特性并没有统一的观点，有些没有大家都实现&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;bug，各个浏览器中的各种bug&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h5 id=&quot;section-4&quot;&gt;13.4.1 处理兼容性问题的类库&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;曲线救国的方式，别人实现的js类库来解决&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;jQuery框架，重新定义客户端API并兼容所有的浏览器&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-5&quot;&gt;13.4.2 分级浏览器支持&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;yahoo提出的测试技术，A级C级X级，表示不同的可用性&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-6&quot;&gt;13.4.3 功能测试&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-7&quot;&gt;13.4.4 怪异模式和标准模式&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-8&quot;&gt;13.4.5 浏览器测试&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;客户端js中检测浏览器类型和版本的方法是使用navigator对象，确定当前浏览器厂商和版本的代码叫做浏览器嗅探器或者客户端嗅探器&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;internet-explorer&quot;&gt;13.4.6 Internet Explorer里的条件注释&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;跟C里面的条件编译很相似&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-9&quot;&gt;13.5 可访问性&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;残障人士的辅助技术&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;只用键盘，不用鼠标的解决方式&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-10&quot;&gt;13.6 安全性&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;很多api会被恶意利用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;j&quot;&gt;13.6.1 j不能做什么&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;没有权限写入或者删除客户机上的任意文件或者列出任何目录，防止病毒&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;没有任何通用的网络能力&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;限制任意打开窗口，不能任意关闭其他窗口&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-11&quot;&gt;13.6.2 同源策略&lt;/h5&gt;
+
+&lt;h5 id=&quot;activex&quot;&gt;13.6.3 脚本化插件和ActiveX插件&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-12&quot;&gt;13.6.4 跨站脚本&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;XSS，攻击者向目标站点注入HTML标签脚本&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-13&quot;&gt;13.6.5 拒绝服务攻击&lt;/h5&gt;
+
+&lt;h4 id=&quot;section-14&quot;&gt;13.7 客户端框架&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;封装底层的代码，开放高级API的框架，比如jQuery&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;框架：Prototype，Dojo，YUI，Closure，GWT，&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Mon, 24 Oct 2016 00:00:00 +0800</pubDate>
+        <link>http://zhangzj.github.io/javascript/2016/10/24/JavaScriptDefineBook-H.html</link>
+        <guid isPermaLink="true">http://zhangzj.github.io/javascript/2016/10/24/JavaScriptDefineBook-H.html</guid>
+        
+        <category>javascript</category>
+        
+        <category>正则表达式</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>JavaScript权威指南 读书笔记-F</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;10 正则表达式和模式匹配&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;10.1 正则表达式的定义&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;10.1.1 直接量字符&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;10.1.2 字符类&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;10.1.3 重复&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;10.1.4 选择，分组和引用&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;10.1.6 修饰符&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#string&quot; id=&quot;markdown-toc-string&quot;&gt;10.2 用于模式匹配的String方法&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#regexp&quot; id=&quot;markdown-toc-regexp&quot;&gt;10.3 RegExp对象&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#regexp-1&quot; id=&quot;markdown-toc-regexp-1&quot;&gt;10.3.1 RegExp的属性&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#regexp-2&quot; id=&quot;markdown-toc-regexp-2&quot;&gt;10.3.2 RegExp的方法&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#javascript&quot; id=&quot;markdown-toc-javascript&quot;&gt;11 JavaScript的子集和扩展&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#js&quot; id=&quot;markdown-toc-js&quot;&gt;11.1 JS的子集&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-7&quot; id=&quot;markdown-toc-section-7&quot;&gt;11.1.1 精华&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-8&quot; id=&quot;markdown-toc-section-8&quot;&gt;11.1.2 子集的安全性&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-9&quot; id=&quot;markdown-toc-section-9&quot;&gt;11.2 常量和局部变量&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-10&quot; id=&quot;markdown-toc-section-10&quot;&gt;11.3 解构赋值&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-11&quot; id=&quot;markdown-toc-section-11&quot;&gt;11.4 迭代&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#foreach&quot; id=&quot;markdown-toc-foreach&quot;&gt;11.4.1 foreach循环&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-12&quot; id=&quot;markdown-toc-section-12&quot;&gt;11.4.2 迭代器&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-13&quot; id=&quot;markdown-toc-section-13&quot;&gt;11.4.3 生成器&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-14&quot; id=&quot;markdown-toc-section-14&quot;&gt;11.4.4 数组推导&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-15&quot; id=&quot;markdown-toc-section-15&quot;&gt;11.4.5 生成器表达式&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-16&quot; id=&quot;markdown-toc-section-16&quot;&gt;11.5 函数简写&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#catch&quot; id=&quot;markdown-toc-catch&quot;&gt;11.6 多catch从句&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#e4xecmascript-for-xml&quot; id=&quot;markdown-toc-e4xecmascript-for-xml&quot;&gt;11.7 E4X：ECMAScript for XML&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#js-1&quot; id=&quot;markdown-toc-js-1&quot;&gt;12 服务器端JS&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#rhinojava&quot; id=&quot;markdown-toc-rhinojava&quot;&gt;12.1 用Rhino脚本化Java&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#nodeio&quot; id=&quot;markdown-toc-nodeio&quot;&gt;12.2 用Node实现异步I/O&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;全书的第一编：JavaScript语言核心&lt;/p&gt;
+
+&lt;p&gt;第10章：正则表达式和模式匹配&lt;/p&gt;
+
+&lt;p&gt;第11章：JavaScript的子集和扩展&lt;/p&gt;
+
+&lt;p&gt;第12章：服务器端JavaScript&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;10 正则表达式和模式匹配&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;正则表达式， re，是一个描述字符模式的对象。JS的RegExp类表示正则表达式&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;10.1 正则表达式的定义&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;可以使用RegExp()构造函数创建，不过一般是使用特殊的直接量语法来创建，在一对斜杠之间的字符&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 对象创建
+var pattern = new RegExp(&quot;s$&quot;);
+
+// 直接量创建
+var pattern = /s$/; 
+
+// 用来匹配所有s结尾的字符串
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;section-2&quot;&gt;10.1.1 直接量字符&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;正则中所有的字母和数字都是按照字面意义进行匹配的，非数字字母使用转义字符表示&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/8d6a2535gw1f938tol5xsj20kc0cgdhb.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;正则中有特殊含义的字符&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/8d6a2535gw1f938um1s6aj20ay017glf.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;section-3&quot;&gt;10.1.2 字符类&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;将直接量字符单独放进方括号内就组成了字符类，一个字符类可以匹配他所包含的任意字符&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[abc]/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;可以通过次方符号来表示字符类的非运算结果&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[^abc]/ //匹配的是abc之外的所有字符
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;可以使用连字符表示范围&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[a-zA-Z0-9]/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;某些字符类在郑泽中有特殊的转义字符表示&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/8d6a2535gw1f93acv2pjuj20fl0c0myw.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;section-4&quot;&gt;10.1.3 重复&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;描述重复任意多位的数字，或者描述由三个字符和一个数字构成的字符串&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在正则模式之后跟随使用指定字符串重复的标记，某些比较常用的情况有特殊字符表示&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/large/8d6a2535gw1f93ashuuzej20ib080jsg.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;一些现实例子&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/8d6a2535gw1f93at7s206j20eg02mglz.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;贪婪与非贪婪的重复，模式会产生同一段字符串出现多个匹配的情况，，aaaaaaab，多个a以b结束，如何匹配就看怎么设置&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-5&quot;&gt;10.1.4 选择，分组和引用&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;多个选择项，可以匹配多项中的一个&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/ab|cd|ef/
+
+// 可以匹配 ab，cd或者ef
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/8d6a2535gw1f93b15pjzfj20md07s76f.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/8d6a2535gw1f93b2vdfjxj20lz08ggnn.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;section-6&quot;&gt;10.1.6 修饰符&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;这个是放在斜线之外的，高级匹配模式规则，出现在两条斜线之后&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/8d6a2535gw1f93bdgnfoej20m404t3zm.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;string&quot;&gt;10.2 用于模式匹配的String方法&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;String对象的一些执行正则，检索替换的方法，String支持4中使用正则的方法，&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;search()，参数是一个正则，返回第一个预支匹配的子串的位置，如果没有就返回-1&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;JavaScript&quot;.search(/script/i); =&amp;gt; 4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;replace() 替换，参数是一个正则和一个字符串，找到之后进行替换&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;match() 返回一个由匹配结果生成的数组&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;regexp&quot;&gt;10.3 RegExp对象&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;构造函数在代码动态创建正则的时候很有用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;regexp-1&quot;&gt;10.3.1 RegExp的属性&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;每一个正则对象都有5个属性，source是只读字符串，表示正则的文本，global是一个只读的布尔，说明这个正则是否有g修饰符，ignoreCase也是制度布尔，表示是否有修饰符i，布尔mutiline，类似最后一个lastIndex是一个可读写的整数，如果带有g修饰符，存储的就是下一次开始检索的位置&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;regexp-2&quot;&gt;10.3.2 RegExp的方法&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;exec test&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;javascript&quot;&gt;11 JavaScript的子集和扩展&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;子集的定义大部分是安全考虑&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Firefox使用一个机遇明教SpiderMonkey的js引擎，Mozilla开发的另一个基于Java的js引擎Rhino也支持大部分扩展特性&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;js&quot;&gt;11.1 JS的子集&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;大多数语言都有自己的子集，更安全之星不可信任的第三方代码&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-7&quot;&gt;11.1.1 精华&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;很多语言都有精华和鸡肋，只用精华，不用糟粕，可以升华每一个程序员的心灵&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;不包含with，continue和eval哈数，提倡使用函数定义表达式，不是函数定义语句来定义函数&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;循环和分值都用花括号包裹，不省略&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;不推荐使用不严格等于，使用严格等于的比较&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-8&quot;&gt;11.1.2 子集的安全性&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;代码静态安全检查的沙箱，必须移除一些特性&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;eval和function构造函数都禁止使用，因为可以执行任意代码&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;禁止使用this关键字，可以访问全局对象&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;禁止with语句，&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;禁止某些全局变量&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;禁止某些属性和方法，比如caller，callee&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;静态分析防止带有点运算符的属性存取方式去读写特殊属性&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-9&quot;&gt;11.2 常量和局部变量&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;下面是语言的扩展&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;const关键字来定义常量&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;块级作用域的支持，关键字let，作用域只属于最近的代码块&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-10&quot;&gt;11.3 解构赋值&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;多个值同时复制给多个值&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let [x,y] = [1,2];
+[x,y] = [x+1, y+1];
+[x,y] = [y,x];
+console.log([x,y]);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-11&quot;&gt;11.4 迭代&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;foreach循环和python风格的迭代器和生成器&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;foreach&quot;&gt;11.4.1 foreach循环&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;不是遍历对象的属性，而是遍历属性的值&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-12&quot;&gt;11.4.2 迭代器&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-13&quot;&gt;11.4.3 生成器&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-14&quot;&gt;11.4.4 数组推导&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-15&quot;&gt;11.4.5 生成器表达式&lt;/h5&gt;
+
+&lt;h4 id=&quot;section-16&quot;&gt;11.5 函数简写&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;表达式闭包，函数只计算的一个表达式并返回值的话没return和花括号都可以省略&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let succ = function(x)x+1, yes=function()true, no = function() false;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;catch&quot;&gt;11.6 多catch从句&lt;/h4&gt;
+
+&lt;h4 id=&quot;e4xecmascript-for-xml&quot;&gt;11.7 E4X：ECMAScript for XML&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;js的标准扩展，为处理XML文档定义了一系列强大特性&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;js-1&quot;&gt;12 服务器端JS&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;除了浏览器端，js也是一个通用的编程语言&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Rhino是基于Java的js解析器，实现了通过js程序访问整个Java API&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Node是Google的V8 JS解析器的特别版本，底层绑定了POSIX API，包括文件，进程，流和套接字等等，侧重于异步I/O，网络和HTTP&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Web浏览器之外，js的用武之地，服务器端，Rhino程序可以使用Java的Swing框架搭建UI，Node上的js程序可以向shell一样操作文件&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;rhinojava&quot;&gt;12.1 用Rhino脚本化Java&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Rhino是Java编写的js解析器，目的是使用Java品台的API实现js编写程序。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;nodeio&quot;&gt;12.2 用Node实现异步I/O&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Node是基于C++的告诉JS解释器，绑定了Unix API&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 24 Oct 2016 00:00:00 +0800</pubDate>
+        <link>http://zhangzj.github.io/javascript/2016/10/24/JavaScriptDefineBook-G.html</link>
+        <guid isPermaLink="true">http://zhangzj.github.io/javascript/2016/10/24/JavaScriptDefineBook-G.html</guid>
+        
+        <category>javascript</category>
+        
+        <category>正则表达式</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>JavaScript权威指南 读书笔记-F</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;9 类和模块&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;9.1 类和原型&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;9.2 类和构造函数&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;9.2.1 构造函数和类的标识&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#caonstructor&quot; id=&quot;markdown-toc-caonstructor&quot;&gt;9.2.2 caonstructor属性&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#jsjava&quot; id=&quot;markdown-toc-jsjava&quot;&gt;9.3 js中Java式的类继承&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;9.4 类的扩充&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;9.5 类和类型&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#instanceof&quot; id=&quot;markdown-toc-instanceof&quot;&gt;9.5.1 instanceof运算符&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#constructor&quot; id=&quot;markdown-toc-constructor&quot;&gt;9.5.2 constructor属性&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;9.9 模块&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;全书的第一编：JavaScript语言核心&lt;/p&gt;
+
+&lt;p&gt;第9章：类和模块&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;9 类和模块&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;js可以定义对象的类，让每一个对象都共享某些属性&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;9.1 类和原型&lt;/h4&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;9.2 类和构造函数&lt;/h4&gt;
+
+&lt;h5 id=&quot;section-3&quot;&gt;9.2.1 构造函数和类的标识&lt;/h5&gt;
+
+&lt;h5 id=&quot;caonstructor&quot;&gt;9.2.2 caonstructor属性&lt;/h5&gt;
+
+&lt;h4 id=&quot;jsjava&quot;&gt;9.3 js中Java式的类继承&lt;/h4&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;9.4 类的扩充&lt;/h4&gt;
+
+&lt;h4 id=&quot;section-5&quot;&gt;9.5 类和类型&lt;/h4&gt;
+
+&lt;h5 id=&quot;instanceof&quot;&gt;9.5.1 instanceof运算符&lt;/h5&gt;
+
+&lt;h5 id=&quot;constructor&quot;&gt;9.5.2 constructor属性&lt;/h5&gt;
+
+&lt;h4 id=&quot;section-6&quot;&gt;9.9 模块&lt;/h4&gt;
+</description>
+        <pubDate>Mon, 24 Oct 2016 00:00:00 +0800</pubDate>
+        <link>http://zhangzj.github.io/javascript/2016/10/24/JavaScriptDefineBook-F.html</link>
+        <guid isPermaLink="true">http://zhangzj.github.io/javascript/2016/10/24/JavaScriptDefineBook-F.html</guid>
+        
+        <category>javascript</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>JavaScript权威指南 读书笔记-E</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;8 函数&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;8.1 函数定义&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;8.2 函数调用&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;8.2.1 函数调用方式&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;8.2.2 方法调用&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;8.2.3 构造函数调用&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;8.2.4 间接调用&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-7&quot; id=&quot;markdown-toc-section-7&quot;&gt;8.3 函数的实参和形参&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-8&quot; id=&quot;markdown-toc-section-8&quot;&gt;8.3.1 可选形参&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-9&quot; id=&quot;markdown-toc-section-9&quot;&gt;8.3.2 可变长的实参列表：实参对象&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-10&quot; id=&quot;markdown-toc-section-10&quot;&gt;8.3.3 将对象属性用做实参&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-11&quot; id=&quot;markdown-toc-section-11&quot;&gt;8.3.4 实参类型&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-12&quot; id=&quot;markdown-toc-section-12&quot;&gt;8.4 作为值的函数&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-13&quot; id=&quot;markdown-toc-section-13&quot;&gt;8.5 作为命名空间的函数&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-14&quot; id=&quot;markdown-toc-section-14&quot;&gt;8.6 闭包&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-15&quot; id=&quot;markdown-toc-section-15&quot;&gt;8.7 函数属性，方法和构造函数&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#length&quot; id=&quot;markdown-toc-length&quot;&gt;8.7.1 length属性&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#prototype&quot; id=&quot;markdown-toc-prototype&quot;&gt;8.7.2 prototype属性&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#callapply&quot; id=&quot;markdown-toc-callapply&quot;&gt;8.7.3 call方法和apply方法&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#bind&quot; id=&quot;markdown-toc-bind&quot;&gt;8.7.4 bind方法&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#tostring&quot; id=&quot;markdown-toc-tostring&quot;&gt;8.7.5 toString()方法&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#function-&quot; id=&quot;markdown-toc-function-&quot;&gt;8.7.6 Function() 函数&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-16&quot; id=&quot;markdown-toc-section-16&quot;&gt;8.7.7 可调用的对象&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-17&quot; id=&quot;markdown-toc-section-17&quot;&gt;8.8 函数式编程&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-18&quot; id=&quot;markdown-toc-section-18&quot;&gt;8.8.1 使用函数处理数组&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-19&quot; id=&quot;markdown-toc-section-19&quot;&gt;8.8.2 高阶函数&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-20&quot; id=&quot;markdown-toc-section-20&quot;&gt;8.8.3 不完全函数&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-21&quot; id=&quot;markdown-toc-section-21&quot;&gt;8.8.4 记忆&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;全书的第一编：JavaScript语言核心&lt;/p&gt;
+
+&lt;p&gt;第8章：函数&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;8 函数&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;函数调用中，每次调用都有一个上下文，就是this关键字的值&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;对象的方法，调用上下文，就是对象&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;js中函数即对象，可以有属性甚至方法&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;函数可以嵌套在函数中定义，这样就可以访问被定义时所处的作用域中的任何变量，也就是闭包&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;8.1 函数定义&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;使用function来定义&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;其实还是分为有名字和匿名函数的&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var square = function(x) { return x*x; };
+
+data.sort(function(a,b) { return a - b; });
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;嵌套函数：嵌套的函数内定义的函数的作用域，可以访问外面的函数的变量&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;8.2 函数调用&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;有4种方式来调用js函数&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;函数调用&lt;/li&gt;
+      &lt;li&gt;方法&lt;/li&gt;
+      &lt;li&gt;构造函数&lt;/li&gt;
+      &lt;li&gt;通过函数的call()和apply()方法进行间接调用&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-3&quot;&gt;8.2.1 函数调用方式&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;函数表达式，函数名加上参数列表，圆括号包裹&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-4&quot;&gt;8.2.2 方法调用&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;保存在对象属性中的js函数&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;o.m = f;
+o.m();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;方法和函数调用的区别是，调用上下文，方法中，o称为调用上下文，函数体可以使用关键字this引用该对象&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var calculator = {
+	operand: 1,
+	perand2: 1,
+	add: function() {
+		this.result = this.operand1 + this.operand2;
+	}
+};
+
+calcuator.add();
+calculator.result =&amp;gt; 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;方法链：方法的返回值是对象的时候，可以在调用它的方法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-5&quot;&gt;8.2.3 构造函数调用&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;函数或者方法调用钱有关键字new，就是构造函数调用。与普通的函数调用比在实参处理，调用上下文和返回值上都有不同&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;没有形参的构造函数可以省略圆括号&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var o = new Object();
+var o = new Obeject;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;构造函数调用创建一个新的空对象，继承自构造函数的prototype属性；使用新的对象座位上下文，可以使用this关键字引用新的对象，所以咋new o.m()中，上下文并不是o&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;构造韩式的返回值不用写，它默认返回新对象&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-6&quot;&gt;8.2.4 间接调用&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;函数也是对象，有两个方法，call() apply()，可以间接地调用函数&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;可以显式制定调用的参数this，任何函数可以作为任何对象的方法来调用，即使这个函数不是那个对象的方法&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-7&quot;&gt;8.3 函数的实参和形参&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;函数调用不指定形参的数量，也不检查实参的类型，那怎么搞定？&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-8&quot;&gt;8.3.1 可选形参&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;如果传入的实参比形参少，剩下的就是默认为undefined，剩下的默认制定在函数内部搞定&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-9&quot;&gt;8.3.2 可变长的实参列表：实参对象&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;arguments对象是一个类数组对象，可以通过它来访问实参列表&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function f(x, y, z) {
+	if (arguments.length != 3) {
+		throw new Error(&quot;err&quot;);
+}
+// other code
+}
+
+function max(/* ... */) {
+	var max = Number.NEGATIVE_INFINITY;
+	for (var i = 0; i &amp;lt; arguments.lenghth; i++)
+		if (arguments[i] &amp;gt; max) max = arguments[i];
+	return max;
+}
+
+var largest = max(1, 10, 100, 10000); // =&amp;gt; 10000
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;callee caller 属性，arguments对象的另外两个属性，callee只带当前正在执行的函数，caller知道调用当前正在执行的函数的函数&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-10&quot;&gt;8.3.3 将对象属性用做实参&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;把要传入的参数列表，包装成一个对象传入，之后使用对象属性查询参数&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function arraycopy(from, to, from_start, to_start, length){ // code}
+
+function easycopy(args) {
+	arraycopy(args.from, args.from_start, args.to, args.to_start, args.length);
+}
+
+var a = [1,2,3,4], b = [];
+easycopy({ from:a, to:b, length:4 });
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;section-11&quot;&gt;8.3.4 实参类型&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;js不检查，直接用，使用注释说明&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;自己在代码逻辑中检查实参类型，给出错误提示&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-12&quot;&gt;8.4 作为值的函数&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;函数不仅是一种语法也是一个值，函数可以赋值给一个变量，存储在对象的属性或者数组的元素中，作为参数传入另一个函数等&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var s = arraycopy;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var a = [function(x) { return x*x; }, 20];
+a[0](a[1]);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-13&quot;&gt;8.5 作为命名空间的函数&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;函数内定义的变量，外部不可见&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;函数定义之后，全局变量只是增加了函数的名字，可以直接匿名然后直接调用&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(function() {
+	// code
+}());
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-14&quot;&gt;8.6 闭包&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;什么是闭包？十分古老的术语，是说函数变量可以被隐藏于作用域链之内，因此看起来是函数将变量，包裹了起来。函数对象可以通过作用域链相互关联起来，函数体内部的变量都可以保存在函数作用域内，这种特性在CS文献中称为闭包。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;看不大懂，不太想看，暂时跳过&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-15&quot;&gt;8.7 函数属性，方法和构造函数&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;函数是特殊的对象，也可以拥有属性和方法，甚至可以使用Function()构造器来创建新的函数对象&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;length&quot;&gt;8.7.1 length属性&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;函数本身的length属性是只读的属性，代表函数的实参数量，函数定义时候给出的实参&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;prototype&quot;&gt;8.7.2 prototype属性&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;原型对象呗&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;callapply&quot;&gt;8.7.3 call方法和apply方法&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;间接调用函数&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;bind&quot;&gt;8.7.4 bind方法&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ES5中新增的方法，主要作用就是讲函数绑定至某个对象，将函数当做方法来调用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;tostring&quot;&gt;8.7.5 toString()方法&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;大多数函数的方法实现都是返回函数的完整源代码，内置函数返回一个类似native code的字符串作为函数体&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;function-&quot;&gt;8.7.6 Function() 函数&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;一般是使用关键字function来定义，也可以使用构造函数&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var f = new Function(&quot;x&quot;, &quot;y&quot;, &quot;return x*y;&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;section-16&quot;&gt;8.7.7 可调用的对象&lt;/h5&gt;
+
+&lt;h4 id=&quot;section-17&quot;&gt;8.8 函数式编程&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;js并不是函数式编程语言，但是可以向操控对象一样操控函数。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-18&quot;&gt;8.8.1 使用函数处理数组&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;map和reduce&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;计算平均值和标准差&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var sum = function(x,y) {return x+y;};
+var square = function(x) {return x*x;};
+
+var data = [1,2,3,5,5];
+var mean = data.reduce(sum)/data.length;
+var deviations = data.map(function(x) {return x-mean;});
+var stddev = Math.sqrt(deviations.map(square).reduce(sum)/(data.length-1));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;section-19&quot;&gt;8.8.2 高阶函数&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;就是操作函数的函数，接受一个或者多个函数作为参数，并返回一个新函数&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;可以让多个函数进行组合等等&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-20&quot;&gt;8.8.3 不完全函数&lt;/h5&gt;
+
+&lt;h5 id=&quot;section-21&quot;&gt;8.8.4 记忆&lt;/h5&gt;
+
+</description>
+        <pubDate>Sat, 22 Oct 2016 00:00:00 +0800</pubDate>
+        <link>http://zhangzj.github.io/javascript/2016/10/22/JavaScriptDefineBook-E.html</link>
+        <guid isPermaLink="true">http://zhangzj.github.io/javascript/2016/10/22/JavaScriptDefineBook-E.html</guid>
+        
+        <category>javascript</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>JavaScript权威指南 读书笔记-D</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;7 数组&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;7.1 创建数组&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;7.2 数组元素的读和写&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;7.3 稀疏数组&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;7.4 数组长度&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;7.5 数组元素的添加和删除&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;7.6 数组遍历&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-7&quot; id=&quot;markdown-toc-section-7&quot;&gt;7.7 多维数组&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-8&quot; id=&quot;markdown-toc-section-8&quot;&gt;7.8 数组方法&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#join&quot; id=&quot;markdown-toc-join&quot;&gt;7.8.1 join()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#reverse&quot; id=&quot;markdown-toc-reverse&quot;&gt;7.8.2 reverse()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#sort&quot; id=&quot;markdown-toc-sort&quot;&gt;7.8.3 sort()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#concat&quot; id=&quot;markdown-toc-concat&quot;&gt;7.8.4 concat()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#slice&quot; id=&quot;markdown-toc-slice&quot;&gt;7.8.5 slice()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#splice&quot; id=&quot;markdown-toc-splice&quot;&gt;7.8.6 splice()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#push--pop&quot; id=&quot;markdown-toc-push--pop&quot;&gt;7.8.7 push() 和 pop()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#unshift--shift&quot; id=&quot;markdown-toc-unshift--shift&quot;&gt;7.8.8 unshift() 和 shift()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#tostring--tolocalstring&quot; id=&quot;markdown-toc-tostring--tolocalstring&quot;&gt;7.8.9 toString() 和 toLocalString()&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#es5-&quot; id=&quot;markdown-toc-es5-&quot;&gt;7.9 ES5 中的数组方法&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#foreach&quot; id=&quot;markdown-toc-foreach&quot;&gt;7.9.1 forEach()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#map&quot; id=&quot;markdown-toc-map&quot;&gt;7.9.2 map()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#filter&quot; id=&quot;markdown-toc-filter&quot;&gt;7.9.3 filter()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#every-some&quot; id=&quot;markdown-toc-every-some&quot;&gt;7.9.4 every() some()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#reduce-reduceright&quot; id=&quot;markdown-toc-reduce-reduceright&quot;&gt;7.9.5 reduce() reduceRight()&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#indexof-lastindexof&quot; id=&quot;markdown-toc-indexof-lastindexof&quot;&gt;7.9.6 indexOf() lastIndexOf()&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-9&quot; id=&quot;markdown-toc-section-9&quot;&gt;7.10 数组类型&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-10&quot; id=&quot;markdown-toc-section-10&quot;&gt;7.11 类数组对象&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-11&quot; id=&quot;markdown-toc-section-11&quot;&gt;7.12 作为数组的字符串&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;全书的第一编：JavaScript语言核心&lt;/p&gt;
+
+&lt;p&gt;第7章：数组&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;7 数组&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;js的数组是无类型的&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;数组是动态的，长度可以增减&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;数组是对象的特殊形式，数组索引类似整数的属性名&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;7.1 创建数组&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;直接量创建或者new Array(参数列表) 创建都可以&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;7.2 数组元素的读和写&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;方括号中是结果是非负整数的表达式&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;可以使用其他的值来作为索引，比如浮点数和字符串，但是要么返回undefined，要么就是当做属性名字访问&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;7.3 稀疏数组&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;稀疏数组就是包含从0开始的不连续索引的数组，数组的length永远比最大的索引大&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;a = new Array(5);
+a = [];
+a[1000] = 0;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;7.4 数组长度&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;数组的length属性，针对稠密数组，就是数组的元素个数，比最大的索引大1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-5&quot;&gt;7.5 数组元素的添加和删除&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;最简单的就是帮新的索引赋值&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;也可以使用 push 方法&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;删除的话使用 delete 关键字&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-6&quot;&gt;7.6 数组遍历&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;for循环遍历&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;函数式风格遍历，forEach(function)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-7&quot;&gt;7.7 多维数组&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;用元素是数组来实现多位数组，循环嵌套来遍历&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-8&quot;&gt;7.8 数组方法&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Array.prototype 中定义了很多函数操作数组&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;join&quot;&gt;7.8.1 join()&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;将所有的元素转化成字符串并连接在一起&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;a.join(分隔符);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Array.join() 方法是 String.split() 方法的逆向操作，后者是把字符串分隔成若干块来创建数组&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;reverse&quot;&gt;7.8.2 reverse()&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;翻转元素顺序&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;sort&quot;&gt;7.8.3 sort()&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Array.sort() 返回排序后的数组，要是有undefined，就放在最后&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;可以指定比较函数，按照返回值的正负决定顺序&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;concat&quot;&gt;7.8.4 concat()&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;创建并返回一个新数组，新数组包括调用concat 的元是数组和每一个参数&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;slice&quot;&gt;7.8.5 slice()&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;指定数组的一个片段或者子数组，参数是开始和结束的位置&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;splice&quot;&gt;7.8.6 splice()&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;在数组中插入或者删除元素的通用方法，会修改调用的数组&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;push--pop&quot;&gt;7.8.7 push() 和 pop()&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;模拟栈的操作，实现先进后出的数据结构&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;unshift--shift&quot;&gt;7.8.8 unshift() 和 shift()&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;类似于push和pop，不一样的是push是在尾部追加，shift是在头部进行插入，删除同理&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;unshift的插入元素是一次性的全部插入，多参数的情况下&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;tostring--tolocalstring&quot;&gt;7.8.9 toString() 和 toLocalString()&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;每个元素转成字符串，然后不加方括号返回，逗号分隔，内部有嵌套的数组的话也不会有方括号的&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;es5-&quot;&gt;7.9 ES5 中的数组方法&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;有新方法，用于，遍历，映射，过滤，加测，简化，搜索数组&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;大多数方法是第一个参数接受一个函数，并对数组的每一个元素调用一次该函数&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;foreach&quot;&gt;7.9.1 forEach()&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;从头到尾遍历数组，为每一个元素调用指定的函数，传递的函数是forEach的第一个参数&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;forEach使用三个参数调用该函数，1. 数组元素，2. 元素的索引， 3. 数组本身&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;如果只关心数组的值，可以只传递一个参数&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var data = [1,2,3,4,5];
+var sum = 0;
+data.forEach(function(value) { sum += value; });
+sum //
+
+data.forEach(function(v, i, a) { a[i] = v + 1; });
+// v = value, i = index, a = array
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;forEach的遍历没有办法使用break停止，只有抛出异常，放在try块中来停止&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;map&quot;&gt;7.9.2 map()&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;map会把数组的每一个元素传递给指定函数，然后返回一个数组&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;a = [1,2,3];
+b = a.map(function(x) {
+	return x*x;
+});
+b // =&amp;gt; [1,4,9]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;map返回的是新数组，函数应有返回值&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;filter&quot;&gt;7.9.3 filter()&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;返回调用数组的一个子集， 传递的函数是用来做逻辑判定的， 返回true或者false&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;a = [5,4,3,2,1];
+smallvalues = a.filter(function(x) { return x &amp;lt; 3; }); // [2,1]
+everyother = a.filter(function(x,i) { return i%2==0; }); // [5,3,1]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;every-some&quot;&gt;7.9.4 every() some()&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;对数组元素应用指定函数进行判定，返回true或者false&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;every是说只有数组中所欲的元素返回true才会返回true&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;some就是只要存在就好，就会返回true&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在空数组上调用的时候，every返回true，some返回false&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;reduce-reduceright&quot;&gt;7.9.5 reduce() reduceRight()&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;使用函数将数组元素进行组合，生成单个值。也可以成为&lt;strong&gt;注入&lt;/strong&gt;和&lt;strong&gt;折叠&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var a = [1,2,3,4,5];
+var sum = a.reduce(function(x,y) { return x+y; }, 0); 
+var product = a.reduce(function(x,y) { return x*y; }, 1);
+var max = a.reduce(function(x,y) { return (x&amp;gt;y)?x:y; });
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;两个参数，一个参数是化简函数，给出两个参数，返回一个值。第二个是可选的，是传递给函数的初始值&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;indexof-lastindexof&quot;&gt;7.9.6 indexOf() lastIndexOf()&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;返回找到的第一个的元素的索引，没找到就返返回-1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-9&quot;&gt;7.10 数组类型&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;判定一个对象是不是数组，Array.isArray([])&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-10&quot;&gt;7.11 类数组对象&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;js的数组有一些特性是其他对象没有的&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;有新元素添加的时候，length自动更新&lt;/li&gt;
+      &lt;li&gt;设置length为较小的值会截断数组&lt;/li&gt;
+      &lt;li&gt;从Array.prototype中继承一些有用的方法&lt;/li&gt;
+      &lt;li&gt;类属性是Array&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;类数组对象偶尔出现，虽然不是真正的数组，但是可以应用数组的方法&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-11&quot;&gt;7.12 作为数组的字符串&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;早期实现的时候字符串是可以使用方括号引用字符的，类似字符数组&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Fri, 21 Oct 2016 00:00:00 +0800</pubDate>
+        <link>http://zhangzj.github.io/javascript/2016/10/21/JavaScriptDefineBook-D.html</link>
+        <guid isPermaLink="true">http://zhangzj.github.io/javascript/2016/10/21/JavaScriptDefineBook-D.html</guid>
+        
+        <category>javascript</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>JavaScript权威指南 读书笔记-C</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;6 对象&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;6.1 创建对象&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;6.1.1 对象直接量&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#new-&quot; id=&quot;markdown-toc-new-&quot;&gt;6.1.2 通过 new 创建对象&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;6.1.3 原型&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#objectcreate&quot; id=&quot;markdown-toc-objectcreate&quot;&gt;6.1.4 Object.create()&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;6.2 属性的查询和设置&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;6.2.1 作为关联数组的对象&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;6.2.2 继承&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-7&quot; id=&quot;markdown-toc-section-7&quot;&gt;6.2.3 属性访问错误&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-8&quot; id=&quot;markdown-toc-section-8&quot;&gt;6.3 删除属性&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-9&quot; id=&quot;markdown-toc-section-9&quot;&gt;6.4 检测属性&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-10&quot; id=&quot;markdown-toc-section-10&quot;&gt;6.5 枚举属性&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#gettersetter&quot; id=&quot;markdown-toc-gettersetter&quot;&gt;6.6 属性getter和setter&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-11&quot; id=&quot;markdown-toc-section-11&quot;&gt;6.7 属性的特性&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-12&quot; id=&quot;markdown-toc-section-12&quot;&gt;6.8 对象的三个属性&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-13&quot; id=&quot;markdown-toc-section-13&quot;&gt;6.8.1 原型属性&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-14&quot; id=&quot;markdown-toc-section-14&quot;&gt;6.8.2 类属性&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#section-15&quot; id=&quot;markdown-toc-section-15&quot;&gt;6.8.3 可扩展性&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-16&quot; id=&quot;markdown-toc-section-16&quot;&gt;6.9 序列化对象&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-17&quot; id=&quot;markdown-toc-section-17&quot;&gt;6.10 对象方法&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#tostring-&quot; id=&quot;markdown-toc-tostring-&quot;&gt;6.10.1 toString() 方法&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#tolocalstring-&quot; id=&quot;markdown-toc-tolocalstring-&quot;&gt;6.10.2 toLocalString() 方法&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#tojson-&quot; id=&quot;markdown-toc-tojson-&quot;&gt;6.10.3 toJSON() 方法&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#valueof-&quot; id=&quot;markdown-toc-valueof-&quot;&gt;6.10.4 valueOf() 方法&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;全书的第一编：JavaScript语言核心&lt;/p&gt;
+
+&lt;p&gt;第6章：对象&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;6 对象&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;对象是原始类型，可以看成是字符串到值的映射&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;除了可以包邮自身属性，还可以从一个叫原型的对象继承属性&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;除了字符串，数字，true，false，null和undefined之外，js中的值都是对象&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;对象的常见用法：创建，设置，查找，删除，检测，枚举&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;什么是属性？属性包括名字和值，一个对象里不可以重名，每个属性还有一些另外的特性&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;可写，表明属性是不是可以设置该属性的值&lt;/li&gt;
+      &lt;li&gt;可枚举，是否可以通过for/in循环返回该属性&lt;/li&gt;
+      &lt;li&gt;可配置，是否可以删除或者修改该属性&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;每个对象还有三个相关的对象特性&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;对象的原型，指向另外一个对象，属性继承自他的原型对象&lt;/li&gt;
+      &lt;li&gt;对象的类，是一个标识对象类型的字符串&lt;/li&gt;
+      &lt;li&gt;对象的扩展标记，说明是不是可以对该对象添加新的属性&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;术语：对三类对象和两类属性做出区分&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;内置对象，js内的数组，函数，日期，正则等等&lt;/li&gt;
+      &lt;li&gt;宿主对象，js所嵌入的宿主环境，比如web浏览器，可以看做是内置对象&lt;/li&gt;
+      &lt;li&gt;自定义对象，运行中js代码创建的对象&lt;/li&gt;
+      &lt;li&gt;自有属性，直接在对象中定义的属性&lt;/li&gt;
+      &lt;li&gt;继承属性，在对象原型对象中定义的属性&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;6.1 创建对象&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;创建方式有直接量创建，关键字new和Object.create()函数创建&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-2&quot;&gt;6.1.1 对象直接量&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;属性名可以是直接量，也可以是变量，值也是相同&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var empty = {};
+var point = { x : 0, y : 0 };
+var point2 = { x : point.x, y : point.y+1 };
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;new-&quot;&gt;6.1.2 通过 new 创建对象&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;new运算符创建并初始化一个新对象，new 后面跟的是一个构造函数&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-3&quot;&gt;6.1.3 原型&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;除了null之外，所有的对象都是从原型继承属性&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;原型链也就是属性继承链&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;objectcreate&quot;&gt;6.1.4 Object.create()&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;这是一个静态函数，不是给某个对象调用的方法，使用的话只要传入原型对象就好&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var o1 = Object.create({ x:1, y:2 });
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;传入原型的意思是&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var o2 Object.create(Object.prototype);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;6.2 属性的查询和设置&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;之前就知道，可以使用点和方括号，引用和设置属性&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-5&quot;&gt;6.2.1 作为关联数组的对象&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;属性的访问方式&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;object.property
+object[&quot;property&quot;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;js是弱类型的，属性本身是可以增减修改的，不必提前定义好，方括号引用，数组方式获取属性的好处&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var addr = &quot;&quot;;
+for( i = 0; i &amp;lt; 4; i++) {
+	add += customer[&quot;address&quot; + i] + '\n';
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;属性名在运行时候自动确定，很动态
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;section-6&quot;&gt;6.2.2 继承&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;属性的被获取的时候回在继承链上进行查找，找到或者返回null为止&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;属性的赋值，要是自己有，就会赋值，没有就会创建新的属性，不会修改原型链&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-7&quot;&gt;6.2.3 属性访问错误&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;属性不存在的时候，返回undefined，不会报错&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;对象不存在，查询这个对象的属性就会报错&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-8&quot;&gt;6.3 删除属性&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;delete删除属性，是断开属性和对象的联系，不会操作属性中的属性&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;只能删除自由属性，不能删除继承属性&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;delete没有任何副作用，没成功删除的话也没什么反应&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-9&quot;&gt;6.4 检测属性&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;可以用 in 运算符，hasOwnProperty()和propertyIsEnumerable()来判断&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;可以判断查询返回是不是undefined来判断&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;o.x !== undefined
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;但是，in 运算符可以区分是属性不存在还是存在但是没有初始化&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-10&quot;&gt;6.5 枚举属性&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;代码中给对象添加的属性都是可枚举的&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;gettersetter&quot;&gt;6.6 属性getter和setter&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;属性值可以使用连个方法替代，就是getter 和 setter ，定义的属性叫做存取器属性，跟数据属性不同&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;可以只定义 setter 或者 getter 这样子就会变成只读和只写&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var o = {
+	// data prop
+	data_prop: value,
+
+	// accessor prop
+	get accessor_prop() {/* code */},
+	set accessor_prop(value) {/* code */}
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;查询存取器属性的方式和数据属性一样&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-11&quot;&gt;6.7 属性的特性&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;属性的特性，配置，可写，可枚举，可配置&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;可以给原型对象添加方法，设置成不可枚举，看起来更像内置方法&lt;/li&gt;
+      &lt;li&gt;给对象定义不能修改汇总和删除，锁定对象&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;可以认为数据属性，包含4个特性，分别是，值，可写性，可枚举性，可配置性&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;存取器属性就没有值和可写性，可写与否由setter决定：所以存取器属性的4个特性是，读取，写入，可枚举和可配置&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;属性描述符对象，这个对象的属性和所描述的属性的特性名字一样，有，vlaue，writable，enumerable，configurable&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;存取器属性的描述符对象使用get属性和set属性代替，writable和value，set和get都输函数值&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Object.getOwnPropertyDescriptor({x:3333},&quot;x&quot;);
+=&amp;gt; Object {value: 3333, writable: true, enumerable: true, configurable: true}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-12&quot;&gt;6.8 对象的三个属性&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;每一个对象都有三个属性，相关原型，prototype，类，class，可扩展性，extensible attribute&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-13&quot;&gt;6.8.1 原型属性&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;对象的原型属性是用来继承属性的&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-14&quot;&gt;6.8.2 类属性&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;类属性是一个字符串，表示对象的类型信息&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;section-15&quot;&gt;6.8.3 可扩展性&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;表示是不是可以给对象添加新属性&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-16&quot;&gt;6.9 序列化对象&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;将对象转化成字符串，也是将字符串转化成对象，内置函数JSON.stringfy()和JSON.parse()来序列化和还原对象&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-17&quot;&gt;6.10 对象方法&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;从原型继承的属性，也继承额方法，对象的方法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;tostring-&quot;&gt;6.10.1 toString() 方法&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;转化成字符串呗&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;tolocalstring-&quot;&gt;6.10.2 toLocalString() 方法&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;一般是调用toString，但是比如日期和数字时间等会有定制，数组调用的话，对应元素会调用自己的toLocalString&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;tojson-&quot;&gt;6.10.3 toJSON() 方法&lt;/h5&gt;
+
+&lt;h5 id=&quot;valueof-&quot;&gt;6.10.4 valueOf() 方法&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;和toString很相似，但是是js需要将对象转换成原始值而不是字符串的时候用&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 21 Oct 2016 00:00:00 +0800</pubDate>
+        <link>http://zhangzj.github.io/javascript/2016/10/21/JavaScriptDefineBook-C.html</link>
+        <guid isPermaLink="true">http://zhangzj.github.io/javascript/2016/10/21/JavaScriptDefineBook-C.html</guid>
+        
+        <category>javascript</category>
+        
+        
+        <category>javascript</category>
         
       </item>
     

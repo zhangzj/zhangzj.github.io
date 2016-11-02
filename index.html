@@ -2,54 +2,18 @@
 layout: default
 ---
 
-<div class="page">
-
+<div class="page clearfix" index>
   <div class="left">
-    <h2>ZZJ's Roadmap</h2>
-    
-    <small>教练，我什么都想学</small>
     <hr>
     <ul>
-    {% for post in paginator.posts %}
-    
+      {% for post in site.posts %}
       <li>
-      <h3>
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      </h3>
-      <div class="label">
-        <div class="label-card">
-              <i class="fa fa-calendar"></i>{{ post.date | date: "%F" }}
-          </div>
-          <div class="label-card">
-              {% if post.author %}<i class="fa fa-user"></i>{{ post.author }}
-              {% endif %}
-          </div>
-          <div class="label-card">
-              {% if page.meta %}<i class="fa fa-key"></i>{{ page.meta }}  {% endif %}
-          </div>
-
-          <div class="label-card">
-          {% include category.html %}
-          </div>
-
-          <div class="label-card">
-          {% include tag.html %}
-          </div>
-      </div>
-      <div class="excerpt">
-                    {{post.excerpt}}
-                </div>
-                <div class="read-all">
-                    <a  href="{{ post.url | prepend: site.baseurl }}"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
+        <h3>
+          <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h3>
+        <hr>
       </li>
       {% endfor %}
     </ul>
-
-
-
   </div>
-
-  <div class="right"></div>
 </div>

@@ -1,0 +1,26 @@
+.page[index] {
+  padding-bottom: 28px;
+    a {
+        color: #4d6dad;
+        transition: 0.5s ease;
+        &:hover {
+            color: #223253;
+        }
+    }
+    .left {
+        >ul {
+            padding: 0;
+            >li {
+                list-style: none;
+            }
+            li {
+                color: #333;
+                h2 {
+                    border: none;
+                    font-size: 27px;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

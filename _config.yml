@@ -13,9 +13,9 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: zhangzj
+title: ZZJ
 email: zhangzj00000000@163.com
-description: 
+description:
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://zhangzj.github.io" # the base hostname & protocol for your site
 # twitter_username: jekyllrb
@@ -23,13 +23,4 @@ github_username:  zhangzj
 
 # Build settings
 markdown: kramdown
-
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-# theme: minima
-
-
-# paginate
-gems: [jekyll-paginate]
-paginate: 6
+theme: minima
