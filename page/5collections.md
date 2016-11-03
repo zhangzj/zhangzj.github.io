@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Collections
+title: "维基"
 permalink: /collection/
 ---
 

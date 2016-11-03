@@ -6,43 +6,10 @@ layout: default
   <div class="left">
     <ul>
       {% for post in site.posts %}
-      <li>        
+      <li>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        <hr>
       </li>
       {% endfor %}
     </ul>
-  </div>
-  <div class="right">
-    <div class="wrap">
-      <div class="side">
-        <div>
-          Recent Posts
-        </div>
-        <ul class="content-ul" recent>
-          {% for post in site.posts offset: 0 limit: 5  %}
-          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
-
-      <!-- Content -->
-      <div class="side ">
-        <div>
-          Categories
-        </div>
-        <ul class="content-ul" cate>
-          {% for category in site.categories offset: 0 limit: 15 %}
-          <li>
-            <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}" class="categories-list-item" cate="{{ category | first }}">
-              <span class="name">
-                {{ category | first }}
-              </span>
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
   </div>
 </div>

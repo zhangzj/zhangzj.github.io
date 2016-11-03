@@ -3,15 +3,16 @@
 ---
 @charset "utf-8";
 
-@import
-"reset",
-"footer",
-"header",
-"index",
-"page",
-"post",
-"backToTop"
-;
+// @import
+// "reset",
+// "footer",
+// "header",
+// "index",
+// "page",
+// "post",
+// "backToTop"
+// ;
+@import "base","header";
 
 
 // 黑夜给了我黑色的眼睛
