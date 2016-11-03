@@ -6,7 +6,8 @@ description: JavaScript权威指南读书笔记
 tags: javascript
 ---
 
-
+* content
+{:toc}
 
 全书的第二编：客户端JavaScript
 
