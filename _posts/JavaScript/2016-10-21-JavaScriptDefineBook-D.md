@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "JavaScript权威指南 读书笔记-D"
-categories: javascript
+categories: javascript 读书笔记
 description: JavaScript权威指南读书笔记
-tags: javascript
+tags: javascript JavaScript权威指南
 ---
 
 * content
@@ -183,7 +183,7 @@ everyother = a.filter(function(x,i) { return i%2==0; }); // [5,3,1]
 
 ```
 var a = [1,2,3,4,5];
-var sum = a.reduce(function(x,y) { return x+y; }, 0); 
+var sum = a.reduce(function(x,y) { return x+y; }, 0);
 var product = a.reduce(function(x,y) { return x*y; }, 1);
 var max = a.reduce(function(x,y) { return (x>y)?x:y; });
 ```
@@ -212,5 +212,3 @@ var max = a.reduce(function(x,y) { return (x>y)?x:y; });
 #### 7.12 作为数组的字符串
 
 - 早期实现的时候字符串是可以使用方括号引用字符的，类似字符数组
-
-

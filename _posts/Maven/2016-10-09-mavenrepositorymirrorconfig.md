@@ -3,7 +3,7 @@ layout: post
 title: "Maven仓库更换阿里源"
 categories: maven
 description: Insert some config sentence in setting.xml
-tags: maven
+tags: maven 手顺 国内源
 ---
 
 * content
@@ -35,7 +35,7 @@ Windows系统下的settings.xml路径
   <mirrorOf>*</mirrorOf>
   <name>Nexus aliyun</name>
   <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-</mirror> 
+</mirror>
 ```
 
 试一下。嗖嗖地~~  XIUXIUXIU~~~

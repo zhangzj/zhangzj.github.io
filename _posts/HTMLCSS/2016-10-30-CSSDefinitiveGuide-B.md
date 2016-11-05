@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "CSS权威指南 读书笔记-B"
-categories: CSS
-tags: CSS 读书笔记
+categories: CSS 读书笔记
+tags: CSS权威指南
 ---
 
 * content

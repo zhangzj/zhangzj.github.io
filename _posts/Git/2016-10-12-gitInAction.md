@@ -2,8 +2,8 @@
 layout: post
 title: "Git实用指南"
 categories: git
-excerpt: 
-tags: git
+excerpt:
+tags: git 手顺
 ---
 
 * content
@@ -35,7 +35,7 @@ git config --global user.email email@email.com
 ```
 git config --global alias.st status
 git config --global alias.ci commit
-git config --global alias.co checkout 
+git config --global alias.co checkout
 git config --global alias.br branch
 ```
 
@@ -46,7 +46,7 @@ git config --unset --global KEY
 
 git config --unset --global alias.st
 ```
-	
+
 #### 创建初始化版本库 : git init
 
 - 创建git仓库，可以直接创建初始化，会自动建好文件夹
@@ -57,14 +57,14 @@ git init gitdemo
 
 #### 查看区别 ：git diff
 
-- git diff 
+- git diff
 
 	比较的是修改后的文件和版本库中的文件区别
-	
+
 	其实没有参数的时候，比较的是工作区和暂存区中为文件的区别
 
 - git diff HEAD
-	
+
 	这个命令比较的是工作区和版本库中为文件区别
 
 #### 重置 ：git reset
@@ -74,7 +74,7 @@ git init gitdemo
 	将工作区重置到最近一次提交
 
 - 重置到某一次提交
-	
+
 	git reset --hard 89e67f
 
 #### 检出 ：git checkout
@@ -110,5 +110,3 @@ git init gitdemo
 
 
 #### 创建分支branch
-
-

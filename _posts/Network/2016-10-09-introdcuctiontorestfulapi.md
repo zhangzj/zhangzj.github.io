@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "RESTful API介绍"
-categories: Network
+categories: 网络
 description: 对于RESTfulAPI的简单介绍理解，翻译自martin fowler的文章
-tags: 网络 restful 
+tags: 网络 restful http
 ---
 
-* content 
+* content
 {:toc}
 
 

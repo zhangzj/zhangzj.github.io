@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "JavaScript权威指南 读书笔记-I"
-categories: javascript
+categories: javascript 读书笔记
 description: JavaScript权威指南读书笔记
-tags: javascript 
+tags: javascript JavaScript权威指南
 ---
 
 * content
@@ -277,13 +277,13 @@ document.firstChild.firstChild.nextSibling
 ```
 
 - 这些附加的属性不会对文档外观产生影响，dataset属性的引用遵循一定的规律
-	
+
 在Element对象上的属性dataset，这个对象的属性就是data-属性名，复合驼峰命名
 
 ```
 data-jquery-test => dataset.jqueryTest
 ```
- 
+
 ##### 15.4.4 作为Attr节点的属性
 
 - 还有一个使用Element属性的方法，attributes属性，代表元素的所有属性

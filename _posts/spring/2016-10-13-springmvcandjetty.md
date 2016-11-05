@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "SpringMVC使用maven jetty插件运行"
-categories: spring maven-jetty-plugin
-excerpt: 
+categories: spring
+excerpt:
 tags: spring springmvc maven-jetty-plugin
 ---
 
@@ -19,7 +19,7 @@ SpringMVC单独使用maven-jetty-plugin运行服务
 
 - 如何搭建一个可用的本地测试server？
 
-- 怎么使用SpringMVC开发一个API？ 
+- 怎么使用SpringMVC开发一个API？
 
 ### 事前准备
 
@@ -98,7 +98,7 @@ SpringMVC单独使用maven-jetty-plugin运行服务
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 </web-app>
-``` 
+```
 
 ### 配置mvc-dispatcher-servlet.xml文件
 
@@ -157,4 +157,3 @@ mvn jetty:run
 - SpringMVC作用貌似是根据请求路径反应的这个一个东西，注解驱动很有趣
 
 - maven-jetty-plugin内置的webserver，部署测试很方便
-

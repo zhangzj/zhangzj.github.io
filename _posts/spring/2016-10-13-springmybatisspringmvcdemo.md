@@ -2,8 +2,8 @@
 layout: post
 title: "Spring MyBatis SpringMVC 框架基本整合"
 categories: spring
-excerpt: 
-tags: spring mybatis springmvc webservice Java 后端
+excerpt:
+tags: spring mybatis springmvc webservice Java
 ---
 
 * content
@@ -90,6 +90,3 @@ Spring框架整合第三弹；
     - 只有查询方法，CRUD的添加有待完成
 
     - 数据交互没有JSON格式化，只是文本
-
-
-

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "JavaScript权威指南 读书笔记-H"
-categories: javascript
+categories: javascript 读书笔记
 description: JavaScript权威指南读书笔记
-tags: javascript 正则表达式
+tags: javascript JavaScript权威指南
 ---
 
 * content
@@ -238,4 +238,3 @@ request.onreadystatechange = handleResponse;
 - 封装底层的代码，开放高级API的框架，比如jQuery
 
 - 框架：Prototype，Dojo，YUI，Closure，GWT，
-

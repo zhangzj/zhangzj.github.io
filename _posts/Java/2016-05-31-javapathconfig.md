@@ -2,7 +2,7 @@
 layout: post
 title: "Linux JDK Environment Variables Config"
 categories: Java JDK
-tags: JDK Linux
+tags: JDK Linux 手顺
 description: Java config memo
 ---
 

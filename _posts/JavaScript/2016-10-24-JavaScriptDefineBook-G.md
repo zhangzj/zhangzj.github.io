@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "JavaScript权威指南 读书笔记-F"
-categories: javascript
+categories: javascript 读书笔记
 description: JavaScript权威指南读书笔记
-tags: javascript 正则表达式
+tags: javascript JavaScript权威指南 正则
 ---
 
 * content
@@ -34,7 +34,7 @@ tags: javascript 正则表达式
 var pattern = new RegExp("s$");
 
 // 直接量创建
-var pattern = /s$/; 
+var pattern = /s$/;
 
 // 用来匹配所有s结尾的字符串
 ```

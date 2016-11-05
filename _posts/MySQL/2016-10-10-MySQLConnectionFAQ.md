@@ -2,7 +2,7 @@
 layout: post
 title: "MySQLworkbench连接可能会遇到的问题"
 categories: MySQL
-tags: MySQL memo
+tags: MySQL
 ---
 
 * content
@@ -10,7 +10,7 @@ tags: MySQL memo
 
 MySQL连接配置过程当中的Error记录
 - Lost Connection
-- Host not allowed 
+- Host not allowed
 
 
 

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "CSS权威指南 读书笔记-A"
-categories: CSS
-tags: CSS 读书笔记
+categories: CSS 读书笔记
+tags: CSS CSS权威指南
 ---
 
 * content
@@ -383,5 +383,3 @@ first-letter，first-line，before，after
 #### 小结
 
 主要是选择器，在有固定文档结构规律的情况下可以发挥想象力，实现很多种选择元素的方式
-
-

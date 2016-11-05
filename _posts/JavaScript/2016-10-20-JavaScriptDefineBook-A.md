@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "JavaScript权威指南 读书笔记-A"
-categories: javascript
+categories: javascript 读书笔记
 description: JavaScript权威指南读书笔记
-tags: javascript
+tags: javascript JavaScript权威指南
 ---
 
 * content
@@ -21,7 +21,7 @@ tags: javascript
 ### 2 词法结构
 
 - 什么是词法结构？
-  
+
   词法结构就是编程语言的一套基础性规则，描述怎么使用这门语言来编写程序。诸如，变量名什么样子，注释怎么写，语句怎么分隔等等基础规则。
 
 #### 2.1 字符集
@@ -40,7 +40,7 @@ tags: javascript
 
 - 变量名字中间不能使用空格
 
-##### 2.1.3 Unicode转义 
+##### 2.1.3 Unicode转义
 
 - 使用\u加上4个十六进制数字，和字符等价
 
@@ -188,7 +188,7 @@ x == y; 输出false！！！
 x == .1; false
 y == .1; true
 ```
-  
+
   使用二进制浮点数进行计算的编程语言都会有这个问题，不知道解决没有
 
   使用大整数进行计算
@@ -346,4 +346,3 @@ function test(0) {
 ##### 3。10.3 作用域链
 
 - 作用域链是一个对象列表或者链表，一步步一级级查找变量的定义，如果没有定义，就会抛出引用错误
-

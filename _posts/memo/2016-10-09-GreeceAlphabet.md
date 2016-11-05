@@ -11,6 +11,4 @@ tags: 希腊字母表 memo
 - To many things to remember, the brain will explode.
 
 
-
-
-<img src="/asset/WikiImages/GreeceAlphabet.jpg" />
+![](http://ww3.sinaimg.cn/large/8d6a2535jw1f9h0i8ndhtj20sg0xcdje.jpg)

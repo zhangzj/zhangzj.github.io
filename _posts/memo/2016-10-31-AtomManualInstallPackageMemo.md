@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "手动安装Atom插件"
-categories: memo
-tags: atom memo
+categories: atom memo
+tags: atom memo 手顺
 ---
 
 * content

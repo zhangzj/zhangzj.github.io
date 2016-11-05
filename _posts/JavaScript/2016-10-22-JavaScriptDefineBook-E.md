@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "JavaScript权威指南 读书笔记-E"
-categories: javascript
+categories: javascript 读书笔记
 description: JavaScript权威指南读书笔记
-tags: javascript
+tags: javascript JavaScript权威指南
 ---
 
 * content
@@ -249,5 +249,3 @@ var stddev = Math.sqrt(deviations.map(square).reduce(sum)/(data.length-1));
 ##### 8.8.3 不完全函数
 
 ##### 8.8.4 记忆
-
-

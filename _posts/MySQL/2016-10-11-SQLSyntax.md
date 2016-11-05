@@ -30,7 +30,7 @@ SQL的基本语法和操作示例
 
 - 有连接好的GUI Client就更好了
 
-### 操作数据库 
+### 操作数据库
 
 - 数据库的操作大概有，数据库的创建，删除，和显示现存的数据库
 
@@ -39,21 +39,21 @@ SQL的基本语法和操作示例
 	```
 	mysql> CREATE DATABASE databaseName;
 	```
-	
-- 显示存在的数据库 
 
-	```	
+- 显示存在的数据库
+
+	```
 	mysql> SHOW DATABASES;
 	```
 
-- 删除数据库 
+- 删除数据库
 
 	```
 	mysql> DROP DATABASE databaseName;
 	```
-	
+
 ### 操作表
-	
+
 - 表是数据库存储数据的基本单位，一个表包含若干字段定义。
 
 - 对表的操作大概包括：创建表，查看表结构，修改表和删除表
@@ -63,8 +63,8 @@ SQL的基本语法和操作示例
 - 不带属性约束的创建表
 
 ```
-mysql> CREATE TABLE example0( 
-	id INT, 
+mysql> CREATE TABLE example0(
+	id INT,
 	name VARCHAR(20)
 );
 ```
@@ -112,7 +112,7 @@ CREATE TABLE `user` (
 	```
 	mysql> SHOW CREATE TABLE tableName;
 	```
-	
+
 ```
 CREATE TABLE `user` (
 	`user_id` int(11) unsigned NOT NULL COMMENT '用户ID',
@@ -129,13 +129,13 @@ CREATE TABLE `user` (
 	mysql> ALTER TABLE oldTableName RENAME [TO] newTableName;
 	```
 
-- 修改表中字段的类型 
+- 修改表中字段的类型
 
 	```
 	mysql> ALTER TABLE tableName MODIFY recordName newRecordType;
 	```
-	
-- 同时修改字段名字和字段类型 
+
+- 同时修改字段名字和字段类型
 
 	```
 	mysql> ALTER TABLE tableName CHANGE oldRecordName newRecordName newRecordType;
@@ -148,7 +148,7 @@ CREATE TABLE `user` (
 	```
 	其中前面的属性名字是新增加的字段，后面的属性名字表示要插入的位置，FIRST表示增加到最前面，AFTER表示增加到那个属性的后面，默认是会追加到所有字段的最后。
 
-- 删除字段 
+- 删除字段
 
 ```
 mysql> ALTER TABLE 表名字 DROP 属性名字;
@@ -162,7 +162,7 @@ mysql> ALTER TABLE 表名字 MODIFY 属性名字1 数据类型 FIRST|AFTER 属�
 
 #### 删除表
 
-- 删除没有被关联的普通表 
+- 删除没有被关联的普通表
 
 ```
 mysql> DROP TABLE 表名字;
@@ -274,7 +274,7 @@ SELECT * FROM employee WHERE name NOT IN( '张三', '李四' );
 	字符串可以使用单引号包含或者双引号包含，可以使完整的字符串也可以包含百分号或者下划线作为通配符
 
 	百分号 % 可以匹配任意长度的字符串
-	
+
 	下划线 _ 表示单个字符
 
 ```
@@ -344,4 +344,3 @@ GROUP BY 属性名字 [HAVING 条件表达式][WITH ROLLUP]
 #### 数据更新
 
 #### 数据删除
-

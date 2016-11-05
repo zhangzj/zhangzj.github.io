@@ -3,12 +3,8 @@ layout: post
 title: The Hidden Language of Computer-Chapter 01-Best friend
 categories: 读书笔记
 description: The Hidden Language of Computer Hardware and Software-Chapter 01-Best friend
-tags: 读书笔记 编码-隐匿在计算机背后的语言
+tags: 编码-隐匿在计算机背后的语言
 ---
 
 * content
 {:toc}
-
-
-
-

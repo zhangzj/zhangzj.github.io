@@ -2,8 +2,8 @@
 layout: post
 title: "Markdown基本语法"
 categories: markdown
-description: 
-tags: markdown
+description:
+tags: markdown memo
 ---
 
 * content
@@ -68,7 +68,7 @@ Markdown的语法实在是有时候会一下记不起来，Memo一下吧
 
 	符号和后面的内容之间有一个空格
 
-	
+
 
 
 #### 有序列表
@@ -89,8 +89,7 @@ Markdown的语法实在是有时候会一下记不起来，Memo一下吧
 ```
 
 - 注意点：
-	
+
 	数字后面跟上英文点，加一个空格
-	
+
 	数字本身不会影响有序列表，但是最好用1开头
-	

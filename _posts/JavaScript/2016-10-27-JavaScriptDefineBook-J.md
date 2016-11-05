@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "JavaScript权威指南 读书笔记-J"
-categories: javascript
+categories: javascript 读书笔记
 description: JavaScript权威指南读书笔记
-tags: javascript 
+tags: javascript JavaScript权威指南
 ---
 
 * content
@@ -60,7 +60,7 @@ font: bold italic 24pt helvetica;
 ```
 <head>
 <style type="text/css">
-h1,h2 { 
+h1,h2 {
 	color: blue;
 	font-style: italic;
 }
@@ -72,7 +72,7 @@ h1,h2 {
 	background-color: yellow;
 	border: solid red 8px;
 	padding: 10px;
-} 
+}
 
 .warning h1, .warning h2 {text-align: center;}
 
@@ -229,7 +229,7 @@ var titlestyles = window.getComputedStyle(title, null);
 
 ```
 function grabAttention(e) {e.className = "attention";}
-function releaseAttention(e) {e.className = "";} 
+function releaseAttention(e) {e.className = "";}
 ```
 
 #### 16.6 脚本化样式表

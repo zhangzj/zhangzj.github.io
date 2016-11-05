@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "数据库相关的一些术语和基本概念"
-categories: MySQL 数据库
+categories: MySQL
 description: 是数据库也是MySQL的相关概念和术语
-tags: MySQL 数据库
+tags: MySQL
 ---
 
 * content

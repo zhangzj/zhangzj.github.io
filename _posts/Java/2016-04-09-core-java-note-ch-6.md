@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Core Java读书笔记-Chapter 6 接口与内部类
-categories: Java
+categories: Java 读书笔记
 description: Java核心技术第一卷读书笔记
 tags: Java Java核心技术
 ---

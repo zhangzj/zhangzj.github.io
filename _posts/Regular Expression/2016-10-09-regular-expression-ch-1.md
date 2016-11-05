@@ -1,10 +1,8 @@
 ---
 layout: post
 title: 精通正则表达式-第1章-学习笔记
-categories: 正则表达式
-tags: 正则表达式 精通正则表达式
-description: 正则表达式
-keywords: 正则表达式
+categories: 正则 读书笔记
+tags: 正则 精通正则表达式
 ---
 
 * content

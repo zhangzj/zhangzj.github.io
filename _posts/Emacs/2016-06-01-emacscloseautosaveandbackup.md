@@ -3,7 +3,7 @@ layout: post
 title: Close emacs auto-save and backup
 categories: emacs
 description: close auto-save and backup
-tags: emacs
+tags: emacs 手顺
 ---
 
 * content

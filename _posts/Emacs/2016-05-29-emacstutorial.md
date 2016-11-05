@@ -3,7 +3,7 @@ layout: post
 title: Emacs Tutorial Memo
 categories: emacs
 description: How much emacs command can I remember?
-tags: emacs
+tags: emacs cheetsheet
 ---
 
 * content
@@ -27,5 +27,3 @@ C-f forward
 C-v move forward one screen
 M-v move backward one screen
 C-l make current line to some position
-
-

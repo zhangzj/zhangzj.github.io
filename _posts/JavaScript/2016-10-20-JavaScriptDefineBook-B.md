@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "JavaScript权威指南 读书笔记-B"
-categories: javascript
+categories: javascript 读书笔记
 description: JavaScript权威指南读书笔记
-tags: javascript
+tags: javascript JavaScript权威指南
 ---
 
 * content
@@ -169,7 +169,7 @@ var point = { x:1, y;2};
 
 - 左值是变量或者对象属性，右操作数是任意类型的任意值
 
-- 值就是右操作数的值， 
+- 值就是右操作数的值，
 
 #### 4.12 表达式计算
 
@@ -229,7 +229,7 @@ i=0,j=1,k=2;
 - 复合语句就是用花括号将多条语句括起来就好
 
 - 语句块的注意点
-  
+
   - 语句块的结尾不需要分号
   - 语句块中的行都有锁紧，但不是必须
   - 注意js没有块级作用域，所以语句块中的变量不是私有的

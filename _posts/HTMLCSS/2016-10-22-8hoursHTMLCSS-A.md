@@ -1,4 +1,4 @@
-A---
+---
 layout: post
 title: "HTMLCSS视频教程笔记-A"
 categories: HTML CSS
@@ -32,8 +32,8 @@ tags: HTML CSS
 
 - 浏览器；Chrome,Safari,IE,Firefox
 
-- 文件下载： 
-	
+- 文件下载：
+
 	字体安装，yahei consolas hybrid
 
 	sublime text
@@ -260,17 +260,3 @@ div {
 ```
 
 - display设置成null，元素消失
-
-
-
-
-
-
-
-
-
-
-
-
-
-
