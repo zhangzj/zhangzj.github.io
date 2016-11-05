@@ -1,0 +1,95 @@
+app和这个设备硬件肯定不是直接通信的，之间还隔着一个ios，ios的sdk分为四层，从下到上，上面的高层特性是用下层的基础功能实现的，所以建议使用高层的api。
+Cocoa Touch Layer，
+Meida Layer，
+Core Services Layer，
+Core OS Layer
+
+
+###Cocoa Touch高层特性
+####App Extension
+应用扩展，社交分享系统，Action小任务，
+####Handoff 
+设备之间连续的无缝体验
+####Document Picker
+UIDocumentPickerViewController
+####AirDrop
+UIActivityViewController
+####TextKit
+处理文字与排版
+NSAttributedString
+NSLayoutManager
+NSTextContainer
+NSTextStorage
+Text Programming Guide for iOS
+####UIKit Dynamics
+UIKit Framework Reference
+####MultiTasking
+多任务
+####Auto Layout
+自动布局
+####Storyboards
+故事板，不是直接翻译的，是说图形化搭建的UI
+UIStoryboard Class Reference
+####UI State Preservation
+
+####Apple Push Notification Service
+####Local Notifications
+####手势识别器
+UIGestureRecognizer
+Event Handling Guide for iOS
+####标准的系统VC
+在某些情况下，不要用自定义的VC，用系统自带的
+1. 展示或者编辑联系人信息，使用Address Book 的vc
+2. 创建或者编辑日历事件。EventKit UI
+3. 写email或者sms，Message UI
+4. 打开或者预览文件内容，用UIKit里面的UIDocumentInteractionController类
+5. 拍照或者选一张照片，UIKit的UIImagePickerController
+6. 拍小饰品，UIKit的UIImagePickerController
+
+View Controller Programming Guide for iOS
+View Controller Catalog for iOS
+
+###Cocoa Touch Frameworks
+Address Book UI fw
+EventKit UI fw
+GameKit fw
+iAd fw
+MapKit fw
+Message UI fw
+Notification Center fw
+PushKit fw
+Twitter fw
+####UIKit Framework
+重头戏来了，uikit是重点研究对象，基本上都在这里了，基础的
+UIkit是提供的基础架构，实现图形的，事件驱动，当然还有：
+基本的app管理，主运行循环。
+UI管理，支持storyboard和nib文件。
+用VC模型来封装ui的内容。
+包含了标准的系统view和control对象。
+支持处理触摸事件和运动事件。
+支持iCloud整合的文档模型，Document-Based App Programming Guide for iOS。
+图形和窗口支持，包括外部显示器的支持，View Programming Guide for iOS
+支持多任务。
+支持打印。
+自定义标准uikit的控件的外观。
+文本和web内容。
+剪切，复制黏贴功能。
+ui内容的动画。
+通过url模式和框架接口与系统中其他app整合。
+残障人士的辅助功能。
+Apple Push Notification Service。
+本地的Notification。
+创建PDF。
+自建的键盘。
+自建的输入view。
+支持分享内容。
+
+还有一些设备相关的功能
+照相机。
+用户的相册。
+设备名字和model信息。
+电池状态信息。
+距离传感信息。
+关于耳机的远程控制。
+
+

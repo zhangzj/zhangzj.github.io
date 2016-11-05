@@ -1,0 +1,11 @@
+tableviewcontroller的这个定义继承自ViewController，比较的简洁
+实现了几个行为
+1. 有指定定nib文件的话就会加载nib文件，没有聚会搞一个未配置的tableview出来
+2. 如果是nib文件里面加载的，那么就会配置nib文件中指定的代理和数据源。如果没有指定，那就配置tableview的这个数据源和代理为自身。
+3. view将要出现的时候，会清除所有的选择
+
+初始化时initWithStyle，就是plain和grouped那个
+
+tableview属性，可已配置是不是在出现view的时候清空选择
+刷新控件来刷新tableview的内容
+

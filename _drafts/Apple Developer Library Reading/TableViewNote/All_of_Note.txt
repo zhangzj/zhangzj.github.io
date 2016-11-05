@@ -1,0 +1,342 @@
+这几天需要深入学习的是TableView这一系列的相关类和方法。
+从library来看，文档并不多，几个相关类的ref和两个guide
+那就先从第一个guide开始看起，Table View Programming Guide for iOS
+tableView，tableViewController，还有tableViewCell。组成这个界面体系。
+
+##TableViewPG
+先来看看目录，这个要仔细看
+
+首先是介绍，一个总览的目录
+
+table view styles and accessory views
+列表的样式还有辅助的view
+
+tableview的api的概览
+tableview 这个view的一些方法和接口
+
+用tableview导航一个数据层次
+tableview和navigation结合，基本上就是可以对一个层次的数据结构进行展示了
+
+创建和配置一个tableview
+（看到这里刚刚缓过神来，这是一个table viewPG，不是table view controllerPG，所以会看到很多界面的内容）
+
+仔细看一下tableviewcell
+一个tableview是由tableviewcell组成的，一个列表有一个个的项目，也就是subview
+
+管理选择
+每一个cell都可以被点击选择，或者接受手势来进行某一些行为，比如被选择显示下一层的数据
+
+插入或者删除行或者分组
+这是对tableview本身的编辑，当然连带的有这个tableview背后的数据结构也会被更改
+
+管理行的排序
+cells是有顺序的，排序的规则可以自己搞定
+
+相关的OC ref
+UITableView
+UITableViewCell
+UITableViewController
+UITableViewDataSource
+UITableViewDelegate
+
+###关于ios app中的tableview
+几乎每一个app中都会有tableview。这是一个可以拖动的多行列表，可以被分成多个分组section
+tableview的好处和用处有很多，可以可以用作一个层次结构的数据的导航，表现出很多项目的索引列表。
+分组分明的显示详细信息和空间，可以显示选项的列表，每个选项都可以选择
+
+关于分组，section，每一个section都可以有header和footer的view，很多状况也是只有一个section，所以没有header和footer
+代码中来讲，索引0到n-1来表示现有的section的数目，行数也是一样的0到n-1。
+tableview也可以有自己的header和footer，出现在最上面和最下面
+
+###瞅一眼呀瞅一眼
+tableview是类UITableView的实例，有两种基本样式，plain和grouped。每一个tableview都有属性，datasource和delegate。数据源提供section和row的数据。代理定义tableview的外观和行为。
+
+###tableview使用cell来绘制行的数据
+UITableViewCell对象，可有有子view，背景view等等。还可以有辅助view来表示选项或者设置
+uikit定义了四中基本样式，每一种都是三个基本元素的布局方式的不同。main label，detail label， image。也可以自己创建样式
+在SB文件里面配置cell的时候，可以选择两类类型之一，静态cell或者动态cell
+static cell。用这个静态cell来设计一个固定数量的行的列表，每一个都有自己的布局。静态cell的使用场景在你要知道table看上去什么样，在设计时候就想好了。
+动态原型。用这个作为模板，之后用来作为其他的cell的模板。它的内容是由运行时的数据源管理，数量任意。
+
+###对应行的选择
+选一行，触摸某一行，delegate就会被通知，并被传进响应的行和分组的索引，用这个信息来对应数据模型里面的数据。根据选择的项目在数据结构里面的位置来决定行为，如果是中间节点，会继续显示一个tableview，如果是叶子节点会显示细节等等。
+
+
+###编辑模式下，可以添加，删除，重新排序行
+###用SB来创建一个 Tableview
+在SB文件中用UITableViewController对象来创建table view。
+
+##前情提要
+
+
+
+
+##Table View Styles
+主要样式分两个，plain和grouped
+plain是可以有分组的，每个分组可以有多行，基本上就是常见的list
+
+grouped也是分组，不过看上去就是分的更加开一些
+每一行也不是一马平川的那种，更加内聚
+
+基本上布局是这么个结构
+Padding 
+Header
+Table Cell
+Footer 
+Padding
+
+前面说的是Table View的样式结构
+接下来看的是TableViewCell的样式，系统定义的默认样式
+
+###UITableViewCell的标准样式
+预定义的差不多够了，自己定义样式也行
+
+默认是左边一个小图片，右边一个小标题的样式，常量UITableViewCellStyleDefault表示
+
+左边小图片，右上大标题，右下详细标题的，是UITableViewCellStyleSubtitle
+
+没有图片，左边大标题，右边蓝色小字儿是小标题，uitableviewcellStyleValue1
+
+反过来，左边蓝色小字儿，右边大标题，UITableViewCellStyleValue2
+###辅助view
+
+在每一行的右边，有一些标准的辅助view
+
+右边小箭头，表示可以点，有内容
+UITableViewCellAccessoryDisclosureIndicator
+
+详细内容的右边小箭头，表示是详细的，后面内容不是列表
+UITableViewCellAccessoryDetailDisclosureButton
+
+小勾儿，表示选中了已经
+UITableViewCellAccessoryCheckMark
+
+
+
+##纵览tableview的api
+
+这个编程接口包括，一系列uikit的类，两个协议，还有一个foundation fw的分类
+
+
+###Table view
+
+UITableView的实例，可以使用它的方法来配置外观，这个类继承自UIScrollView类，
+本来是可以自由拖动的，Table重新限制了只能上下动。
+
+
+###TableViewController
+UITableViewController
+
+类，很多Table相关的功能在里面实现，基本上不会直接使用，而是子类化然后自定义代码
+
+###data source 和 delegate
+MVC模式，数据源就是model和view之间的桥梁，一般来讲，delegate和data source都是vc
+这个时候协议就上场了，UITableViewDataSource和UITableViewDelegate协议，里面的方法都是告诉tableview该怎么做。
+有些方法时提供每一个section里面该有多少行，有一些是提供每一行显示的cell内容。
+协议里的可选方法可以提供更多的功能，比如页眉页脚，选择，删除什么的。
+
+delegate没有必须实现的方法，主要功能是
+修改tableview的可见部分，
+管理选择，支持辅助view，支持单行的编辑
+
+便捷类，UILocalizedIndexedCollation，组织数据
+
+###扩展NSIndexPath类
+indexpath一般作为参数或者返回值。一个indexpath定义的是路径，uikit是扩展了foundation里面的nsindexpath
+加了很多row和section的方法，NSIndexPath UIKit Additions
+
+###Table View Cells
+tableview的每一行都必须作为一个cell来显示。这些cell必须继承自UITableViewCell类。可以自定义一个cell类来显示。
+
+##用Tableview来导航一个数据层次
+tableview的一个常用方面就是导航一个数据的层次。最最前面的列表就是最上面的数据。用户选择了一行，也就是往下深入一层。在整个层次的最底部，也就是某个特定项目的细节了。也会允许用户编辑项目等等。这个章节解释，怎么如何定位数据模型层次，怎么事项基于导航的app。
+
+###层次数据模型和tableview
+对于基于导航的app，典型的设计就是将app的数据设计成一个模型对象的图。指向app的数据模型。
+之后就可以使用任意的机制和技术来实现模型层了，Core data，属性列表，或是自定义对象的归档。这种一层层的横向移动的模式在所有基于导航的app中都是一样的。数据模型有层次深度，这些一层层的数据就是用来铺开在一层层的列表行上的。
+
+####数据模型，一层的模型对象
+设计优良的app都遵循mvc模式。app的数据模型都是由模型对象组成。可以用属性来描述模型对象，这种特性主要是两种，属性和关系。
+
+属性的表示是模型对象的元素。属性的范围可以到，基本类型的对象，比如NSString，nsdate，uicolor。还有c的结构，或者简单的整型值。一般一个属性就是用来表示数据结构中的一个叶子节点。表现一个项目的细节部分。
+
+一个模型对象和其他的模型对象之间也会有关系。这些层次深度关系组成了一个对象图。关系基本上有两种，一对一，一对多。一对一是一个对象和另一个对象的关系，比如父子关系。一对多关系式一个对象与多个类型一样的对象之间的关系。比如集合数组，字典，
+
+####table view 和data model
+plain类型的table一般是用数组来进行数据的支持。当一个table view被创建的时候，就会问他的data source要求自己的section的数目，每一个section的row的数目。之后再要求每一行的内容是什么。数据源就从一个数据模型层次的合适的层里面的数组获取内容。
+
+很多方法里面，都是在用indexpath来定位数据的位置。当前用户点击的位置转换成行数。
+indexPath是定位嵌套数组里面的对象的位置的方式，UIKit扩展了NSIndexPath，加了一些属性，section和row属性到这个类里面。
+
+##VC 和 基于导航的app
+NavigationController和UItableviewcontroller，都是UIViewController的子类，是view管理的基础工具。
+
+####导航控制器
+通过继承这个UIViewController，获得了基础的一些接口，包括view的管理和事件处理。
+导航控制器维护的是一个vc的栈，从根vc开始的一个栈。
+
+####导航栏
+导航栏这个ui就是允许用户来导航一个数据的层次。导航栏下面的view就显示了当前数据的层次。如果这个vc不是根的话，左上角就会出现一个回退按钮，回到栈的上一层去。
+
+UIViewController类之中本身就包含了方法，可以访问和设置导航栏上的导航项目。vc中有一个title属性来设定导航栏上的中间title。
+
+####Table view controller
+直接子类化UITableViewController会省事很多，推荐的创建tableview的方式是在SB里面。从sb里面加载tableview，和那些属性一起，还有大小设定等等。
+
+tableview也可以代码创建，alloc，init等等。其中更是initWithStyle：初始化，可以传递UITableViewStylePlain或者UITableViewStyleGrouped来设定tableview样式。
+在tableview即将要显示的时候，会发一条reloadData消息给tableview，提示他在从数据源获取数据一下。
+
+TaleVC也会干点别的，比如tableview显示的时候清除选择等等任务。
+
+TableVC覆盖了父类中的方法，loadView，viewWillAppear：还有其他的继承来的方法，来实现自己的行为。如果自己覆盖实现，请不要忘记调用super
+
+####在一个基于导航的app中管理tableview
+任何对象，不管是不是vc，只要是tableview的数据源和代理，就要尽到职责。
+
+看看这个具体的工作过程，怎么在一层层之间转换。
+一行被点击的时候，代理的方法就会被调用
+tableView:didSelectRowAtIndexPath:
+tableView:accessoryButtonTappedForRowWithIndexPath:
+代理创建的tablevc会管理下一层的tableview的。设定数据，压进导航栈。
+
+scene，场景，就是屏幕上的内容，由VC进行管理，在SB中scene和vc是一个意思。
+relationship，关系，就是场景之间的连接，
+segue，转场，一个场景转移到另一个场景，触发一个segue
+SB让从一个scene到另一个scene传数据变得简单，通过prepareForSegue：sender：方法，由source scene实现
+
+这个prepare什么的方法是uiviewcontroller里面的方法，很古老了。辈分很大。
+好处就是可以从source的scene传递数据到destination的scene了，但是哈有一个缺憾，就是怎么从destination的scene再传数据回来？这就是要用到代理的方法，创建一个代理协议，声明方法，在destinationVC中会调用，需要的时候传回数据。
+
+
+###对于基于导航的app的设计模式
+基于导航的tableview的app应该有一些最佳实现的设计。
+1. VC（UITableViewController的子类特别是），要扮演数据源的角色，给tableview提供数据，从表现为一个数据层次的一层的对象里面提取数据。
+当这个tableview表现为一个项目的列表，那么这个对应的对象一般是数组。当这个tableview现实的是项目详细（数据层次里面的叶子节点），那么这个对象就可以是自定义的模型对象，可以使coredatamanaged 对象，可以是字典，可以是其他类似的对象。
+
+2. VC会存储需要分发到tableview中的数据
+VC可以直接使用数据给tableview分发，或者从其他的地方获取数据等等。设计自己的vc子类的时候，应该定义一个属性来保存这个数据。
+vc不应该为了要包含tableview的数据，而是用全局变量或者单例对象。这样直接的依赖会让代码无法重用，更难调试和测试。
+
+3. 当前的VC，在导航栈顶上的VC会创建序列中的下一个vc，在压进这个栈之前，就设置这个vc的数据，表现为数据源的角色，需要配置tableview。
+
+#创建与配置一个tableview
+在有交互之前，必须显示tv，创建，配置，排布数据。
+示例代码，TableView Fundamentals for iOS
+TheElements
+
+
+##tableview创建的基础
+创建tv，app中的几个实体必须有交互
+vc，代理，数据源，tv自身，一般前三个都是一个，VC。
+
+1. VC创建UITableView的实例，附带有确定的frame和style。可以代码创建也可以SB创建。这个frame一般就是屏幕大小，顺便减去状态栏的高度。
+
+2. VC设定tv的数据源和代理，发一个reloadData消息给tv。数据源和代理必须遵循相应的协议。
+
+3. 数据源从tv对象接受一个numberOfSectionsInTableView消息，返回tv中section的数目。虽然这个方法是可选的，但是如果tv不只有一个section，那么就需要实现这个方法。
+
+4.  对于每一个section，数据源tableView：numberOfRowsInSection消息，返回每一个section中row的数目。
+
+5. 数据源接受消息，tableview：cellForRowAtIndexPath：对于每一个tv中的可见行，返回一个UITableViewCell的对象，tv用这个对象来配置每一行。
+
+  
+
+
+
+##创建和配置tableview的一些推荐建议
+重头开始造轮子，不是不可以，用别人给你的，或许更省事。
+
+1. 用vcUITableViewController来创建和管理一个tv。
+
+2. 如果app很大程度上是基于tableview的，那么建议选择模板master-detail
+
+3. 最要是自定义一下UITableViewController
+
+
+
+
+
+##用SB创建tableview
+
+
+
+
+  ###选择tableview的显示样式
+  ###选择tableview的内容类型
+SB引入了两种方便的类型
+1. 动态原型
+这是每一行的模板，行的数量就不限制了
+用这个，在VC中就必须实现数据源
+
+2. 静态cell
+静态内容来设计整个表的布局，包括cell的数目。静态内容在设计时候的内容就确定了。
+静态的tv意味着vc不需要对应这个数据源，只需要在布局的时候在viewdidload方法里面排布数据就好
+
+设计一个动态原型，tv需要一个方式去定义原型，这样子数据源才能之后在运行时搞定。给这个cell赋值一个reuse identifier。
+
+  ###设计tv的行
+标准样式有四种，基本比较简单的样子，也可以自定义样式，或者子类化UITableViewCell来定义额外的行为。
+辅助view，
+创
+
+
+  ###创建附加的tv
+有多个tableview的时候，就多增加tbvc。
+  ###通过创建个demo学习更多
+说是有一个tutorial，叫做Your Second iOS App：Storyboards，但是在哪儿呢？
+
+##代码创建tableview
+要继承uitableviewcontroller
+
+  ###遵循datasource和delegate协议
+基本上在声明部分里面就看得到了，uitablevewdelegate和UITableViewDataSource协议的遵循和继承。
+
+  ###创建和配置tableview
+下一步就是实例化tableview类，下面的事情是UITableViewController做好的事情，在loadview方法里面，新建tableview的对象，设定autoresize的属性，指认代理和数据源让tableview刷新等等事情
+
+uitableview *tableview = [[uitableview alloc] initwithframe:[[uiscreen mainscreen] applicationFrame] style:UITableViewStylePlain];
+
+tableview.autoresizingMask = uiviewautoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+
+tableView.delegate = self;
+tableview.datasource = self;
+[tableview reloadData];
+
+self.view = tableview;
+
+reloaddata这个小计就是为了让这个tableview开始刷新自己的数据
+
+
+
+##用数据排布一个动态tableview
+在tableview对象呗创建之后，他会接受到一个reloadData消息，马上就开始查询数据源和代理的信息。
+而后必须实现的数据源方法。
+
+出于性能，数据源会尝试重用cell。dequeueReusableCellWithIdentifier
+
+##用数据排布一个静态tableview
+静态数据类型就不需要实现任何数据源什么的。配置之类事情是在编译时候就搞定的。
+数据的排布就是在vc的viewdidload方法里面展示的。
+
+##排布一个索引列表
+右边有一个有序的字母表的列表。有一些方法，数据源里面的方法就是按照这个来的。
+sectionIndexTitlesForTableView：返回一个字符串的数组作为索引的入口点
+tableView：titleForHeaderInSection：映射索引到每一个section的header的title上
+tableView：sectionForSectionIndexTitle：atIndex：返回section的索引，用户触摸的索引位置的索引。
+
+排布的数据，最好也是对应索引搞好了的。要构建数组的数组，每一个子数组还要排序，还好，我们又类UILocalizedIndexedCollation
+（这一部分暂时还用不到感觉，先放一放，索引列表，我记住了）。
+##tableview的可选设置
+  ###加一个自定义的title
+在创建tableView的地方，可以用tableview的方法进行一些全局配置，比如往tv的headerview上面添加一个自定义的labelview
+  ###提供一个section title
+有专门的代理方法来设置section的title，参数就是整数，返回字符串
+  ###缩进一行
+有代理方法，设置indexpath的地方的缩进，返回整数，一个两个缩进
+  ###改变行高
+返回一个cgfloat
+  ###自定义cell
+自定义cell，在上面的数据源方法里面的cell什么什么的返回的要东西，可以自定义。这个要仔细看
+
+
+新开个文件吧：TableViewPGCellInfo.txt

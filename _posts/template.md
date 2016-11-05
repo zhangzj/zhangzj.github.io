@@ -1,17 +1,22 @@
 ---
+title: 我是模板的标题
+tagline: ""
+last_updated: null
+category : template
 layout: post
-title: ""
-categories: 
-excerpt: 
-tags: 
+tags : [template, myblog]
 ---
+{% include JB/setup %}
 
-* content
-{:toc}
+balabalabalbala description
 
-
-# excerpt
-
+<!-- more -->
 
 
-# content
+
+# header 1
+
+## Header 2
+
+### Header 3
+

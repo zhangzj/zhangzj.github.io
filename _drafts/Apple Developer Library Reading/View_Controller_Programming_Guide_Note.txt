@@ -1,0 +1,399 @@
+###VC的角色
+ViewController是最重要的东西，是整个app的核心。
+UIViewController定义的方法和属性，用来管理view，处理时间，从一个VC迁移到另一个VC，与app的其他部分协作等等。
+有两类VC，
+一个是Content VC，切切实实是管理内容的，
+另一个是Container VC，也就是管理其他VC，
+两种VC混合使用，大部分APP
+### View的管理
+### 数据安排
+VC还要管理相应的Data，数据模型
+UIDocument对象时一个VC和数据模型之间的中介者，来管理数据读写等等
+###用户交互
+VC也可以接受触摸事件爱你但是不会自己直接处理，view会处理自己的触摸事件，通过关联的代理delegate或者target对象，一般就是自己的VC。
+###资源管理
+VC负责管理人和显式创建的资源。
+###适应性
+VC要负责管理自己的view在不同的屏幕大小下的显示效果。
+
+##VC的层次结构
+VC之间的关系定义了每一个VC的行为，要好好维护之间的关系，确保每一个vc各司其职。
+###Root VC
+每一个window都有且仅有一个root vc。
+uiwindow的属性rootviewcontroller
+###Container VC
+UINavigationController，
+UISplitViewController，
+UIPageViewController，
+###Present VC，让VC显示出来
+
+##设计建议
+VC是app的基础，自定义vc的时候有些建议
+###要是可能，就用系统给你的vc
+UIImagePickerController提供了一个现成的方式来提取图片
+1. UIKit提供了很多现成的vc，显示alert的，拍照拍视频的，管理icloud文件的。也有很多容器vc。
+2. GameKit有很多vc来管理排行榜什么的，成就系统，游戏特性
+3. AddressBookUIFW有显示联系人的VC
+。。。。。
+不要修改现成的这些VC的View层次
+
+###让每一个VC成为一个小岛
+每一个VC都应该自己管自己，不要知道其他vc的View层次什么的，有什么数据传递就用公开的接口解决。
+delegation模式在VC之间经常使用。任何的对象遵循协议就可以成为delegate。
+###root view仅仅是作为其他的view的容器
+让所有的子view有一个公共的parent view，这样子很多布局的事情就简单了。
+
+###要清楚自己的数据在哪里
+数据可能存储在一些临时变量并做一些确认，主要的责任是确保view有正确的信息，真正的数据还是存在于数据对象之中
+### 适应变化
+茫茫多的iOS设备，还是要使用内建的resize机制
+
+##定义自己的子类
+大部分自己要创建的子类是内容vc。大多数的父类是，
+UITableViewController，创建列表的时候
+UICollectionViewController，集合视图的时候
+UIViewController，其他大部分情况。
+
+###定义UI
+推荐的使用SB，但是一般手码的比较多吧。
+
+###处理用户交互
+VC一般不会直接处理事件的发生，会使用间接的方式
+1. VC会定义action方法来处理高层级的事件，
+比如特殊的action，有一些特殊的交互，还有手势识别器，处理手势
+2. VC会使观察事件通知，接收系统的notification或者其他的对象的notification。
+3. VC作为其他对象的数据源或者delegate。
+
+###在运行时显示View
+UIKit会自动加载SB文件显示，作为加载过程的一部分，会执行以下任务
+1. 使用SB里面的信息，实例化view
+2. 连接所有的Outlet和action
+3. 把root view赋值给vc的view属性
+4. 调用vc的awakeFromNib方法，
+5. 调用vc的viewDidLoad方法
+在VC的view正式现世之前，还有机会去调整
+1. ViewWillAppear方法
+2. 更新view的布局
+3. 显示在屏幕上
+4. 显示完毕之后调用viewDidAppear方法
+
+###管理View的布局
+可以使用一些方法来自定义最后的布局
+viewWillLayoutSubviews和viewDidiLayoutSubviews
+高效布局的建议
+1. 使用自动布局
+2. 利用top和bottom的布局限制
+3. 记住在增加或者删除view之后，要更新constraint
+4. 在动画过程中，先临时删除constraint，之后再添加回来
+
+###高效管理内存
+大部分释放内存就是删除强引用，也就是指向nil就可以了
+下面的一些东西是VC中与内存相关的部分
+1.初始化方法，分配内存的地方
+2. viewDidLoad，创建要显示的东西的地方
+3. didReceiveMemoryWarning，销毁无关紧要的东西
+4. dealloc，最后的清理工作，不用销毁实例变量
+
+##实现一个容器VC
+处理几个UI之间的事情，界面什么的
+UINavigationController，
+UITabBarController，
+UISplitViewController，
+
+###设计一个自定义的容器VC
+它的内容限制在从其他的VC之中获得
+####例子：导航控制器
+UINavigationController
+一次显示一个子VC，上面有一个导航栏，显示着当前的位置，和一个返回按钮，类似于一个栈结构。
+####例子：Split VC，分页控制器
+UISplitViewController，
+类似于左边分页，右边详细信息。
+###在IB里面配置一个容器VC
+###实现一个自定义的容器VC
+必须要建立VC和子VC之间的关系
+####把一个子VC加到内容里面
+在代码中，增加一个子VC到内容里面，创建相关vc的亲子关系
+1. 调用容器vc的addChildViewController方法
+这个方法告诉UIKit，容器VC正在管理这个VC
+2. 添加子VC的view到容器vc的view 层级当中
+要一直记得，设置view的frame的大小和位置。
+3. 子vc的root view要被添加constraint，管理大小和位置
+4. 调用子vc的didMoveToParentViewController：方法
+- (void) displayContentController: (UIViewController *)content {
+	[self addChildViewController:content];
+	content.view.frame = [self frameForContentController];
+	[self.view addSubview:self.currentClientView];
+	[content didMoveToParentViewController:self];
+}
+
+####移除一个子VC
+移除的步骤，也就是移除关系
+1. 调用子vc的willMoveToParentViewController：，参数是nil
+2. 移除配置子vc的constraint
+3. 从容器vc的view层级中移除子vc的view
+4. 调用子的removeFromParentViewController方法来终结亲子关系
+
+移除的意思是这个子VC不再被需要，彻底断绝关系
+- (void)hideContentController: (UIViewController *) content {
+	[content willMoveTo ParentViewController: nil];
+	[content.view removeFromSuperview];
+	[content removeFromParentViewController];
+}
+
+####在子VC之间迁移
+把vc的移除和添加整合进一个迁移动画过程中。
+方法transitionFromViewController：toViewController：duration：options：animations：completion：
+例子：在两个子VC之间迁移
+- (void)cycleFromViewController: (UIViewController *) oldVC toViewController: (UIViewController *) newVC {
+// prepare the two view controllers for the change.
+[oldVC willMoveToParentViewController:nil];
+[self addChildViewController:newVC];
+
+// Get the start frame of the new view controller and tne frame
+// for the old view controller. Both  rectangles are offscreen.
+newVC,view.frame = [self newViewStartFrame];
+CGRect endFrame = [self oldViewEndFrame];
+
+// Queue up the transition animation.
+[self transitionFromViewController: oldVC toViewController: newVC
+duration: 0.25 options: 0
+animations: ^{
+	// Animate the views to their final positions.
+	newVC.view,frame = oldVC.view.frame;
+	oldVC.view.frame = endFrame;
+}
+completion:^{
+	// Remove the old view controller and send the final
+	// notification to the new view controller.
+	[oldVC removeFromParentViewController];
+	[newVC didMoveToParentViewController:self];
+}];
+}
+
+####为子VC管理界面更新
+多个vc一起更新界面，会是什么结果。
+设置方法shouldAutomaticallyForwardAppearanceMethods，返回no
+uikit就知道容器vc自己会保证让他的子vc更新界面变化
+
+###构建一个容器VC的建议
+构架一个vc是很花时间的，虽然某些行为是比较直接，但是vc整体是很复杂的。
+1. 容器vc仅仅只访问子VC的root view，不要访问其他的view
+2. 子vc应该是对容器vc知道的越少越好，实在不行用代理
+3. 设计容器尽量使用矩形
+
+###对一个子VC的代理控制
+容器可以作为子VC的代理，搞定某些方面的功能
+1. 让子VC决定是不是要让状态栏显示
+覆写容器vc中的方法childViewControllerForStatusBarStyle,
+childViewControllerForStatusBarHidden.
+2. 让子vc定义自己喜欢的size。有一个属性，preferredContentSize来版主决定子vc的size。
+
+##良好的访问性支持
+VoiceOver，为有障碍人士提供方便
+1. 确保界面上的每一个元素都是可以访问的，包括按钮和静态文本
+2. 确保可以访问的元素，都有精确地帮助性信息
+
+###移动VoiceOver指针到特定元素
+要改变指针的位置，使用函数UIAccessibilityPostNotification来发一个通知UIAccessibilityScreenChangeNotification
+UIAccessibilityPostNotification（UIAccessibilityScreenChangeNotification，self.myFirstElement）；
+
+###对应特定的VoiceOver手势
+有五种手势来触发app特定的动作
+####Escape，返回一层或者取消modal对话
+实现这个方法，accessibilityPerformEscape来执行操作，一般是这个脱出操作
+这些是UIAccessibilityAction 协议里面的方法
+
+####magic tap，两指双击，执行最常用的动作
+accessibilityPerformMagicTap
+
+####Three-finger scroll ，三指拖动
+####increment，一个手指往上，增加值
+####decrement，减值
+
+###监视Accessibility Notification
+notification center
+@implementation MyViewController
+-(void)viewDidLoad
+{
+	[super viewDidLoad];
+
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFinishAnnouncement:)
+	name:UIAccessibilityAnnouncementDidFinishNotification
+	object:nil];
+}
+
+-(void)didFinishAnnouncement:(NSNotification *)dict
+{
+	NSString *valueSpoken = [[dict userInfo] objectForKey:UIAccessibilityAnnouncementKeyStringValue];
+	NSString *wasSuccessful = [[dict userInfo] objectForKey:UIAccessibilityAnnouncementKeyWasSuccessful];
+//...
+}
+
+
+##保存和恢复状态
+挂起之前保存一下，重启之后恢复一下，看上去就像没有关过一样。
+保存过程是自动的，但是需要告诉iOS哪里需要保存。
+1. 必须，给VC赋值一个restoration identifier
+2. 必须，告诉iOS怎么去创建和定位新的VC对象，在启动时。
+3. 可选，对于每一个VC，存储任何特定的配置数据都要返回原始的配置。
+
+App Programming Guide for iOS
+
+###给要保存的VC加上一个Tag
+每一个VC都有一个restorationidentifier属性，默认是nil。要是有一个合法的String，那就表示要保存咯。
+一VC要是有RI，那么这个VC的父VC也需要有RI。
+####正经的，好好的选个RI
+RI常常来说就是VC的类名
+####排除一整组的VC
+为了从存储过程中排除一整组VC。只要设置最根的那个VC的RI为nil。
+但是这不会妨碍手动保存
+
+####保存一个VC的View
+1. 赋值一个合法的值给予view的Ri属性
+2. 使用也有合法的RI的VC的view
+3. 对于table view和collection view，赋值一个数据源，这个对象遵循UIDataSourceModelAssociation
+
+###在启动时恢复VC
+uikit会一步步来定位vc在哪里
+1. 如果vc有一个恢复类，restoration class，uiki会要求这个类来提供vc。类方法：viewControllerWithRestorationIdentifierPath:coder:
+2. 如果vc没有恢复类，UIKit会要求app delegate提供vc。application：viewControllerWithRestoationIdentifierPath:coder:
+3. 如果vc已经存在一个正确的恢复路径，UIKit就会使用这个对象。
+4. 如果VC是从SB加载的，UIKit使用保存的SB信息来定位创建。
+
+##显示一个VC
+两种方式显示VC，一种是嵌入进一个容器VC，或者是直接显示
+###显示和迁移过程
+####显示风格方式
+presenting style
+显示有显示的风格，在UIViewController里面有一个属性modalPresentationStyle，设置显示风格
+UIModalPresentationFullScreen，
+UIModalPresentationPageSheet，
+UIModalPresentationFormSheet，
+UIModalPresentationOverFullScreen，
+UIModalPresentationPopover，
+UIModalPresentationCurrentContext，（definesPresentationContext）覆盖到特定的VC上
+UIModalPresentationOverCurrentContext，
+UIModalPresentationCustom。
+####迁移风格，Transition Styles
+属性modalTransitionStyle。
+UIModalTransitionStyleCoverVertical
+UIModalansitionStyleFlipHorizontal
+UIModalTransitionStyleCrossDissolve
+UIModalTransitionStylePartialCurl
+####presenting和Showing一个VC
+显示VC的两种方式，
+showViewController：sender：还有showDetailViewController：sender：方法，这两个方法让现在正在显示的vc来决定怎么显示最好。
+presentViewController：animated：completion：方法总是modal显示vc。
+
+###presenting一个vc
+初始化一个VC的显示的方式
+1. 使用segue自动显示VC。segue使用IB中的额信息，自动实例化，显示vc。
+2. 使用showViewController：sender：方法或者showDetailViewController：sender：方法。在自定义的VC中，你可以改变这些方法的行为
+3. 调用presentViewController：animated：completion：来模态显示
+
+####Showing VC
+使用两个show什么的方法，获取VC的过程是很直接的
+1. 创建要用的VC对象。好好配置数据
+2. 设置新的VC的modalPresentationStyle属性
+3. 设置新vc的modalTransitionStyle属性。
+4. 当前的vc调用两个show什么的方法。
+
+####模态显示VC
+1. 创建VC
+2. 设置属性modalPresentationStyle
+3. 设置属性modalTransitionStyle
+4. 调用presentViewController：animated：completion：方法
+
+ -(void)add:(id)sender {
+	// Create the root view controller for the navigation controller
+	// The new controller configures a Cancel and Done button for the navigation bar.
+RecipeAddViewControrller *addController = [[RecipeAddViewController alloc] init];
+
+addController.modalPresentationStyle = UImodalPresentationFullScreen;
+addController.transitionStyle = UImodalTransitionStyleCoverVertical;
+[self presentViewController:addController animated: YES completion:nil];
+}
+####Presenting VC 作为Popover
+在设置显示风格之后，设置属性preferredContentSize来设置想要的大小
+设置popover的锚点，也就是UIViewController的popoverPresentationController属性的关联对象UIPopoverPresentationController
+这个对象里面有几个属性需要设置
+barButtonItem是触发popover的按钮
+sourceView和sourceRect明显的意思。
+
+###Dismiss一个presented VC
+方法dismissViewControllerAnimated：completion：
+在dismiss之前要记得保存重要的信息。有什么需要传递的东西，使用delegation模式
+
+###present一个VC，是定义在另一个SB中的
+segue是不能在不同的SB中创建的，
+UIStoryboard* sb = [UIStoryboard storyboardWithName:@"SecondStoryboard" bundle:nil];
+MyViewController *myVC = [sb instantiateViewControllerWithIdentifier:@"MyViewController"];
+// 配置VC
+// 显示VC
+[self presentViewController:myVC animated:YES completion:nil];
+
+##使用segue
+app界面的流程使用segue来定义。在SB文件中两个VC之间的迁移。segue的开始点是任何可以点，可以触发操作的事情。终结点是想要显示的VC。segue总是显示新的VC，也可以使用unwind segue来dismiss一个VC。
+
+###在VC之间创建segue
+segue的类型
+show，push，用的是方法showViewController：sender：
+showDetail， replace，这个是showDetailViewController：sender：
+present modally，
+present as popover
+segue有一个identifier属性来决定哪一个segue会被触发，
+
+###在运行时修改segue的行为
+这里的segue是在SB中配置的
+shouldPerformSegueWithIdentifier：sender：
+看返回的是yes还是no，no就什么都不做，要是yes就创建segue和vc
+prepareforsegue：sender：给了一个机会来从sourceVC专递数据到destinationVC。
+
+###创建一个Unwind segue
+必须在回去的那个VC上面新加你一个action方法来接受unwind segue
+-（IBAction）myUnwindAction：（UIStoryboardSegue*）unwindSegue
+
+###在代码中初始化一个segue
+目标VC不明朗的情况下，可以使用代码创建segue
+在本VC中执行 performSegueWithIdentifier：sender：方法
+在设备旋转的时候，可以接收到通知，执行segue
+-(void)orientationChanged:(NSNotification *)notification {
+	UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
+	if (UIDeviceOrientationIsLandscape(deviceOrientation) && !isShowingLandscapeView) {
+	[self performSegueWithIdentifier:@“DisplayAlternateView” sender:self];
+	isShowingLandscapeView = YES;
+}
+
+}
+
+###创建一个自定义的segue
+所有的标准迁移方式都有segue提供，自己想定义也可以
+####segue的生命周期
+segue怎么工作？segue对象时UIStoryboard的对象或者子类对象。app不会直接创建对象。uikit会在触发segue时自动创建。
+1. 将要被显示的VC被创建和初始化
+2. segue对象被创建，调用initWithIdentifier：source：destination：方法。这个identifier是唯一的字符串标记segue。
+3. 正在显示的vc的prepareForSegue：sender：方法被调用
+4. segue对象的perform方法被调用。这个方法会执行迁移
+5. segue对象释放
+
+####实现一个自定义的segue
+子类化UIStoryboard，实现下面的方法
+1. 覆写initWithIdentifier：source：destination：方法，记得调用super
+2. 实现perform方法，用它来配置迁移动画
+-(void)perfoirm{
+	[[self sourceViewController] presentViewController:[self destinationViewController] animated:NO completion:nil];
+}
+
+##自定义迁移动画
+###迁移动画序列
+迁移主要分两种，显示和消失。显示就是加VC，消失就是让一个或者多个VC消失。
+####迁移代理
+transitioning delegate 协议 UIViewControllerTtansitioningDelegate。
+这个代理的职责是，提供以下对象
+1. animator objects。遵循协议UIViewControllerAnimatorTransitioning
+2. Interactive animator objects。UIViewControllerInteractiveTransitioning
+3. Presentationcontroller。
+
+这一章节主要是自动以动画和自定义显示，暂时应该可以放一放
+
+###适应性和大小变化

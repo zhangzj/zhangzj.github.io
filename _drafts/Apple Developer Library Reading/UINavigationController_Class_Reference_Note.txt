@@ -1,0 +1,145 @@
+﻿##导航控制器
+容器VC。继承自UIViewController和UIResponder
+层次内容的导航，每一层的内容都是由自定的VC来搞定，除了第一个层次，其他的子层次在左上角都有一个返回按钮。类似于一个栈结构。导航栈
+这个栈是一个VC的数组，第一个元素就是根VC，最后一个VC就是现在正在显示的VC。
+导航VC有自己的delegate，负责push和pop VC，提供自定义的动画迁移，定义导航VC的方向。遵循协议UINavigationControllerDelegate。
+
+基本上的UINavigationController的结构
+有一个属性viewControllers数组来管理这个栈结构
+navigationBar属性是UINavigationBar类的对象，这个对象的代理是VC本身。
+toolBar是哪个？UIToolBar对象
+还有一个delegate代理。
+
+###navigationcontroller views
+这个view包括了上面的导航栏，还有下面可选的toolbar，以及中间的最上层的VC的view内容
+
+###更新navigation bar
+有三个bar button item，左中右三个，都是UIBarButtonItem类的。
+uinavigationbar，uibarbuttonitem
+
+####left item
+除了根VC，基本上都是返回按键
+1. 如果由自定义的leftbuttonItem，那就会被显示，设置属性leftBarButtonItem就可以。
+2. 如果没有自定义的leftBarButtonItem，但是前一层的对象由一个属性的对象是backBarButtonItem。那就会显示这个
+3. 如果前两个都没有，那就会显示前一层的title属性。
+
+####middle item
+怎么更新Middle item
+1. 自定义title item，在vc的属性navigationItem中有一个属性titleView
+2. 使用VC自身的title属性。
+
+####right item
+右边item的更新
+vc的navigationItem有一个属性rightBarButtonItem
+如果没有自定义，那就什么都不显示
+
+###显示一个toolbar
+这个toolbar里面显示的内容是正在显示的VC的toolbarItems属性包含的项目集合。默认这个toolbar是隐藏的
+
+###适应不同的环境
+###接口行为
+导航控制器支持下面的接口
+支持接口旋转
+展现内容，模态显示vc的时候，就是整个界面一起用掉了
+
+###状态保存
+
+#创建导航控制器
+- initWithRootViewController：（UIViewController*）rootViewController
+这个rootvc不可以是UITabBarController？为什么呢？是因为naviVC有自己的额Tabbar？
+
+- initWtihNavigationBarClass：toolbarClass：
+这两个参数都是传的类比如[navigationbar class]
+
+###访问栈中的VC元素
+topViewController，属性，就是最上面的VC
+visibleViewController，当前可见的VC，要么是最上面的VC，要么是模态显示的VC。
+viewControllers，VC的数组，根的索引是0，最上面的是n-1
+
+-(void)setViewControllers:(NSArray<UIViewController *> *)viewControllers animated:(BOOL) animated
+这个方法是整体替换掉VC数组
+
+###压栈与弹栈
+- （void）pushViewController：（UIViewController *）viewController animated: (BOOL)animated
+- (UIViewController *)popViewControllerAnimated:(BOOL)animated
+如果在栈中只剩下最后一个view，那就什么都不做，不会被弹出
+- (NSArray<__kindofUIViewController *> *)popToRootViewControllerAnimated:(BOOL) animated
+一直弹，弹出所有，直到最后
+- (NSArray<__kindofUIViewController *> *)popToViewContrller:(UIViewController *)viewController animated:(BOOL)animated
+弹到指定的VC
+@property(nonatomic, readonly) UIGestureRecognizer *interactivePopGestureRecognizer
+手势识别器，弹栈的动作
+
+###配置导航Bar
+@property(nonatomic, readonly) UINavigationBar *navigationBar
+- (void)setNavigationBarHidden:(BOOL)hidden animated:(BOOL) animated
+设置这个导航栏隐藏
+
+###配置toolbar
+属性toolbar
+设置隐藏的setToolBarHidden：animated：
+toolBarHidden，Bool
+
+###隐藏导航栏
+全是属性，也就是说是getter方法，
+hidesBarsOnTap
+这个设置成yes或者no，在没有handle的地方tap一下就可以隐藏导航栏和工具栏
+hidesBarsOnSwipe
+向上滑动会隐藏，向下滑动会显示，自己领悟吧
+hidesBarsWhenVerticallyCompact
+在竖屏模式下会隐藏
+hidesBarsWhenKeyboardAppears
+键盘出现的时候会隐藏，默认是no
+navigationBarHidden
+设置属性来确定显示不显示
+barHideOnTapGestureRecognizer
+barHideOnSwipeGestureRecognizer
+要前面的点击和滑动的设为yes，才会起作用
+
+###访问delegate
+可以使用delegate来执行另外的动作，
+协议 UINavigationControllerDelegate
+
+###显示vc的action方法
+-（void）showViewController：（UIViewController *）vc sender：（id）sender
+跟push差不多，在其他的地方需要显示vc的时候用。
+
+###常量
+extern const CGFloat UINavigationControllerHideShowBarDuration
+自解释
+
+代理协议
+UINavigationControllerDelegate
+这个代理的作用是，当一个vc被弹进弹出的时候，修改行为
+
+###一个VC被显示时候的回应
+- (void)navigationController:(UINavigationController *)navigationController
+	willShowViewController:(UIViewController *)viewController
+	animated:(BOOL)animated
+
+在VC显示之前干点什么
+- (void)navigationController:(UINavigationController *)navigationController
+	didShowViewController:(UIViewController *)viewController
+	animated:(BOOL)animated
+显示之后干点儿什么
+
+###支持自定义迁移动画
+自定义迁移动画的三个对象，需要代理来返回，还有一个就是支持的旋转方向
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC
+第二个返回的是UIViewControllerInteractiveTransitioning
+第三个返回的是PreferredInterfaceOrientation
+第四个返回支持的旋转方向掩码，UIInterfaceOrientationMask
+
+###常量
+枚举类型，顶一个导航控制器发生的迁移类型
+typedef enum {
+UINavigationControllerOperationNone,
+UINavigationControllerOperationPush,
+UINavigationControllerOperationPop
+}UINavigationControllerOperation;
+
+
+通篇读完，最最深刻印象的有两点
+第一，就是navigation controller的这个root不可以是tabbarcontroller，大家都是容器VC大概，也可能是tabbar的冲突。根据之前的实验，可以是可以的，但是不推荐貌似。
+第二，自定义动画的三个对象好像还蛮重要的，自定义迁移，暂时是打算就是用默认的就好。
+

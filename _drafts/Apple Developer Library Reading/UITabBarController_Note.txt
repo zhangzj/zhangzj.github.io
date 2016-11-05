@@ -1,0 +1,49 @@
+UItabBarController 是一个容器VC，在屏幕下面有一个tab栏，几个按钮，点击按钮就可以切换VC
+永远不要直接访问tabbarcontroller的tabbar。要配置这些个tabs，就是要为每一个tab配置VC。
+之后VC会有一个tabbarItem属性来配置这个tab上的item。
+总结一下，tabbarController的这个tabitem是不能直接配置的，但是可以间接配置，每一个tab都有对应的VC，每一个VC都有那个tabbaritem，也就是这个tabbarcontroller的item了。
+协议代理UITabBarControllerDelegate，可以监视tab的执行情况。
+
+###TabBarController的views
+tabbar继承自UIViewController，然后这个view也是一个容器，包含了tabbar和自定义的内容。
+可以使用navigationcontroller作为tabbarcontroller的其中一个vc，其中再包含一个vc。
+
+###更多关于navigationcontroller
+###状态保存
+###tvOS中的区别
+1. 这个的tabbar在顶部
+2. 不允许自定义
+
+###访问tabbarcontroller的属性
+delegate 代理
+UITabBarControllerDelegate
+tabBar
+@property (nonatomic, readonly) UITabBar *tabBar;
+不能直接操作这个tabbar，这个tabbar的用处在先要显示一个action sheet的时候，可以使用uiactionsheet的方法showFromTabBar：
+
+###管理VC
+属性viewControllers
+如果在运行时改变了这个属性没比如加了一个VC，那么就会清空所有的vc，加上新的vc
+
+- setViewControllers：animated：
+设置上面的VC的方法，数组
+
+##UITabBarControllerDelegate
+在tab被选中之前和之后执行操作什么的
+###管理TabBar的选择
+- tabBarController：shouldSelectViewController：
+- tabBarController：didSelectViewController：
+
+###管理Tab Bar的定制
+- tabBarController：willBeginCustomizingViewControllers:
+- tabBarController:willEndCustomizingViewController:changed:
+- tabBarController:didEndCustomizingViewControllers:changed:
+
+###覆盖view的旋转设置
+- tabBarControllerSupportInterfaceOrientations:
+- tabBarControllerPreferredInterfaceOrientationForPresentation:
+
+###自定义tab bar的
+也是根据几个代理的参数来返回两个对象
+UIViewControllerAnimatedTransitioning
+interactiveController

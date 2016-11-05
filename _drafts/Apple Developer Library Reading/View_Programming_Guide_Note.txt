@@ -1,0 +1,116 @@
+在UINavigationController里面，最上面的是，uinavigationBarItem，也就是导航栏
+导航栏中间的是titleView属性，想要自定义一个view显示在这上面，需要了解怎么才能搞定一个合适的view。
+
+#view PG
+window和view，一般window只是提供一个显示的容器，本身不显示任何内容，view会显示自己那一小块的内容
+
+##概览
+view从简单的到复杂的茫茫多，主要就是用来管理可以看见的内容
+view 是UIView类的实例，管理一个矩形的区域。责任包括绘制内容，处理触摸事件，还有管理子view的布局。绘制用技术由，Core Graphics，OpenGL ES，还有UIkit。处理事件的话，要么是使用手势识别器，要么直接处理。
+
+###window协调着你的view的显示
+###animations，动画提供的是界面变化的可见的反馈
+Core Animation
+###IB的角色
+IB可以图形化构建界面在一个NIB文件中，在运行时可以恢复成一个对象，在代码中操作
+
+
+##View和window的架构
+view架构基础
+view层级和subview的管理
+view的绘制周期
+当view绘制完成之后，系统就会对这个view进行截图，止呕如果这个外观没有任何改变，就会一直使用这个截图。
+
+###内容模式
+###界面布局的主要整合点
+touchesBegan：withEvent：
+touchesMoved：withEvent：
+touchesEnded：withEvent：
+touchesCancelled：withEvent：
+layoutSubviews
+drawRect：
+
+###关于高效使用views的建议
+view并不总是会对应有一个VC的，vc管理的是一个View层次结构还有很多杂七杂八的事情。
+自定义的绘制图像代码要最小化，系统能有的最好使用系统提供的
+利用好内容模式，content mode
+只要可以，尽量将view声明程opaque的。不透明的，后面的view就可以不用绘制了
+再拖动界面的时候调整view的行为
+不要给uicontrol添加subview
+
+
+##window
+与window相关的应用任务
+window与其他特定view之间的坐标转换
+使用window通知来跟踪window相关的变化
+
+##创建和配置window
+在IB中创建
+window部分暂时跳过，什么配置多个window，外部显示器，暂时用不到
+先看view的处理部分
+
+##Views
+View是用户交互的重头戏，有很多事情要做，一部分是
+1. subview的布局和管理
+view要定义自己的resize行为，还有和super view 的关系
+要管理一系列的subview
+如果需要，要覆写subview的大小和位置
+转换坐标系
+2. 绘制和动画
+在自己的一亩三分地绘制内容
+一些属性可以动画化
+3. 事件处理
+view接受触摸事件
+参与响应链
+
+##创建和配置view对象
+IB创建view对象
+在nib文件中创建界面
+代码中创建view
+
+####设置一些view的属性
+alpha，hidden，opaque
+bounds，frame，center，transform
+autoresizingMask, autoresizsSubviews
+contentMode, 
+
+给view加上tag，用标签来识别view
+
+##创建和管理view 层次结构
+怎么建议一个view层次，以及怎么在这个层次里面找到想要的view
+在IB中创建，那就是所见即所得，比较方便
+如果是代码创建，
+1. 添加一个subview，addSubview：
+2. 向层次里面插入一个view，有一系列的insertSubview
+3. 对于subview的顺序，有方法，bringSubviewToFront，sendSubviewToBack
+exchangeSubviewAtIndex：withSubviewAtIndex：
+4. 移除subview，可以使用removeFromSuperview，这个是subview调用的方法。
+
+加subview的工作一般是在vc的load view和viewdidload两个方法里面。
+
+跳过view的设置和动画部分
+
+###定义一个定制view
+对于自己的view，有完全的控制权
+需要覆盖一些方法。
+初始化方法的定制
+initWithFrame，可以在代码中创建的init方法
+initWithCoder：从nib中加载
+dealloc，清理数据
+自定义绘制，drawRect
+设置autoresizingMask来设定缩放属性
+如果管理了一系列的subview
+在初始化方法里面创建好这些subview
+设置每一个subview的autoresizingMask
+如果需要定制的layout，需要覆盖layoutSubviews方法
+
+处理触摸事件
+用方法addGestureRecognizer来添加手势识别器
+自己处理touches系列方法
+
+###初始化定制view
+initWithFrame
+nib文件的load使用initWithCoder:
+awakeFromNib
+
+####实现绘制代码
