@@ -17,3 +17,7 @@ permalink: /tools/
 [朱佳顺同学的知乎](https://www.zhihu.com/people/zhu-js/about)
 
 [朱佳顺同学的博客](http://lifeofzjs.com/)
+
+[srhang blog](http://www.rowkey.me)
+
+[丁跃潮教授的教案](http://210.34.136.253:8488/WebProg/WebProgHome.htm#dyc)
