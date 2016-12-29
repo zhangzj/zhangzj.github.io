@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Git实用指南"
-categories: git
+categories: Git
 excerpt:
-tags: git 手顺
+tags: Git
 ---
 
 * content

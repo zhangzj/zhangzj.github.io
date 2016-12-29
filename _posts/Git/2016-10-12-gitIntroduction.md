@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Git的基本概念和原理"
-categories: git
-excerpt: 
-tags: git
+categories: Git
+excerpt:
+tags: Git
 ---
 
 * content
@@ -37,7 +37,7 @@ Git的一些基本概念，关键词，术语, 原理
 ### Git术语
 
 - 工作区
-	
+
 	文件修改后保存的区域，需要使用 git add 命令
 
 - 暂存区 stage
@@ -47,10 +47,5 @@ Git的一些基本概念，关键词，术语, 原理
 	暂存区是工作区和版本库之间的中间状态
 
 - 提交ID
-	
+
 	40位十六进制数字，实际上是SHA1哈希值
-
-	
-
-
-
