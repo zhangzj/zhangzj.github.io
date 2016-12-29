@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Greece Alphabet
+title: "希腊字母表和读音对应"
 categories: memo
 tags: 希腊字母表 memo
 ---

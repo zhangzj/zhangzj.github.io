@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "如何从代码库中不再track文件"
+title: "不再track某一个文件"
 categories: Git
 tags: Git
 ---
