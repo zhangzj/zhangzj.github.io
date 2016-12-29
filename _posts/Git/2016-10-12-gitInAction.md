@@ -85,7 +85,7 @@ git init gitdemo
 
 	git checkout branch : 检出到某一个分支
 
-- git checkout -- flename
+- git checkout -- filename
 
 	用暂存区中的文件覆盖工作区中的文件，就是取消所有没有add的修改
 
@@ -102,11 +102,9 @@ git init gitdemo
 - git tag -m "Say bye-bye to all previous practice." old_practice
 
 	与之前的数据合影留念，取一个合适的名字来记录提交，比如基础版本
-
+	
 - 显示最近的一个Tag
 
 	git describe
-
-
 
 #### 创建分支branch
