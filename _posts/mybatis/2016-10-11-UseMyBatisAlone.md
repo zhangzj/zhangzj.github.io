@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "MyBatis的配置使用"
-categories: mybatis
+categories: MyBatis
 description: 不整合Spring的MyBatis使用
-tags: mybatis Java MySQL ORM
+tags: MyBatis MySQL ORM
 ---
 
 * content
@@ -49,7 +49,7 @@ CREATE TABLE `user` (
 ```
 
 
-### 生成DAO层 
+### 生成DAO层
 
 - 参考配置生成器生成代码
 

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "SpringMVC使用maven jetty插件运行"
-categories: spring
+categories: Spring
 excerpt:
-tags: spring springmvc maven-jetty-plugin
+tags: Spring SpringMVC Maven
 ---
 
 * content

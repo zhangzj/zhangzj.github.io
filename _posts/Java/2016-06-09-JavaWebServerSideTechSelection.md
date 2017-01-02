@@ -2,7 +2,7 @@
 layout: post
 title: "Java Web 服务器端技术选型"
 categories: Java
-tags: JavaWeb 技术选型
+tags: Java
 ---
 
 * content

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "数据结构基础概览"
-categories: 算法
+categories: Algorithm
 description: 基本数据结构，链表的基本理解和基本实现
-tags: 数据结构 算法
+tags: DataStructure Algorithm
 ---
 
 * content

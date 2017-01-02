@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Mybatis-Generator生成ORM代码"
-categories: mybatis
-tags: mybatis Java maven MySQL
+categories: MyBatis
+tags: MyBatisGenerator Maven
 ---
 
 * content
@@ -41,7 +41,7 @@ tags: mybatis Java maven MySQL
 - 新建生成所需的配置文件：文件名和路径是插件指定写死的
 
 ```
-src\main\resources\generatorConfig.xml 
+src\main\resources\generatorConfig.xml
 ```
 
 - generatorConfig.xml文件配置：[相关文档](http://www.mybatis.org/generator/configreference/xmlconfig.html)
@@ -74,7 +74,7 @@ src\main\resources\generatorConfig.xml
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
-        
+
         <sqlMapGenerator targetPackage="mappers" targetProject="src/main/resources">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
@@ -102,13 +102,3 @@ src\main\resources\generatorConfig.xml
 代码生成需要的配置文件的具体细节还要查文档了解深入。
 
 **使用生成器生成的mapperxml文件会追加而不是覆盖，一定删除之后再次生成**
-
- 
-
-
-
-
-
-
-
-

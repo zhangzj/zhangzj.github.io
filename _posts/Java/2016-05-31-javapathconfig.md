@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Linux JDK Environment Variables Config"
-categories: Java JDK
-tags: JDK Linux 手顺
+categories: Java
+tags: JDK Linux
 ---
 
 * content

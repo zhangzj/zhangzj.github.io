@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "身份证号生成器-Java实现"
-categories: 博客
-tags:  Java 算法 身份证号
+categories: Blog
+tags:  Java IDNumber
 ---
 
 * content

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Spring框架整合MyBatisDemo"
-categories: spring mybatis
-excerpt: 
-tags: spring mybatis Java
+categories: Spring
+excerpt:
+tags: Spring MyBatis
 ---
 
 * content
@@ -190,6 +190,3 @@ zhang2
 Process finished with exit code 0
 
 ```
-
-
-

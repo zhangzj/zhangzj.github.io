@@ -2,7 +2,7 @@
 layout: post
 title:  "Ubuntu 14.04 虚拟机搭建Server"
 categories: Linux
-tags:  Ubuntu 手顺 国内源
+tags:  Ubuntu
 ---
 
 * content

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "希腊字母表和读音对应"
-categories: memo
-tags: 希腊字母表 memo
+categories: Memo
+tags: Memo
 ---
 
 * content

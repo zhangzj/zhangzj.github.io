@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Using TestNG in Maven
-categories: maven
+categories: Maven
 description: TestNG is a Java unit testing framework, This post is using xml to run testng in maven.
-tags: maven testng
+tags: Maven TestNG
 ---
 
 * content

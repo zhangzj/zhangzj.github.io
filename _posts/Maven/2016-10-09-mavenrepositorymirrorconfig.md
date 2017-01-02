@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Maven仓库更换阿里源"
-categories: maven
+categories: Maven
 description: Insert some config sentence in setting.xml
-tags: maven 手顺 国内源
+tags: Maven
 ---
 
 * content

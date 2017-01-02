@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "抽象数据类型基础"
-categories: 算法
+categories: Algorithm
 description: ADT
-tags: 抽象数据类型 算法
+tags: DataStructure Algorithm
 ---
 
 * content

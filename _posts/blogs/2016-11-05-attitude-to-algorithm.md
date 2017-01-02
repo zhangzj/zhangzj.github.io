@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "有必要背诵复杂算法的实现么？如何学习算法和数据结构？"
-categories: 博客
-tags:  算法 博客
+categories: Blog
+tags:  Algorithm
 ---
 
 * content

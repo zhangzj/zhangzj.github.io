@@ -1,9 +1,9 @@
 ---
 layout: post
 title: 插入排序的基本理解
-categories: 算法
+categories: Algorithm
 description: 插入排序的理解和实现
-tags:  排序 算法
+tags:  Sort Algorithm
 ---
 
 * content

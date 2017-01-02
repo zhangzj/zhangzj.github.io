@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Introduction to the Standard Directory Layout
-categories: maven
+categories: Maven
 description: There is a standard directory layout to make people comfort
-tags: maven
+tags: Maven
 ---
 
 * content
