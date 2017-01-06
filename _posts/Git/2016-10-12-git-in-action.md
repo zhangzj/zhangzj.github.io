@@ -39,6 +39,7 @@ git config --list
 ```
 
 - 配置命令别名；效果-可以使用 git st 来指代 git status
+
 ```
 git config --global alias.st status
 git config --global alias.ci commit
@@ -47,6 +48,7 @@ git config --global alias.br branch
 ```
 
 - 删除对应的key配置
+
 ```
 git config --unset --global KEY
 git config --unset --global alias.st

@@ -3,7 +3,7 @@ layout: post
 title: "SpringMVC使用maven jetty插件运行"
 categories: Spring
 excerpt:
-tags: Spring SpringMVC Maven
+tags: Spring Spring Maven
 ---
 
 * content

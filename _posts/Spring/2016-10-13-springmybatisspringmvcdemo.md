@@ -3,7 +3,7 @@ layout: post
 title: "Spring MyBatis SpringMVC 框架基本整合"
 categories: Spring
 excerpt:
-tags: Spring MyBatis SpringMVC
+tags: Spring MyBatis Spring
 ---
 
 * content
