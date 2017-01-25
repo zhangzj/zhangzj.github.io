@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Spring框架整合MyBatisDemo"
-categories: Spring
+categories: Java
 excerpt:
 tags: Spring MyBatis
 ---

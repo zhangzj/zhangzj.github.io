@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "MyBatis的配置使用"
-categories: MyBatis
+categories: Java
 description: 不整合Spring的MyBatis使用
 tags: MyBatis MySQL ORM
 ---

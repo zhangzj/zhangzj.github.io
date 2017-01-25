@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Spring MyBatis SpringMVC 框架基本整合"
-categories: Spring
+categories: Java
 excerpt:
 tags: Spring MyBatis Spring
 ---

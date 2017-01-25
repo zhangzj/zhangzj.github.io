@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Mybatis-Generator生成ORM代码"
-categories: MyBatis
+categories: Java
 tags: MyBatisGenerator Maven
 ---
 
