@@ -1,25 +1,9 @@
 
-## [Thomas Zhao's Blog](http://www.thomaszhao.cn/)
+## [小张的菜园](http://zhangzj.github.io/)
 
-This is my personal blog and wiki, I will post kinds of technology articles on it.
+平时会记录一些自己遇到的问题以及解决方案
 
-It is built based on:
-
-- [jekyllbootstrap](http://jekyllbootstrap.com)
-- [github pages](https://pages.github.com)
-
-You are welcome to fork the framework.
+技能树的整理也要回放在里面
 
 
-## Feature List
 
-* Same Styles as original Github.
-* Table of Content.
-* What exactly as I thought.
-* Comments.
-* Search in Site.
-* else.
-
-## License
-
-[MIT](http://opensource.org/licenses/MIT)
