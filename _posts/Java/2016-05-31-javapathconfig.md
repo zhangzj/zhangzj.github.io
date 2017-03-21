@@ -14,7 +14,7 @@ tags: JDK Linux
 
 Java Develop Kit need to be find in system.
 
-Edit /etc/profile, maybe need to be root.
+Edit user home bashrc file `/home/username/.bashrc`
 
 Append these sentence.
 
@@ -24,7 +24,7 @@ export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 ```
 
-then logout and login.
+then logout and login or just `source .bashrc`.
 
 Try some command to see if worked.
 

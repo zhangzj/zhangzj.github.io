@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "身份证号生成器-Java实现"
-categories: Blog
+categories: Utils
 tags:  Java IDNumber
 ---
 
